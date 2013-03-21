@@ -1,0 +1,620 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Mein Leben. Meine Vitamine. - Purmeo{% endblock%}
+
+{% block header %}{% endblock %}
+
+{% block main %}
+
+<style type=text/css>
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+    .errorsValidation{color: red; margin-left: 140px;}
+    .errorsValidationAGB{color: red;}
+    .text-right{text-align: right;}
+    .button_sqaure_medium_orange{height: 52px !important; outline: none; border: none; margin-top: 20px; } 
+    #order_adress .input-box input{
+        width: 269px;
+        border: 1px solid #ababab;
+        border-radius: 0px;
+        background: #ffffff;
+    }
+    #order_adress .input-box { width: 280px; outline: none;}
+    .input-box-smaller{width: 70px !important;}
+    .input-box-smaller-right {width: 70px !important; margin-left: 5px;}
+    .input-box-smaller-left {width: 70px !important; margin-right: 5px;}
+    .input-box-larger{width: 180px !important;}
+    .cta-box a, .cta-box-white a {
+        -webkit-animation-duration: 0s !important;
+        -webkit-box-shadow: none !important;}
+    .iframeAdyen{ overflow: hidden; width: 650px; height: 220px;}
+    .matop30 { margin-top: 0px; }
+    #order_warenkorb.fixed {
+        position: fixed;
+        top: 0;
+        right: 224px;
+    }
+    input { padding-left: 9px; font: 12px "myriad-pro", Arial, Helvetica, sans-serif; }
+</style>
+
+<script type=text/javascript>
+    $(function() {
+
+     
+
+        $('#pay_userEmail').focus();        
+
+        $('#pay_billingCountry').change(function(){
+            $('#payment-1').hide();
+            if($(this).val() == 'Deutschland'){
+                $('#payment-1').show();
+            }
+        });
+
+        $('#pay_sameShipping_0').change(function(){
+            $('#shipping-data').toggle();   
+        });
+        
+        function getTotalPrice(){
+            var totalPrice = $('#totalPrice').text().replace(',','.');
+            totalPrice = parseFloat(totalPrice);
+            return totalPrice;
+        }
+
+        function paymentAmountIsMoreThanZero(){
+            var amount = getTotalPrice();
+            return amount > 0;
+        }
+
+        if(!paymentAmountIsMoreThanZero()){
+            $('.payment-box').attr('disabled',true);
+        }
+
+        if(exceptionBrowser()){
+            $('#paySubmitButton').val('Jetzt bezahlen');
+        }
+
+        function exceptionBrowser(){
+            return $.browser.webkit;
+        }
+
+        $('.payment-box').click(function(){
+
+            if(paymentAmountIsMoreThanZero()){
+                var paymentMethodSelected = $(this).attr('id').replace('payment-','');
+                var shopperEmail = $('#pay_userEmail').val();
+                insertIFrame(paymentMethodSelected, getTotalPrice(), shopperEmail);
+            }else{
+                $(this).attr('checked',false);
+            }
+        });
+        
+        var isAdyenException = {
+        {% for key, value in isAdyenException %}
+             {{ key }} : '{{ value }}',
+        {% endfor %}
+        };
+        if(isAdyenException.urlIFrame.length > 0){
+            $('#pay_form')
+            .after(
+                $('<form>')
+                .attr('action', isAdyenException.urlIFrame)    
+                .attr('method', 'post') 
+                .attr('id', 'adyen-iframe-form')
+                .addClass('adyenConn')
+                .append(
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','merchantSig')
+                    .val(decodeURIComponent(isAdyenException.merchantSig)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','paymentAmount')
+                    .val(decodeURIComponent(isAdyenException.paymentAmount)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','currencyCode')
+                    .val(decodeURIComponent(isAdyenException.currencyCode)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','shipBeforeDate')
+                    .val(decodeURIComponent(isAdyenException.shipBeforeDate)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','merchantReference')
+                    .val(decodeURIComponent(isAdyenException.merchantReference)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','skinCode')
+                    .val(decodeURIComponent(isAdyenException.skinCode)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','merchantAccount')
+                    .val(decodeURIComponent(isAdyenException.merchantAccount)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','sessionValidity')
+                    .val(decodeURIComponent(isAdyenException.sessionValidity)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','countryCode')
+                    .val(decodeURIComponent(isAdyenException.countryCode)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','merchantReturnData')
+                    .val(decodeURIComponent(isAdyenException.merchantReturnData)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','shopperEmail')
+                    .val(decodeURIComponent(isAdyenException.shopperEmail)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','shopperReference')
+                    .val(decodeURIComponent(isAdyenException.shopperReference)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','allowedMethods')
+                    .val(decodeURIComponent(isAdyenException.allowedMethods)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','blockedMethods')
+                    .val(decodeURIComponent(isAdyenException.blockedMethods)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','offset')
+                    .val(decodeURIComponent(isAdyenException.offset)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','shopperStatement')
+                    .val(decodeURIComponent(isAdyenException.shopperStatement)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','recurringContract')
+                    .val(decodeURIComponent(isAdyenException.recurringContract)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','billingAddressType')
+                    .val(decodeURIComponent(isAdyenException.billingAddressType)),
+                    $('<input>')
+                    .attr('type','hidden')
+                    .attr('name','deliveryAddressType')
+                    .val(decodeURIComponent(isAdyenException.deliveryAddressType))
+                 )
+            );
+                
+            if(exceptionBrowser())
+                $('#adyen-iframe-form').submit();
+        }
+
+        function insertIFrame(paymentMethodSelected, paymentAmount, shopperEmail){
+            var request = {
+                selectedMethod: paymentMethodSelected,
+                paymentAmount: paymentAmount,
+                shopperEmail: shopperEmail,
+                productId: {{ product.id }}
+                };
+            $.ajax({
+               url: '{{ path('purmeo_eshop_payment') }}',
+               type: "POST",
+               data: request,
+               complete: function(){
+                   if(!exceptionBrowser()){
+                        $('#adyen-iframe-form').submit();
+                   }
+               },
+               success: function(response) {
+                   var isLogin = '';
+                   if(response || isLogin.length > 1){
+                        $('.adyenConn').remove();
+                        var urlIFrame = response.adyenUrl;
+                        $('#OrderNumber').val(response.orderNumber);
+                        $('#LoginName').val($('#pay_userEmail').val());                            
+                        switch(paymentMethodSelected)
+                        {
+                           case '0'://cc                            
+                           case '1'://elv
+                               if(exceptionBrowser()){
+                                    $('#pay_form')
+                                    .append(
+                                        $('<div>')
+                                        .attr('id', 'adyen-iframe-form')
+                                        .addClass('adyenConn')
+                                        .append(
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','merchantSig')
+                                        .val(decodeURIComponent(response.merchantSigException)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','paymentAmount')
+                                        .val(decodeURIComponent(response.paymentAmount)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','currencyCode')
+                                        .val(decodeURIComponent(response.currencyCode)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','shipBeforeDate')
+                                        .val(decodeURIComponent(response.shipBeforeDate)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','merchantReference')
+                                        .val(decodeURIComponent(response.merchantReference)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','skinCode')
+                                        .val(decodeURIComponent(response.skinCodeException)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','merchantAccount')
+                                        .val(decodeURIComponent(response.merchantAccount)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','sessionValidity')
+                                        .val(decodeURIComponent(response.sessionValidity)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','countryCode')
+                                        .val(decodeURIComponent(response.countryCode)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','merchantReturnData')
+                                        .val(decodeURIComponent(response.merchantReturnData)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','shopperEmail')
+                                        .val(decodeURIComponent(response.shopperEmail)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','shopperReference')
+                                        .val(decodeURIComponent(response.shopperReference)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','allowedMethods')
+                                        .val(decodeURIComponent(response.allowedMethods)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','blockedMethods')
+                                        .val(decodeURIComponent(response.blockedMethods)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','offset')
+                                        .val(decodeURIComponent(response.offset)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','shopperStatement')
+                                        .val(decodeURIComponent(response.shopperStatement)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','recurringContract')
+                                        .val(decodeURIComponent(response.recurringContract)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','billingAddressType')
+                                        .val(decodeURIComponent(response.billingAddressType)),
+                                        $('<input>')
+                                        .attr('type','hidden')
+                                        .attr('name','deliveryAddressType')
+                                        .val(decodeURIComponent(response.deliveryAddressType))
+                                        )
+                                    );
+                               } else{
+                                    $('#pay_form')
+                                    .after(
+                                        $('<form>')
+                                        .attr('action', urlIFrame)    
+                                        .attr('method', 'post') 
+                                        .attr('id', 'adyen-iframe-form')
+                                        .attr('target','adyen-iframe-iframe')
+                                        .addClass('adyenConn')
+                                        .append(
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','merchantSig')
+                                            .val(decodeURIComponent(response.merchantSig)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','paymentAmount')
+                                            .val(decodeURIComponent(response.paymentAmount)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','currencyCode')
+                                            .val(decodeURIComponent(response.currencyCode)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','shipBeforeDate')
+                                            .val(decodeURIComponent(response.shipBeforeDate)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','merchantReference')
+                                            .val(decodeURIComponent(response.merchantReference)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','skinCode')
+                                            .val(decodeURIComponent(response.skinCode)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','merchantAccount')
+                                            .val(decodeURIComponent(response.merchantAccount)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','sessionValidity')
+                                            .val(decodeURIComponent(response.sessionValidity)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','countryCode')
+                                            .val(decodeURIComponent(response.countryCode)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','merchantReturnData')
+                                            .val(decodeURIComponent(response.merchantReturnData)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','shopperEmail')
+                                            .val(decodeURIComponent(response.shopperEmail)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','shopperReference')
+                                            .val(decodeURIComponent(response.shopperReference)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','allowedMethods')
+                                            .val(decodeURIComponent(response.allowedMethods)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','blockedMethods')
+                                            .val(decodeURIComponent(response.blockedMethods)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','offset')
+                                            .val(decodeURIComponent(response.offset)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','shopperStatement')
+                                            .val(decodeURIComponent(response.shopperStatement)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','recurringContract')
+                                            .val(decodeURIComponent(response.recurringContract)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','billingAddressType')
+                                            .val(decodeURIComponent(response.billingAddressType)),
+                                            $('<input>')
+                                            .attr('type','hidden')
+                                            .attr('name','deliveryAddressType')
+                                            .val(decodeURIComponent(response.deliveryAddressType))
+                                         )
+                                    );
+                                    $('#payment-'+paymentMethodSelected)
+                                    .after(
+                                         $('<iframe>')
+                                        .attr('id', 'adyen-iframe-iframe')
+                                        .attr('name','adyen-iframe-iframe')
+                                        .addClass('iframeAdyen adyenConn')
+                                    );
+                               }
+                               break;
+                        }   
+                    }else{
+                        $('#adyen-iframe').remove();
+                        $('.errorsValidation').remove();
+                        $('.paymentIntruder').attr('checked',false);
+                        $('#payment-'+paymentMethodSelected).after(
+                            $('<p>').addClass('errorsValidation')
+                            .append(
+                                $('<span>').text('Ihre Email-Adresse ist bereits registriert! '),
+                                $('<a>').attr('href','{{ path('purmeo_eshop_login') }}')
+                                .text('loggen Sie sich ein')
+                            )
+                        );
+                    }
+                }
+            });   
+        }
+    });
+</script>
+        
+<div class="container" style="padding: 20px 0 20px 0px">
+    <div class="header-holder">
+        <div class="row">
+            <div class="span1">
+                <strong class="logo">Purmeo</strong>
+            </div>
+            <div class="span2 offset4">
+                <img src="{{ asset('media/shared/Homepage-Design/header/truck.png') }}" class="" alt="Kostenlose Lieferung"/>
+                <p>Kostenlose Lieferung</p>
+            </div>
+            <div class="span2" style="width: 115px">
+                <img src="{{ asset('media/shared/Homepage-Design/header/phone.png') }}" class="" alt="030 48492850"/>
+                <p>030 48492850</p>
+            </div>
+            <div class="span2">
+                <img src="{{ asset('media/shared/Homepage-Design/header/tv.png') }}" class="" alt="Bekannt aus TV"/>
+                <p>Bekannt aus TV</p>
+            </div>
+        </div>
+    </div>
+</div>
+        
+<div class="container" style="padding: 0px 0px 50px 0px"> 
+        {% if message %}
+            <div class="row">
+                <h3>
+                    {{ message | raw }}
+                </h3>            
+            </div>            
+        {% endif %}
+    <div class="row">
+        <form name="pay_form" id="pay_form" action="{{ path('purmeo_eshop_pay') }}" method="post" {{ form_enctype(form) }}>
+            <div class="span6" id="order_adress">
+                <h2>1. Rechnungsadresse</h2>
+                <ul id="billing-data" class="form-list matop20 left">
+                    <li>
+                        {{ form_label(form.userEmail, 'E-Mail Adresse*') }}
+                        {{ form_widget(form.userEmail) }}
+                        {{ form_errors(form.userEmail) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingTitle, 'Anrede*') }}
+                        {{ form_widget(form.billingTitle) }}
+                        {{ form_errors(form.billingTitle) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingFirstname, 'Vorname*') }}
+                        {{ form_widget(form.billingFirstname) }}
+                        {{ form_errors(form.billingFirstname) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingLastname, 'Nachname*') }}
+                        {{ form_widget(form.billingLastname) }}
+                        {{ form_errors(form.billingLastname) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingStreet, 'Strasse* / Nr*') }}
+                        {{ form_widget(form.billingStreet) }}
+                        {{ form_widget(form.billingNumber) }}
+                        {{ form_errors(form.billingStreet) }}
+                        {{ form_errors(form.billingNumber) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingOtherInfo, 'Adresszusatz') }}
+                        {{ form_widget(form.billingOtherInfo) }}
+                        {{ form_errors(form.billingOtherInfo) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingZipcode, 'PLZ* / Ort*') }}
+                        {{ form_widget(form.billingZipcode) }}
+                        {{ form_widget(form.billingCity) }}
+                        {{ form_errors(form.billingZipcode) }}
+                        {{ form_errors(form.billingCity) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.billingCountry, 'Land*') }}
+                        {{ form_widget(form.billingCountry) }}
+                        {{ form_errors(form.billingCountry) }}
+                    </li>
+                    <li>
+                        <label>Telefon (Nur f&uuml;r den Fall, dass...)</label>
+                        {{ form_widget(form.billingTelephone) }}
+                        {{ form_errors(form.billingTelephone) }}
+                    </li>
+                </ul>
+                <div class="left matop20" id="add-shipping-address-block">
+                    {{ form_widget(form.agree[0]) }}                                    
+                    <label>Ja, ich habe die Allgemeinen 
+                        <a href="{{ path('purmeo_eshop_agb') }}">
+                            Gesch&auml;ftsbedingungen
+                        </a>
+                        gelesen und akzeptiert.*
+                    </label>
+                    {{ form_errors(form.agree) }}
+                </div>
+                <div class="left matop20" id="add-shipping-address-block">
+                    {{ form_widget(form.sameShipping[0]) }}                                    
+                    <label>Eine abweichende Rechnungsadresse als Lieferadresse nutzen</label>
+                    {{ form_errors(form.sameShipping) }}
+                    <p style="margin-top:20px;">* Pflichtfeld</p>
+                </div>
+                <ul id="shipping-data" class="form-list matop20 left" style="display: none;">
+                    <li>
+                        {{ form_label(form.shippingTitle, 'Anrede') }}
+                        {{ form_widget(form.shippingTitle) }}
+                        {{ form_errors(form.shippingTitle) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingFirstname, 'Vorname') }}
+                        {{ form_widget(form.shippingFirstname) }}
+                        {{ form_errors(form.shippingFirstname) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingLastname, 'Nachname') }}
+                        {{ form_widget(form.shippingLastname) }}
+                        {{ form_errors(form.shippingLastname) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingStreet, 'Strasse* / Nr*') }}
+                        {{ form_widget(form.shippingStreet) }}
+                        {{ form_widget(form.shippingNumber) }}
+                        {{ form_errors(form.shippingStreet) }}
+                        {{ form_errors(form.shippingNumber) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingOtherInfo, 'Adresszusatz') }}
+                        {{ form_widget(form.shippingOtherInfo) }}
+                        {{ form_errors(form.shippingOtherInfo) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingZipcode, 'PLZ / Ort') }}
+                        {{ form_widget(form.shippingZipcode) }}
+                        {{ form_widget(form.shippingCity) }}
+                        {{ form_errors(form.shippingZipcode) }}
+                        {{ form_errors(form.shippingCity) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingCountry, 'Land') }}
+                        {{ form_widget(form.shippingCountry) }}
+                        {{ form_errors(form.shippingCountry) }}
+                    </li>
+                    <li>
+                        {{ form_label(form.shippingTelephone, 'Telefon (Nur fuer den Fall, dass...)') }}
+                        {{ form_widget(form.shippingTelephone) }}
+                        {{ form_errors(form.shippingTelephone) }}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="span6" id="order_payment">
+            <h2>2. Zahlungsmethode</h2>
+            {{ form_errors(form.method) }}
+            <div class="payment-box" id="payment-1" style="margin-top: 20px;">
+                {{ form_widget(form.method[0]) }}                                    
+                {{ form_label(form.method[0]) }}                                    
+            </div>
+            <div class="payment-box mabot20" id="payment-0">
+                {{ form_widget(form.method[1]) }}                                    
+                {{ form_label(form.method[1]) }}                                    
+            </div>
+        </div>
+
+            <div id="order_warenkorb" class="span6 matop20" style="width: 420px;">
+                 <div class="container">
+                     <h2 style="display: inline-block;">3. Ihre Bestellung</h2>
+                 </div>
+                 <div class="row">
+                     <div class="span5 matop7">
+                         {{ product.name }}<br/>
+                         {% for property in product.properties %}
+                             {{property.name|raw}}<br/>
+                         {% endfor %}
+                     </div>
+                         <div class="span4">
+                             <div class="span3 maleft0 matop10 mabot10">
+                                 Zwischensumme</br>
+                                 Versandkosten</br>
+                                 Steuern (7% MwSt)</br>
+                             </div>
+                             <div class="span1 matop10 mabot10">
+                                 <span class="right">{{ (product.price - product.discount)|number_format(2, ',', '') }}&euro;</span><br />
+                                 <span class="right">0,00&euro;</span><br />
+                                 <span class="right">{{ product.tax|number_format(0, '', '') }}%</span><br />
+                             </div>
+                             <div style="background: #DBE8B4" class="left">
+                                 <div class="span3 maleft0">Gesamtsumme</div>
+                                 <div class="span1 text-right"><span id="totalPrice">{{ (product.price - product.discount)|number_format(2, ',', '') }}</span>&euro;</div>
+                             </div>
+                         </div>
+                 </div>
+                 <div class=" matop20" id="payButton" style="height: 85px;">
+                     <div id="agree-checkbox-block" style="text-align: left;">
+                         </div>
+                             <input type=submit value="Jetzt kaufen" id="paySubmitButton" name="paySubmit" class="button_sqaure_medium_orange" style="width: 277px;">
+                         </div>
+             </div>
+
+        {{ form_rest(form) }}
+        </form>
+    </div>
+</div>   
+{% endblock %}

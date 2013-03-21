@@ -1,0 +1,10 @@
+#RewriteEngine On
+
+## ANTI DEEPLINKING ##
+#RewriteCond %{HTTP_REFERER} !=""
+#RewriteCond %{HTTP_REFERER} !^http://www.cmmp.exsys/.*$ [NC] [AND]
+#RewriteCond %{HTTP_REFERER} !^https://www.cmmp.exsys/.*$ [NC]
+#RewriteRule \.*$ http://www.cmmp.exsys/index.php [R]
+
+## NO DIRECTORY LISTING
+IndexIgnore *

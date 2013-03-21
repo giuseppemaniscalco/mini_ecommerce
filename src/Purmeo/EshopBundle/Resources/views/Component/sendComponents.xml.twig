@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orderlist xmlns="http://om.mymuesli.com/schema/orderlist">
+    <order source="10">
+        <ordernumber>{{ order.code }}</ordernumber>
+        <productlist>
+            {% for product in order.products %}
+                <product typecode="1000" id="1">
+                    <title>{{ product.name }}</title>
+                    <subtitle>{{ product.name }}</subtitle>
+                    <quantity>1</quantity>
+                    <perprice>{{ (product.price) }}</perprice>
+                    <perweight>0</perweight>
+                    <taxrate>{{ product.tax }}</taxrate>
+                    <componentlist>
+                        {% for component in order.components %}
+                            <component typecode="10" id="{{ component.code }}">
+                                <title>{{ component.name }}</title>
+                                <subtitle>{{ component.name }}</subtitle>
+                                <quantity>1</quantity>
+                                <perprice>0</perprice>
+                                <perweight>1</perweight>
+                                <taxrate>{{ product.tax }}</taxrate>
+                            </component>
+                        {% endfor %}
+                    </componentlist>
+                </product>
+                <product typecode="30" id="1">
+                    <title>Discount</title>
+                    <subtitle>Discount</subtitle>
+                    <quantity>1</quantity>
+                    <perprice>-{{ (product.discount) }}</perprice>
+                    <perweight>0</perweight>
+                    <taxrate>{{ product.tax }}</taxrate>
+                </product>
+            {% endfor %}
+        </productlist>
+    </order>
+</orderlist>

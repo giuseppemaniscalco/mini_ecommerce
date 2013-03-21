@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.coupon.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.info.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.news.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.newsletter.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.product.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.salesreport.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://kaffee.exsys.net/smp/sitemap.sitemap.de.xml</loc>
+		<lastmod>2011-09-05</lastmod>
+	</sitemap>
+</sitemapindex>

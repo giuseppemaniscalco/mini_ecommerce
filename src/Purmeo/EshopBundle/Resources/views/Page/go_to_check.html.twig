@@ -1,0 +1,37 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Danke f&uuml;r Ihre Bestellung |{% endblock%}
+
+{% block main %}
+<div id="cmmpID_Info">
+    <div class="container bfcl_end" style="padding: 50px 0;">
+        <center class="mabot30">
+            <div class="process">
+                <div class="arrow_box">Details</div>	
+                <div class="arrow_box">Checkout</div>
+                <div class="arrow_box_last active">Purmeo Check</div>
+            </div>
+        </center>
+        <center>
+            <h1>Letzter Schritt vor dem <b> Experten-Fragebogen</b></h1>
+            <h2 class="normal gray">Sie haben Ihren Plan gew&auml;hlt - schalten Sie jetzt Ihren ganz pers&ouml;nlichen Fragebogen frei!</h2>
+            <div class="row" style="margin-left: 100px;">
+                <!--div class="span4">
+                    <div class="cta-box matop30">
+                        <i class="icon-envelope"  style="font-size: 85px; margin: 21px 0px 36px 0px; display: inline-block;"></i>
+                        <h2>Fragebogen per Post erhalten.</h2>
+                        <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_check') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Zum Vitamin Check', 'Startseite'])">Jetzt verschicken.</a>
+                    </div>
+                </div-->
+                <div class="span4 offset3">
+                    <div class="cta-box matop30">
+                        <i class="icon-desktop" style="font-size: 85px; margin: 21px 0px 36px 0px; display: inline-block;"></i>
+                        <h2>Jetzt gleich online ausf&uuml;llen.</h2>
+                        <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_check') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Zum Vitamin Check', 'Startseite'])">Jetzt ausf&uuml;llen.</a>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+</div>
+{% endblock %}

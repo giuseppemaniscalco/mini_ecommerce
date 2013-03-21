@@ -1,0 +1,876 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Mein Leben. Meine Vitamine. - Purmeo{% endblock%}
+
+{% block main %}
+<style type="text/css">
+.cursorhand { cursor:pointer; }
+</style>
+<script type="text/javascript" src="{{ asset('js/form.js') }}"></script>
+<script type="text/javascript">
+	
+$(function() {
+    
+    $('.form_blue').show();
+    $('.form_red').hide();
+    $('.form_yel').hide();
+
+    $('#open-blue').click(function(){
+            $('.form_blue').show();
+            $('.form_red').hide();
+            $('.form_yel').hide();
+    });
+		
+    $('#btn-scrollto-1, #open-red').click(function(){
+        if(checkBlue()){
+            $('.form_blue').hide();
+            $('.form_red').show();
+            $('.form_yel').hide();
+        }
+    });
+		
+    $('#btn-scrollto-2, #open-yellow').click(function(){
+        if(checkRed()){
+            $('.form_blue').hide();
+            $('.form_red').hide();
+            $('.form_yel').show();
+        }
+    });
+    
+    $('#checkFormSubmit').click(function(){
+        if(checkYellow()){
+            $('#checkForm').submit();
+        }
+    });
+    
+    function insertError(after, message){
+        $(after+'_error').before(
+            $('<span>')
+            .addClass('pm_QuestError')
+            .text(message)
+        );
+    }
+    
+    function checkBlue(){
+        
+        $('.pm_QuestError').remove();
+        var result = true;
+        
+       if(!$('.gender').is(':checked')){
+            result = false;
+            insertError('.gender', 'Bitte geben Sie noch Ihr Geschlecht an');
+       }
+
+        if(!$.isNumeric($('#check_weight').val())){
+            result = false;  
+            insertError('.weight', 'Noch kein Gewicht angegeben');
+        }
+        
+        var heightSelect = false;
+        $('#check_height').each(function(){
+            if($(this).val() > 0){
+                heightSelect = true;
+                return false;
+            }
+        });
+        if(!heightSelect){
+            result = false;
+            insertError('.height', 'Verraten Sie uns noch Ihre Größe');
+        }
+        
+        var date = true;
+        if(!$.isNumeric($('#check_day').val())){
+            date = false;  
+        }
+        if(!$.isNumeric($('#check_month').val())){
+            date = false;  
+        }
+        if(!$.isNumeric($('#check_year').val())){
+            date = false;  
+        }
+        if(!date){
+            result = false;  
+            insertError('.date', 'Wie lautet Ihr Geburtsdatum?');            
+        }
+        
+        return result;
+    }
+    
+    function checkRed(){
+        
+        $('.pm_QuestError').remove();
+        var result = true;
+        
+       if(!$('.sport').is(':checked')){
+            result = false;
+            insertError('.sport', 'Verraten Sie uns noch wie viel Sport Sie treiben');
+       }
+
+       if(!$('.smoker').is(':checked')){
+            result = false;
+            insertError('.smoker', 'Rauchen Sie?');
+       }
+
+       if(!$('.drink').is(':checked')){
+            result = false;
+            insertError('.drink', 'Uns fehlt noch Ihre Angabe zu alkoholischen Getränken');
+       }
+
+       if(!$('.dream').is(':checked')){
+            result = false;
+            insertError('.dream', 'Beantworten Sie noch die Frage zu Ihrem Schlaf');
+       }
+
+       if(!$('.stress').is(':checked')){
+            result = false;
+            insertError('.stress', 'Geben Sie Ihr Stresslevel an');
+       }
+        
+       if(!$('.pregnant').is(':checked')){
+            result = false;
+            insertError('.pregnant', 'Sind Sie schwanger?');
+       }
+        
+        return result;
+    }
+    
+    function checkYellow(){
+        
+        $('.pm_QuestError').remove();
+        var result = true;
+        
+       if(!$('.grain').is(':checked')){
+            result = false;
+            insertError('.grain', 'Wie oft pro Woche essen Sie Vollkornprodukte?');
+       }
+
+       if(!$('.fruit').is(':checked')){
+            result = false;
+            insertError('.fruit', 'Es fehlt noch die Antwort zur Obst-Frage');
+       }
+
+       if(!$('.salad').is(':checked')){
+            result = false;
+            insertError('.salad', 'Wie viel Gemüse essen Sie?');
+       }
+
+       if(!$('.meat').is(':checked')){
+            result = false;
+            insertError('.meat', 'Eine einzelne Scheibe Salami reicht am Tag noch nicht für eine ausgewogene Ernährung mit tierischen Produkten aus. Das Frühstücksei, ein paar Wurstbrote oder ein Stück Fleisch zu Mittag zählen aber alle dazu. Alles an einem Tag muss natürlich nicht sein.');
+       }
+
+       if(!$('.fish').is(':checked')){
+            result = false;
+            insertError('.fish', 'Uns fehlt noch die Angabe zu den Meerestieren');
+       }
+
+       if(!$('.milk').is(':checked')){
+            result = false;
+            insertError('.milk', 'Trinken Sie täglich Milch?');
+       }
+
+       if(!$('.water').is(':checked')){
+            result = false;
+            insertError('.water', 'Wie viel Wasser und Tee trinken Sie?');
+       }
+
+       if(!$('.fastfood').is(':checked')){
+            result = false;
+            insertError('.fastfood', 'Wie häufig essen Sie Fastfood und aufgewärmte Speisen?');
+       }
+       
+       if(!$('.sweets').is(':checked')){
+            result = false;
+            insertError('.sweets', 'Beantworten Sie noch die Frage zu Süßigkeiten');
+       }
+
+       if(!$('.diet').is(':checked')){
+            result = false;
+            insertError('.diet', 'Es fehlt noch die Angabe zu Diäten');
+       }
+
+       if(!$('.oil').is(':checked')){
+            result = false;
+            insertError('.oil', 'Bitte geben Sie noch eine Antwort zu den pflanzlichen ölen ein');
+       }
+
+       if(!$('.problems').is(':checked')){
+            result = false;
+            insertError('.problems', 'Jetzt nur noch die Gesundheitsinfo eintragen');
+       }
+
+       if(!$('#check_agree_0').is(':checked')){
+            result = false;
+            insertError('.agree', 'Bitte die Datenschutzerklärung bestätigen.');
+       }
+
+        return result;
+    }
+		
+});
+
+</script>
+<script type="text/javascript" src="{{ asset('js/tooltip.js') }}"></script>
+        <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="{{ asset('css/ie.css') }}" media="all"/><![endif]-->
+        <!--[if IE 9]><link rel="stylesheet" type="text/css" href="{{ asset('css/ie9.css') }}" media="all"/><![endif]-->
+        <div class="container" style="padding-top: 50px;">
+            <div class="row">
+            </div>
+
+            <form action="{{ path('purmeo_eshop_check') }}" name="checkForm" id="checkForm" method="post" {{ form_enctype(form) }}>
+                <div class="check-block">
+                    <div class="t-block" style="text-align: left; margin: 0 0 10px 0;">
+                        <h3>Willkommen zum Purmeo Check!</h3>
+                        <p style="color: #777;">Der Purmeo Check wurde von Ern&auml;hrungswissenschaftlern entwickelt, um ihren ganz pers&ouml;nlichen N&auml;hrstoffbedarf zu ermitteln.
+                            An Hand von Informationen zu Ihrer Person, Ihrer Lebensumst&auml;nde und Ihrer Ern&auml;hrung wird festgestellt, wie gut Ihr Vitaminbedarf gedeckt ist - kostenlos und unverbindllch.</p>
+                    </div>
+                    <ul class="list">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                    <div class="step-item step-item-blue">
+                        <div class="top" id="open-blue">
+                            <img src="{{ asset('images/img-01.png') }}" alt="" width="66" height="64" />
+                            <strong class="step-name">BASISINFORMATIONEN</strong>
+                            <strong class="step">1 von 3</strong>
+                        </div>
+                        <div class="form-1 form_blue">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl">
+                                                <img class="trigger" src="{{ asset('images/img-03.png') }}" alt="Geschlecht" title="" width="33" height="45" />
+                                            </span></em>
+                                        <span class="tooltip" style="visibility:hidden;">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">1</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="gender_error">{{ form_errors(form.gender) }}</span>
+                                    <strong class="lbl">Geschlecht</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.gender[0], { 'attr': {'class': 'gender'} }) }}
+                                        {{ form_label(form.gender[0]) }}
+                                        {{ form_widget(form.gender[1], { 'attr': {'class': 'gender'} }) }}                                    
+                                        {{ form_label(form.gender[1]) }}
+                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><label class="mdl" for="lb03">
+                                                <img class="trigger" src="{{ asset('images/img-04.png') }}" alt="Gewicht" title="" width="33" height="32" />
+                                            </label>
+                                            </em>
+                                        <span class="tooltip" style="visibility:hidden;">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="height_error weight_error">
+                                        {{ form_errors(form.height) }}
+                                        {{ form_errors(form.weight) }}
+                                    </span>
+                                    <strong class="lbl">
+                                        K&ouml;rpergewicht
+                                        <span style="padding-left:38px;">
+                                            K&ouml;rpergr&ouml;&szlig;e
+                                        </span>
+                                    </strong>
+                                    <div class="text textsmall" style="width:70px; margin-right:30px;">
+                                        {{ form_widget(form.weight) }}                                    
+                                        <div style="padding-top:7px;">kg</div>
+                                    </div>
+                                    <label class="icon icon-2 bubbleInfo" for="lb04">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger" src="{{ asset('images/img-06.png') }}" alt="Gr&ouml;&szlig;e" title="" width="12" height="38" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip" style="visibility:hidden;">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">3</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                    {{ form_widget(form.height, { 'attr': {'class': 'sel'} }) }}                                    
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <label class="mdl" for="lb05">
+                                                <img class="trigger" src="{{ asset('images/img-05.png') }}" alt="Geburtsdatum" title="" width="27" height="26" />
+                                            </label>
+                                            </em>
+                                        <span class="tooltip" style="visibility:hidden;">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">4</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div> 
+                                        <span class="date_error">{{ form_errors(form.day) }}{{ form_errors(form.month) }}{{ form_errors(form.year) }}</span>
+                                        <strong class="lbl">Geburtsdatum (tt.mm.jjjj)</strong>
+                                        <div class="text textsmall" title="Tag">
+                                            {{ form_widget(form.day) }}                                    
+                                        </div>
+                                        <div class="text textsmall" title="Monat">
+                                            {{ form_widget(form.month) }}                                    
+                                        </div>
+                                        <div class="text textsmall" title="Jahr">
+                                            {{ form_widget(form.year) }}                                    
+                                        </div>
+                                    </div>
+                                    <input type="button" class="btn-submit btn-scrollto-1" id="btn-scrollto-1" value="Weiter" />
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="step-item step-item-red">
+                        <div class="top" id="open-red">
+                            <img src="{{ asset('images/img-07.png') }}" alt="" width="66" height="64" />
+                            <strong class="step-name">LEBENSWANDEL</strong>
+                            <strong class="step">2 von 3</strong>
+                        </div>
+                        <div class="form-1 hide-on-load form_red">
+                            <fieldset>
+                                <div class="row">					
+                                    <div class="icon bubbleInfo">
+                                        <div class="tip_help_1">
+                                            <img src="{{ asset('media/shared/Homepage-Design/check_help.png') }}" alt="Symbole klicken f&uuml;r mehr Info">
+                                        </div>	
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-09.png') }}" alt="Sport" title="mehr Infos&hellip;" width="42" height="39" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Wenn Sie weniger als 3 Std. Sport machen: "Nein", wenn dar&uuml;ber: "Ja". Deutlich mehr Sport ist nicht nur f&uuml;r Leistungssportler reserviert - w&auml;hlen Sie "Deutlich mehr" auch bei Phasen besonderen Trainings wie z. B. Marathonvorbereitung.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="sport_error">{{ form_errors(form.sport) }}</span>
+                                    <strong class="lbl">Wie viel Sport treiben Sie?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.sport[1], { 'attr': {'class': 'sport'} }) }}                                    
+                                        {{ form_label(form.sport[1]) }}
+                                        {{ form_widget(form.sport[0], { 'attr': {'class': 'sport'} }) }}
+                                        {{ form_label(form.sport[0]) }}
+                                        {{ form_widget(form.sport[2], { 'attr': {'class': 'sport'} }) }}                                    
+                                        {{ form_label(form.sport[2]) }}
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-10.png') }}" alt="Rauchen" title="mehr Infos&hellip;" width="36" height="50" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Gelegenheitsraucher z&auml;hlen zu "Nein" und rauchen max. 2 bis 3 Zigaretten pro Monat.<br />Wenn Sie durch Passivrauchen starkem Rauch ausgesetzt sind, klicken Sie "Ja".</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="smoker_error">{{ form_errors(form.smoker) }}</span>
+                                    <strong class="lbl">Rauchen Sie?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.smoker[0], { 'attr': {'class': 'smoker'} }) }}
+                                        {{ form_label(form.smoker[0]) }}
+                                        {{ form_widget(form.smoker[1], { 'attr': {'class': 'smoker'} }) }}                                    
+                                        {{ form_label(form.smoker[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-10.png') }}" alt="Alkohol" title="mehr Infos&hellip;" width="40" height="42" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Alkoholkonsum kann den K&ouml;rper anstrengen. Ein Glas zu Silvester oder Geburtstagen z&auml;hlt noch zu "Nein". "Ja" hei&szlig;t regelm&auml;&szlig;iger Alkoholgenuss von mehr als 3 Gl&auml;sern Bier, Wein oder Spirituosen.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="drink_error">{{ form_errors(form.drink) }}</span>
+                                    <strong class="lbl">Trinken Sie regelm&auml;&szlig;ig Alkohol, d.h. durchschnittlich zwei- bis dreimal die Woche?</strong>
+                                    <div class="radio-row">
+                                        <div class="holder">
+                                            {{ form_widget(form.drink[0], { 'attr': {'class': 'drink'} }) }}
+                                            {{ form_label(form.drink[0]) }}
+                                        </div>
+                                        <div class="holder">
+                                            {{ form_widget(form.drink[1], { 'attr': {'class': 'drink'} }) }}                                    
+                                            {{ form_label(form.drink[1]) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-12.png') }}" alt="Schlafen" title="mehr Infos&hellip;" width="49" height="57" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Wo befinden Sie sich zwischen "Ja": "Fr&uuml;h ins Bett gehen, durchschlafen, morgens frisch ausgeruht aus den Federn" und "Nein": "Zu sp&auml;t ins Bett, h&auml;ufiges Aufwachen, unruhiger Schlaf und morgens zu fr&uuml;h raus"?</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="dream_error">{{ form_errors(form.dream) }}</span>
+                                    <strong class="lbl">Haben Sie einen ruhigen und ausreichend langen Schlaf?</strong>
+                                    <div class="radio-row">
+                                        <div class="holder">
+                                            {{ form_widget(form.dream[0], { 'attr': {'class': 'dream'} }) }}
+                                            {{ form_label(form.dream[0]) }}
+                                        </div>
+                                        <div class="holder">
+                                            {{ form_widget(form.dream[2], { 'attr': {'class': 'dream'} }) }}                                    
+                                            {{ form_label(form.dream[2]) }}
+                                        </div>
+                                        <div class="holder">
+                                            {{ form_widget(form.dream[1], { 'attr': {'class': 'dream'} }) }}                                    
+                                            {{ form_label(form.dream[1]) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-13.png') }}" alt="Stress" title="mehr Infos&hellip;" width="46" height="56" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Stress verlangt unserem K&ouml;rper viel ab. Leistungsdruck, viel Arbeit im Job oder Haushalt und zu wenige Momente der Ruhe f&uuml;hren dazu, dass man sich ausgelaugt, m&uuml;de und kaputt f&uuml;hlt, unter Anspannung steht oder reizbar ist. Sollten Sie sich Stress &ouml;fter ausgesetzt sehen, klicken Sie bitte "ja" an.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="stress_error">{{ form_errors(form.stress) }}</span>
+                                    <strong class="lbl">Sind Sie h&auml;ufig gestresst oder ersch&ouml;pft?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.stress[0], { 'attr': {'class': 'stress'} }) }}                                    
+                                        {{ form_label(form.stress[0]) }}
+                                        {{ form_widget(form.stress[1], { 'attr': {'class': 'stress'} }) }}                                    
+                                        {{ form_label(form.stress[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row pregnat">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-14.png') }}" alt="Schwanger" title="mehr Infos&hellip;" width="20" height="53" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">In der Schwangerschaft ver&auml;ndert sich Ihr Vitaminbedarf, deswegen haben wir ein Pr&auml;parat nur f&uuml;r Schwangere entwickelt.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="pregnant_error">{{ form_errors(form.pregnant) }}</span>
+                                    <strong class="lbl">Sind Sie schwanger?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.pregnant[0], { 'attr': {'class': 'pregnant'} }) }}
+                                        {{ form_label(form.pregnant[0]) }}
+                                        {{ form_widget(form.pregnant[1], { 'attr': {'class': 'pregnant'} }) }}                                    
+                                        {{ form_label(form.pregnant[1]) }}
+                                        {{ form_widget(form.pregnant[2], { 'attr': {'class': 'pregnant'} }) }}                                    
+                                        {{ form_label(form.pregnant[2]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <input type="button" class="btn-submit btn-scrollto-2" id="btn-scrollto-2" value="Weiter" />
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="step-item step-item-yel">
+                        <div class="top" id="open-yellow">
+                            <img src="{{ asset('images/img-08.png') }}" alt="" width="66" height="64" />
+                            <strong class="step-name">ERN&Auml;HRUNG</strong>
+                            <strong class="step">3 von 3</strong>
+                        </div>
+                        <div class="form-1 hide-on-load form_yel">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <div class="tip_help_2">
+                                            <img src="{{ asset('media/shared/Homepage-Design/check_help.png') }}" alt="Symbole klicken f&uuml;r mehr Info">
+                                        </div>	
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-15.png') }}" alt="Vollkornprodukte" title="mehr Infos&hellip;" width="32" height="56" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Essen Sie vorwiegend Vollkornprodukte (Vollkornbrot, Vollkornnudeln, M&uuml;sli. brauner Reis): "Ja".  Oder essen Sie Sie gew&ouml;hnlich eher Wei&szlig;mehlprodukte wie Toast, helle Br&ouml;tchen und helle Nudeln: "Nein".</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="grain_error">{{ form_errors(form.grain) }}</span>
+                                    <strong class="lbl">Wie h&auml;ufig verzehren Sie Vollkornprodukte in Form von Brot, Nudeln, M&uuml;sli oder Reis?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.grain[0], { 'attr': {'class': 'grain'} }) }}
+                                        {{ form_label(form.grain[0]) }}
+                                        {{ form_widget(form.grain[1], { 'attr': {'class': 'grain'} }) }}                                    
+                                        {{ form_label(form.grain[1]) }}
+                                        {{ form_widget(form.grain[2], { 'attr': {'class': 'grain'} }) }}                                    
+                                        {{ form_label(form.grain[2]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-16.png') }}" alt="Obst" title="mehr Infos&hellip;" width="30" height="40" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Eine Portion Obst entspricht ungef&auml;hr 100g und ist oft eine gute Hand voll. Ein Apfel, ein bis zwei Bananen, ein paar Erdbeeren oder eine Orange w&auml;ren also ungef&auml;hr eine Portion.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="fruit_error">{{ form_errors(form.fruit) }}</span>
+                                    <strong class="lbl">Essen Sie t&auml;glich ausreichend Obst (ca. 200 g)?</strong>
+                                    <div class="radio-row">
+                                        <div class="holder">
+                                            {{ form_widget(form.fruit[0], { 'attr': {'class': 'fruit'} }) }}
+                                            {{ form_label(form.fruit[0]) }}
+                                        </div>
+                                        <div class="holder">
+                                            {{ form_widget(form.fruit[2], { 'attr': {'class': 'fruit'} }) }}                                    
+                                            {{ form_label(form.fruit[2]) }}
+                                        </div>
+                                        <div class="holder">
+                                            {{ form_widget(form.fruit[1], { 'attr': {'class': 'fruit'} }) }}                                    
+                                            {{ form_label(form.fruit[1]) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-17.png') }}" alt="Gem&uuml;se" title="mehr Infos&hellip;" width="30" height="63" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Eine Portion Gem&uuml;se sind ca. 100 g, also eine Hand voll. Das sind zwei Tomaten oder ein Beilagensalat.<br />Ein gro&szlig;er Salatteller sind 3 H&auml;nde voll und damit haben Sie die Tagesempfehlung an Gem&uuml;se erreicht.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="salad_error">{{ form_errors(form.salad) }}</span>
+                                    <strong class="lbl">Drei Portionen Gem&uuml;se (Beilagen, Rohkost, Salate) esse ich t&auml;glich.</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.salad[0], { 'attr': {'class': 'salad'} }) }}
+                                        {{ form_label(form.salad[0]) }}
+                                        {{ form_widget(form.salad[2], { 'attr': {'class': 'salad'} }) }}                                    
+                                        {{ form_label(form.salad[2]) }}
+                                        {{ form_widget(form.salad[1], { 'attr': {'class': 'salad'} }) }}                                    
+                                        {{ form_label(form.salad[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-18.png') }}" alt="Fleisch" title="mehr Infos&hellip;" width="33" height="45" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Wie oft verzehren Sie eines der Nahrungsmittel? Es m&uuml;ssen nicht jeden Tag alle drei verzehrt werden.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="meat_error">{{ form_errors(form.meat) }}</span>
+                                    <strong class="lbl">Wie oft essen Sie tierische Produkte wie Fleisch, Aufschnitt oder Eier?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.meat[0], { 'attr': {'class': 'meat'} }) }}
+                                        {{ form_label(form.meat[0]) }}
+                                        {{ form_widget(form.meat[2], { 'attr': {'class': 'meat'} }) }}                                    
+                                        {{ form_label(form.meat[2]) }}
+                                        {{ form_widget(form.meat[1], { 'attr': {'class': 'meat'} }) }}                                    
+                                        {{ form_label(form.meat[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em>
+                                            <span class="mdl">
+                                                <img class="trigger cursorhand" src="{{ asset('images/img-19.png') }}" alt="Fisch" title="mehr Infos&hellip;" width="42" height="37" />
+                                            </span>
+                                            </em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">"Ja" hei&szlig;t, dass Meerestiere wirklich einmal pro Woche fest in Ihrem Speiseplan integriert sind. Wenn Sie seltener Meerestiere essen, kreuzen Sie "Nein" an.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="fish_error">{{ form_errors(form.fish) }}</span>
+                                    <strong class="lbl">Verzehren Sie mindestens einmal pro Woche Meerestiere (Fisch, Krabben etc.)?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.fish[0], { 'attr': {'class': 'fish'} }) }}
+                                        {{ form_label(form.fish[0]) }}
+                                        {{ form_widget(form.fish[1], { 'attr': {'class': 'fish'} }) }}                                    
+                                        {{ form_label(form.fish[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-20.png') }}" alt="Milch" title="mehr Infos&hellip;" width="36" height="38" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Nicht vergessen: Zu Milchprodukten z&auml;hlen auch K&auml;se, Joghurt und Quark. Der Schuss Milch im Kaffee deckt Ihren Bedarf jedoch nicht.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="milk_error">{{ form_errors(form.milk) }}</span>
+                                    <strong class="lbl">Stehen Milch- und Milchprodukte auf dem t&auml;glichen Speiseplan?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.milk[0], { 'attr': {'class': 'milk'} }) }}
+                                        {{ form_label(form.milk[0]) }}
+                                        {{ form_widget(form.milk[2], { 'attr': {'class': 'milk'} }) }}                                    
+                                        {{ form_label(form.milk[2]) }}
+                                        {{ form_widget(form.milk[1], { 'attr': {'class': 'milk'} }) }}                                    
+                                        {{ form_label(form.milk[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-21.png') }}" alt="Trinken" title="mehr Infos&hellip;" width="18" height="50" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Energiefrei hei&szlig;t ungezuckert oder isotonisch. Achtung: S&auml;fte, Limonaden, Cappuccino oder Latte macchiato geh&ouml;ren nicht dazu.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="water_error">{{ form_errors(form.water) }}</span>
+                                    <strong class="lbl">Ich trinke t&auml;glich 2,0 Liter energiefreie Fl&uuml;ssigkeit (Wasser, Tee, au&szlig;er schwarzem)</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.water[0], { 'attr': {'class': 'water'} }) }}
+                                        {{ form_label(form.water[0]) }}
+                                        {{ form_widget(form.water[1], { 'attr': {'class': 'water'} }) }}                                    
+                                        {{ form_label(form.water[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-22.png') }}" alt="Fertiggerichte" title="mehr Infos&hellip;" width="42" height="26" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Diese Gerichte haben in der Regel nicht mehr viele N&auml;hrstoffe, deshalb halten sie auch nicht lange satt. Mit anderen frischen Mahlzeiten am Tag haben Sie die Chance einen N&auml;hrstoffmangel auszugleichen.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="fastfood_error">{{ form_errors(form.fastfood) }}</span>
+                                    <strong class="lbl">Essen Sie oft aufgew&auml;rmte Speisen oder Fertiggerichte (Kantine, Fast Food)?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.fastfood[0], { 'attr': {'class': 'fastfood'} }) }}
+                                        {{ form_label(form.fastfood[0]) }}
+                                        {{ form_widget(form.fastfood[2], { 'attr': {'class': 'fastfood'} }) }}                                    
+                                        {{ form_label(form.fastfood[2]) }}
+                                        {{ form_widget(form.fastfood[1], { 'attr': {'class': 'fastfood'} }) }}                                    
+                                        {{ form_label(form.fastfood[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-23.png') }}" alt="S&uuml;&szlig;igkeiten" title="mehr Infos&hellip;" width="48" height="36" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Befinden Sie sich eher bei "Ich nehme S&uuml;&szlig;igkeiten in kleinen Mengen bewusst 3 bis 4 mal pro Woche zu sich": Ja. Oder bei "Ich esse t&auml;glich S&uuml;&szlig;igkeiten": Nein.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="sweets_error">{{ form_errors(form.sweets) }}</span>
+                                    <strong class="lbl">Teilen Sie sich S&uuml;&szlig;igkeiten bewusst in kleine Mengen ein?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.sweets[0], { 'attr': {'class': 'sweets'} }) }}
+                                        {{ form_label(form.sweets[0]) }}
+                                        {{ form_widget(form.sweets[1], { 'attr': {'class': 'sweets'} }) }}                                    
+                                        {{ form_label(form.sweets[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-24.png') }}" alt="Di&auml;t" title="mehr Infos&hellip;" width="35" height="34" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Machen Sie mehrmals pro Jahr gewichtsreduzierende Di&auml;ten? Hierzu geh&ouml;ren vor allem FDH, Nulldi&auml;ten, Low Carb, Kohlsuppendi&auml;t etc.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="diet_error">{{ form_errors(form.diet) }}</span>
+                                    <strong class="lbl">Machen Sie h&auml;ufig Di&auml;ten?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.diet[0], { 'attr': {'class': 'diet'} }) }}
+                                        {{ form_label(form.diet[0]) }}
+                                        {{ form_widget(form.diet[1], { 'attr': {'class': 'diet'} }) }}                                    
+                                        {{ form_label(form.diet[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-25.png') }}" alt="&Ouml;le" title="mehr Infos&hellip;" width="35" height="35" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Essen Sie t&auml;glich pflanzliches Fett z. B. in Form von einem Essig-&Ouml;l-Dressing, Oliven&ouml;l, Sonnenblumen&ouml;l oder Lein&ouml;l? Achtung: Essen Sie Avocado, N&uuml;sse oder Kerne oder M&uuml;sli? Hier verbirgt auch das pflanzliche Fett.</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="oil_error">{{ form_errors(form.oil) }}</span>
+                                    <strong class="lbl">Essen Sie t&auml;glich pflanzliche &Ouml;le?</strong>
+                                    <div class="radio-row">
+                                        {{ form_widget(form.oil[0], { 'attr': {'class': 'oil'} }) }}
+                                        {{ form_label(form.oil[0]) }}
+                                        {{ form_widget(form.oil[1], { 'attr': {'class': 'oil'} }) }}                                    
+                                        {{ form_label(form.oil[1]) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="icon bubbleInfo">
+                                        <em><span class="mdl"><img class="trigger cursorhand" src="{{ asset('images/img-26.png') }}" alt="Gesundheit" title="mehr Infos&hellip;" width="32" height="54" /></span></em>
+                                        <span class="tooltip">
+                                            <span class="tooltip-b">
+                                                <span class="tooltip-c">
+                                                    <span class="tooltip-frame">Die Purmeo Gesundheitsinfo ben&ouml;tigen wir lediglich, um Sie auf ungewollte Reaktionen mit Medikamenten oder Therapien hinweisen zu k&ouml;nnen</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="radio-row">
+                                    <span class="problems_error">{{ form_errors(form.problems) }}</span>
+                                        <strong class="lbl">Gesundheitsinfo: Folgendes trifft auf mich zu...</strong>
+                                        <div style="font-size:90%; padding-left:8px; padding-bottom:10px; line-height:120%;">(Die Purmeo Gesundheitsinfo ben&ouml;tigen wir lediglich, um Sie auf ungewollte <br />Reaktionen mit Medikamenten oder Therapien hinweisen zu k&ouml;nnen)</div>
+
+                                        <div id="gesundheitsprobleme">
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[0], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[0]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[1], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[1]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[2], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[2]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[3], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[3]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[4], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[4]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[5], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[5]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[6], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[6]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[7], { 'attr': {'class': 'problems'} }) }}
+                                                {{ form_label(form.problems[7]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[8], { 'attr': {'class': 'problems'} }) }}                                    
+                                                {{ form_label(form.problems[8]) }}
+                                            </div>
+                                            <div class="holder-3 prob">
+                                                {{ form_widget(form.problems[9], { 'attr': {'class': 'problems'} }) }}                                    
+                                                {{ form_label(form.problems[9]) }}
+                                            </div>
+                                            <div class="holder-2 prob">
+                                                {{ form_widget(form.problems[10], { 'attr': {'class': 'problems'} }) }}                                    
+                                                {{ form_label(form.problems[10]) }}
+                                            </div>
+                                        </div>
+                                        <div class="holder-2 noprob" id="keinegesundheitsprobleme" style="margin-top:20px;">
+                                            {{ form_widget(form.problems[11], { 'attr': {'class': 'problems'} }) }}                                    
+                                            {{ form_label(form.problems[11]) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 20px 50px 0 72px;">
+                                    <div><strong>Jetzt nur noch Ihre E-Mail Adresse...</strong></div>
+                                    <div>... und schon bekommen Sie Ihr Ergebnis auch per Email </div>
+                                    <div>
+                                        <div style="margin-top:4px;">
+                                            <span class="agree_error">{{ form_errors(form.agree) }}</span>
+                                            <p>
+                                                {{ form_widget(form.agree[0]) }}
+                                                <label for="DATENSCHUTZ">
+                                                      Ich habe die 
+                                                    <a href="{{ path('purmeo_eshop_agb') }}" tabindex="-1" target="_blank">
+                                                        Datenschutzerkl&auml;rung
+                                                    </a> 
+                                                    gelesen
+                                                </label>
+                                            </p>
+                                            <input class="btn-submit" id="checkFormSubmit" name="button" type="button" value="ZUM ERGEBNIS" style="margin-top: -75px;"/>
+                                        </div>
+                                        <br />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

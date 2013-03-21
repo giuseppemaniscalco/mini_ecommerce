@@ -1,0 +1,102 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block main %}
+<script type="text/javascript">
+    $(function(){
+        //kissmetrics on subscrib newsletters
+        $("input[name='ACCOUNT_REGISTER_SUBMIT']").click(function(){
+            var emailCust = $("input[name='LOGIN_NAME']").val();
+            _kmq.push(['record', 'User registered',{ 'email address' : emailCust }]);
+        });		
+    });
+    </script>
+    <div class="container patop50 pabot50">
+        <div id="cmmpID_Account">
+            <center><h1>MEIN PURMEO</h1></center>
+            <hr />
+            <div style="width:650px; float:left;">
+                <form class="formular" id="UserRegisterForm" method="Post" action="{{ path("purmeo_eshop_register") }}">
+                    {{ form_errors(form) }}
+                        <fieldset>
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.email, 'Emailadresse*') }}
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {% if message %}
+                                    <ul>
+                                        <li>
+                                            {{ message | raw }}
+                                        </li>
+                                    </ul>            
+                            {% endif %}
+                            </div>
+                        <div class="element clear" style="padding-left:0;margin-top:30px;">
+                            {{ form_label(form.title, 'Anrede*') }}
+                            {{ form_widget(form.title) }}
+                            {{ form_errors(form.title) }}
+                        </div>    
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.firstname, 'Vorname*') }}
+                            {{ form_widget(form.firstname) }}
+                            {{ form_errors(form.firstname) }}
+                        </div>
+                        <div class="element">
+                            {{ form_label(form.lastname, 'Name*') }}
+                            {{ form_widget(form.lastname) }}
+                            {{ form_errors(form.lastname) }}
+                        </div>
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.otherInfo, 'Adresszusatz') }}
+                            {{ form_widget(form.otherInfo) }}
+                            {{ form_errors(form.otherInfo) }}
+                        </div>
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.street, 'Strasse*') }}
+                            {{ form_widget(form.street) }}
+                            {{ form_errors(form.street) }}
+                        </div>
+                        <div class="element">
+                            {{ form_label(form.number, 'Nr.*') }}
+                            {{ form_widget(form.number) }}
+                            {{ form_errors(form.number) }}
+                        </div>
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.zipcode, 'PLZ*') }}
+                            {{ form_widget(form.zipcode) }}
+                            {{ form_errors(form.zipcode) }}
+                        </div>
+                        <div class="element">
+                            {{ form_label(form.city, 'Ort*') }}
+                            {{ form_widget(form.city) }}
+                            {{ form_errors(form.city) }}
+                        </div>
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.telephone, 'Telefon') }}
+                            {{ form_widget(form.telephone) }}
+                            {{ form_errors(form.telephone) }}
+                        </div>	
+                        <div class="element clear" style="padding-left:0">
+                            {{ form_label(form.country, 'Land*') }}
+                            {{ form_widget(form.country) }}
+                            {{ form_errors(form.country) }}
+                        </div>	
+                        <div class="agb_check_text" style="margin:0 0 20px 0;">
+                            {{ form_widget(form.agree[0]) }}                                    
+                            <span class="field-label">
+                                Ich habe die 
+                                <a target="_blank" href="{{ path("purmeo_eshop_agb") }}">AGB</a>
+                                gelesen und akzeptiert.
+                            </span>
+                            {{ form_errors(form.agree) }}
+                        </div>
+                            <br />
+                            <input type="submit" class="button_medium" name="ACCOUNT_REGISTER_SUBMIT" value="Anmelden">
+                        </fieldset>
+                        <p class="matop20">*Pflichtfeld</p>
+                        {{ form_rest(form) }}
+                    </form>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+{% endblock %}

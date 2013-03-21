@@ -1,0 +1,128 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Purmeo{% endblock%}
+
+{% block main %}
+<div id="cmmpID_Info">
+    <div class="purmeobox-start" style="background: url({{ asset('media/shared/Homepage-Design/purmeobox/slider-wohnzimmer.jpg') }})  left top no-repeat; padding: 15px 0 6px 0">
+        <div class="container">
+            <div class="row" style="position: relative;">
+                <div class="span5">
+                    <img src="{{ asset('media/shared/Homepage-Design/purmeobox/leonie-box.png') }}" class=" matop10" alt="Immun-slider-Paar"/>
+                </div>
+                <div style="background: url({{ asset('media/shared/Homepage-Design/Immun/box-bg.png') }})  no-repeat 19px 2px; position: absolute; height:458px; width: 650px; top: -21px; z-index: -3; right: -55px;">&nbsp;</div>
+                <div class="span7 offset6" style="padding: 30px;">
+                    <h1>Jede Box ist mit genau <br /><strong>Ihren Vitaminen</strong> gef&uuml;llt</h1>
+                                    <h2 class="normal gray">Ihre Vitamine und  Mineralstoffe sind genau abgestimmt auf Ihren K&ouml;rper und Ihre Ziele &ndash; bringen Sie sich mit Purmeo in Topform.
+                                    </h2>
+                    <div class="startseite-schritte-prozess matop20">
+                    <div class="prozess-wrapper1">
+                            <div class="bignumber">1</div>
+                            <p style="width: 100px">Vitamine personalisieren</p>
+                        </div>
+                        <div class="prozess-wrapper2"><div class="bignumber">2</div><p>Pers&ouml;nliche Purmeo</br> Box bekommen</p></div>
+                        <div class="prozess-wrapper3"><div class="bignumber">3</div><p>Fit durch </br>den Winter</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span6 matop20 mabot20" style="border-top: 1px solid #d9d9d9;">
+                            <div class="matop20">
+                                <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Jetzt personalisieren', 'Purmeo Box'])">Zum Gratis Vitamin-Check</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="startseite-features">
+        <div class="container">
+            <div class="row matop10">
+                <div class="span12">
+                    <center>
+                        <h1>100.000 M&ouml;glichkeiten &ndash; Eine Box genau f&uuml;r Sie</h1>
+                    </center>
+                    <img src="{{ asset('media/shared/Homepage-Design/purmeobox/purmeobox-box.jpg') }}" alt="purmeobox-box" style="margin-left: 20px;"/>
+                </div>
+            </div>
+            <div class="row matop10">
+                <div class="span3">
+                    <img src="{{ asset('media/shared/Homepage-Design/Startseite/icon-auge-small.jpg') }}" alt="Icon auge" style="margin-left: 20px;"/>
+                  <h2>100.000 M&ouml;glichkeiten.</h2>
+                            <p class="gray">Jedes Vitamin unterst&uuml;tzt Ihren K&ouml;rper in seinem eigenen wichtigen Bereich. Die Vitamine und Mineralstoffe Ihrer Wahl sollten daher richtig ausgew&auml;hlt sein. Die richtigen Vitamine f&uuml;r Ihren K&ouml;rper sind nicht immer die von der Stange.</p>
+                </div>
+                <div class="span3">
+                    <img src="{{ asset('media/shared/Homepage-Design/Startseite/icon-balken-small.jpg') }}" alt="Icon balken" style="margin-left: 20px;"/>
+                   <h2>Jeden Tag die richtige Menge.</h2>
+                            <p class="gray">Achten Sie auf die richtige Dosierung Ihrer Vitaminzufuhr: Vitamine und Mineralstoffe in der falschen Menge k&ouml;nnen Ihrem K&ouml;rper schaden. Daher h&auml;lt sich Purmeo streng an die <b>Empfehlungen der Deutschen Gesellschaft f&uuml;r Ern&auml;hrung.</b></p>
+                </div>
+                <div class="span3">
+                    <img src="{{ asset('media/shared/Homepage-Design/Startseite/icon-erde-small.jpg') }}" alt="Icon erde" style="margin-left: 20px;"/>
+                    <h2>H&ouml;chste Qualit&auml;t aus Europa.</h2>
+                    <p class="gray">Produkte aus China oder anderen L&auml;ndern sind schwer auf ihre Qualit&auml;t zu pr&uuml;fen. Alle Purmeo Produkte werden in h&ouml;chster Qualit&auml;t nur in Deutschland produziert. Zertifiziert nach dem HACCP Standard f&uuml;r Ihre Sicherheit und Wohlbefinden.</p>
+                </div>			
+                <div class="span3">
+                    <img src="{{ asset('media/shared/Homepage-Design/Startseite/icon-blatt-small.jpg') }}" alt="Icon blatt" style="margin-left: 20px;"/>
+                    <h2>Beste Zutaten und Inhaltsstoffe</h2>
+                            <p class="gray">Nur beste Zutaten f&uuml;hren zu besten Ergebnissen. Purmeo verwendet nur Rohstoffe, die im chemischen Aufbau identisch mit Vitaminen aus der Natur sind. S&auml;mtliche Inhaltsstoffe werden in der EU bezogen und in Deutschland verarbeitet.</p>
+                </div>		
+            </div>
+            <center class="matop40">
+                <div class="cta-box mabot10">
+                    <h2 class="mabot0">Bestellen Sie Ihre pers&ouml;nliche Purmeo Box</h2>
+                    <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Jetzt personalisieren', 'Purmeo Box'])">Jetzt zusammenstellen</a>
+                </div>
+            </center>
+        </div>
+    </div>
+
+
+    <div id="purmeobox-tabelle">
+        <div class="container">
+            <h2>Die Purmeo Box im Vergleich</h2>
+            <div class="row matop30">
+                <div class="span12">
+                    <img src="{{ asset('media/shared/Homepage-Design/purmeobox/purmeobox-tabelle.png') }}" alt="Icon laster"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="cta-bergsteiger">
+    <div class="container">
+        <div class="row">
+            <h2>Bringen Sie Ihren K&ouml;rper auf Ihre pers&ouml;nliche H&ouml;chstleistung!</h2>
+            <div class="span3 offset2">
+                <p class="strong">Mehr Kraft f&uuml;r H&ouml;chstleistung!</p>
+                Sie verlangen au&szlig;ergew&ouml;hnliches von Ihrem K&ouml;rper - geben Sie ihm 
+                das Beste f&uuml;r H&ouml;chstleistungen, die Ihr K&ouml;rper t&auml;glich vollbringt.
+            </div>
+            <div class="span3">
+                <p class="strong">Energie: Vitamine &amp; Mineralstoffe</p>
+                Gerade f&uuml;r hohe Anforderungen
+                braucht er wichtige N&auml;hrstoffe, um Besonderes
+                zu leisten.
+            </div>
+            <div class="span3">
+                <p class="strong">Purmeo hilft Ihnen dabei.</p>
+                Purmeo ist Energie zum 
+                aufrei&szlig;en. Vitamine und Mineralstoffe
+                abgestimmt auf Ihre Ziele, h&ouml;here Leistung
+                und schnellere Ergebnisse.
+            </div>
+        </div>
+
+            <center>
+                <div class="cta-box mabot10 matop30">
+                    <h2 class="mabot0">Probieren Sie Purmeo</h2>
+                    <h3 class="normal gray">100% Vitamine jeden Tag</h3>
+                    <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Jetzt Starten', 'Startseite'])">Jetzt zusammenstellen</a>
+                </div>
+            </center>
+
+
+    </div>
+</div>
+</div>
+{% endblock%}

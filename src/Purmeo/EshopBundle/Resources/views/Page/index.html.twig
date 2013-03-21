@@ -1,0 +1,439 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Individuelle Vitamine und Mineralstoffe abgestimmt von{% endblock %}
+
+{% block main %}
+<script type="text/javascript" src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+<script type ="text/javascript" src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+<script type="text/javascript">
+    // Hide Livechat
+    var LC_API = LC_API || {};
+    LC_API.on_after_load = function()
+    {LC_API.hide_chat_window();};
+
+    // FLEX SLIDER 
+    $(window).load(function() {
+                if ( $.browser.safari || $.browser.mozilla)
+                        {
+                        $('.flexslider').flexslider({
+                                animation: "fade", 
+                                slideDirection: "horizontal",
+                                slideshow: false,
+                                slideshowSpeed: 4500,
+                                animationDuration: 1000,
+                                directionNav: false,
+                                controlNav: false,
+                                keyboard: false,
+                                mousewheel: false,
+                                prevText: "Previous",
+                                nextText: "Next",
+                                pausePlay: false,
+                                pauseText: 'Pause',
+                                playText: 'Play',
+                                randomize: false,
+                                slideToStart: 0,
+                                animationLoop: true,
+                                pauseOnAction: false,
+                                pauseOnHover: false,
+                                easing: ""
+                        });
+                        }
+                else {
+                        $('.flexslider').flexslider({
+                                animation: "slide", 
+                                slideDirection: "horizontal",
+                                slideshow: false,
+                                slideshowSpeed: 4500,
+                                animationDuration: 1000,
+                                directionNav: false,
+                                controlNav: false,
+                                keyboard: false,
+                                mousewheel: false,
+                                prevText: "Previous",
+                                nextText: "Next",
+                                pausePlay: false,
+                                pauseText: 'Pause',
+                                playText: 'Play',
+                                randomize: false,
+                                slideToStart: 0,
+                                animationLoop: true,
+                                pauseOnAction: false,
+                                pauseOnHover: false,
+                                easing: "",
+                        });
+                }
+        });
+
+    $(function() {
+                $('.flexslider-controls-header .prev').click(function () {$('.flexslider').flexslider("prev");});
+        $('.flexslider-controls-header .next').click(function () {$('.flexslider').flexslider("next");});
+    });
+    			
+        $(document).ready(function() {
+                        $(".fancybox").fancybox({
+                                fitToView	: false,
+                                autoSize	: false,
+                                closeClick	: false,
+                                openEffect	: 'none',
+                                closeEffect	: 'none',
+                                modal 		: false,
+                                closeBtn	: true,
+                                minWidth	: 990,
+                                maxHeight	: 500
+                        });
+                });
+    </script>
+    <link rel="stylesheet" href="{{ asset('media/shared/Homepage-Design/index-slider/default.css') }}" type="text/css" media="screen" />
+    <div id="cmmpID_Info">
+        <div id="startseite_slider_box">
+            <div class="flexslider" style="height: 430px;">
+                <ul class="slides">
+                    <li>
+                        <div id="startseite-slider">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="span5">
+                                        <img src="{{ asset('media/shared/Homepage-Design/Startseite/herbst-slider-paar.png') }}" class=" matop10" alt="Herbst-slider-Paar"/>
+                                    </div>
+                                    <div class="span7 offset5">
+                                        <h1>Mit <b> individuellen Vitaminen</b></br> fit durch den Winter</h1>
+                                        <h2 class="normal gray">Purmeo liefert Ihnen Vitamine und Mineralstoffe, abgestimmt auf Ihren K&ouml;rper und die Belastungen des Winters. Unterst&uuml;tzen Sie jetzt Ihr Immunsystem. Aktivieren Sie jetzt Purmeo Immun.
+                                        </h2>
+                                        <div class="startseite-schritte-prozess matop20">
+                                            <div class="prozess-wrapper1">
+                                                <div class="bignumber">1</div>
+                                                <p style="width: 100px">Vitamine personalisieren</p>
+                                            </div>
+                                            <div class="prozess-wrapper2"><div class="bignumber">2</div><p>Pers&ouml;nliche Purmeo</br> Box bekommen</p></div>
+                                            <div class="prozess-wrapper3"><div class="bignumber">3</div><p>Fit durch </br>den Winter</p></div>
+                                        </div>
+                                        <div class="cta-box matop30" style="margin-left: 195px;">
+                                            <h2>Jetzt Starten!</h2>
+                                            <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Zum Vitamin Check', 'Startseite'])">Zur Purmeo-Box</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                        $(document).ready(function(){		
+                                                $('.winterspezial-box-left').delay(1000).animate({marginLeft: "368px",opacity: "1"}, 500, function() {}).animate({marginLeft: "366px",}, 100, function() {}).animate({marginLeft: "368px",}, 100, function() {});
+                                        });
+                                    </script>
+                                    <a href="{{ path('purmeo_eshop_product') }}">
+                                        <div class="winterspezial-box-left" style="width: 190px; position: absolute; top: 312px; margin-left: 566px; opacity: 0.0;">
+                                            <h3>Winterspezial</h3>
+                                            <h2>19,90&euro;</h2>
+                                            statt 49,90&euro; f&uuml;r Ihre erste Box
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flexslider-controls-header">
+                </div>
+            </div>
+            <div id="presse-zitate">
+                <div class="container" style="width: 1050px;">
+                    <div class="row">
+                        <div class="span3">
+                            "Vitamine sind ein wichtiger Bestandteil der Gesundheit."</br>
+                            <a href="{{ path('purmeo_eshop_presse') }}">
+                                <img src="{{ asset('media/shared/Homepage-Design/Startseite/eatsmarter.jpg') }}" class=" matop10" alt="eatsmarter"/>
+                            </a>
+                        </div>
+                        <div class="span3">
+                            "Anhand der Antworten wird die Dosierung festgelegt"
+                            <a href="{{ path('purmeo_eshop_presse') }}">
+                                <img src="{{ asset('media/shared/Homepage-Design/Startseite/adhoc.jpg') }}" class=" matop10" alt="gruenderszene"/>
+                            </a>
+                        </div>
+                        <div class="span3" style="width: 250px;">
+                            "Purmeo versorgt Nutzer mit individuellen N&auml;hrstoff-Kombinationen"</br>
+                            <a href="{{ path('purmeo_eshop_presse') }}">
+                                <img src="{{ asset('media/shared/Homepage-Design/Startseite/deutschestartup.jpg') }}" class=" matop10" alt="adhoc"/>
+                            </a>
+                        </div>
+                        <div class="span3" style="width: 273px;">
+                            "Mit Purmeo kann jeder seinen individuellen Vitamin- und Mineralienbedarf ermitteln"
+                            <a href="{{ path('purmeo_eshop_presse') }}">
+                                <img src="{{ asset('media/shared/Homepage-Design/Startseite/tagesspiegel.jpg') }}" class=" matop10" alt="tagesspiegel"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="purmeo-box-illustration">
+                <div class="container">
+                    <div class="row">
+                        <div class="span8">
+                            <h1>Energie zum Aufrei&szlig;en</h1>
+                            <h2 class="normal">Ihr pers&ouml;nlicher Vitaminkomplex f&uuml;r Ihren K&ouml;rper,
+                                abgestimmt auf Ihre Ziele. Fertig verpackt f&uuml;r jeden Tag.
+                                Monatlich versandkostenfrei zu Ihnen nach Hause.</h2>
+                        </div>
+                    </div>
+                    <div class="row matop10">
+                        <div class="span12">
+                            <img src="{{ asset('media/shared/Homepage-Design/Startseite/purmeo-box.jpg') }}" class=" matop10" alt="purmeo-box"/>
+                        </div>
+                    </div>
+                    <div class="row matop10">
+                        <div class="span2" style="margin-top: -36px; margin-bottom: 30px; margin-left: 600px;">
+                            <img src="{{ asset('media/shared/Homepage-Design/Startseite/DGE.jpg') }}" alt="purmeo-box"/>
+                        </div>
+                    </div>
+                    <center class="matop10">
+                        <div class="cta-box-white matop10 mabot10">
+                            <h2 class="mabot0">Bestellen Sie Ihre pers&ouml;nliche Purmeo Box</h2>
+                            <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Jetzt zusammenstellen', 'Startseite'])">Jetzt zusammenstellen</a>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div id="frau-vitamine-illustration">
+                <div class="container">
+                    <div class="row">
+                        <div class="span8">
+                            <h1>100% Vitamine jeden Tag.</h1>
+                            <h2 class="normal">
+                                Purmeo wirkt dort, wo Ihr K&ouml;rper besondere Unterst&uuml;tzung braucht.
+                                Die Purmeo Vitamine...f&uuml;r Ihre pers&ouml;nliche Topform, jeden Tag.
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row matop10">
+                        <div class="span12 frau-vitamine-illustration-grafik">
+                            <img src="{{ asset('media/shared/Homepage-Design/Startseite/frau-infografik.jpg') }}" class="matop10" alt="frau" style="margin-bottom: -4px"/>
+                            <div style="position: absolute; top: 20px; right: 213px;">
+                                <strong>Mentale St&auml;rke</strong></br>
+                                Vitamin B1, B2, B6</br>
+                                Pantothenst&auml;rke</br>
+                                Biotin
+                            </div>
+                            <div style="position: absolute; top: 142px; right: 200px;">
+                                <strong>Augen</strong></br>
+                                Vitamin A, C, E</br>
+                                Vitamin B2</br>
+                                Zink und Selen</br>
+                                Omega 3
+                            </div>
+                            <div style="position: absolute; top: 283px; right: 106px">
+                                <strong>Herz</strong></br>
+                                Vitamin B6 und B12</br>
+                                Inositol</br>
+                                Niacin</br>
+                                Fols&auml;ure 
+                            </div>
+                            <div style="position: absolute; bottom: 280px; right: 46px;">
+                                <strong>Knochen und Gelenke</strong></br>
+                                Vitamin D</br>
+                                Vitamin K</br>
+                                Calcium
+                            </div>
+                            <div style="position: absolute; bottom: 30px; left: 150px;">
+                                <strong>Muskeln</strong></br>
+                                Vitamin C und E</br>
+                                Vitamin B1, B6 und B12</br>
+                                Calcium</br>
+                                Magnesium
+                            </div>
+                            <div style="position: absolute; bottom: 211px; left: 150px;">
+                                <strong>Verdauung</strong></br>
+                                Vitamin B-Komplex</br>
+                                Biotin
+                            </div>
+                            <div style="position: absolute; top: 304px; left: 150px;">
+                                <strong>Abwehrkr&auml;fte</strong></br>
+                                Vitamin A, C und E</br>
+                                Selenium</br>
+                                Zink
+                            </div>
+                            <div style="position: absolute; top: 120px; left: 270px;">
+                                <strong>Haut und Haare</strong></br>
+                                Vitamin C und E</br>
+                                Biotin</br>
+                                Q10
+                            </div>
+                        </div>
+                    </div>
+                    <center>
+                        <div class="cta-box mabot10">
+                            <h2 class="mabot0">100% Vitamine jeden Tag</h2>
+                            <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}" onclick="javascript:_gaq.push(['_trackEvent','Purmeo-Check', 'Jetzt Starten', 'Startseite'])">Jetzt bestellen</a>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div id="warumpurmeo-prozess">
+                <div class="container">
+                    <h1>Bestellen Sie jetzt Ihre erste Purmeo Box!</h1>
+                    <div class="row matop10">
+                        <div class="span4">
+                            <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-1.jpg') }}" alt="Icon laster"/>
+                            <h2>Vitamin Check</h2>
+                            <h3 class="normal gray">Der Purmeo Check wurde von unseren Experten entwickelt.</br></h3>
+                        </div>
+                        <div class="span4">
+                            <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-2.jpg') }}" alt="Icon person"/>
+                            <h2>Personalisiert</h2>
+                            <h3 class="normal gray">Ihre Vitamine werden von  unseren Experten aus &uuml;ber 100.000 Kombinationen f&uuml;r Sie ausgew&auml;hlt.</h3>
+                        </div>
+                        <div class="span4">
+                            <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-3.jpg') }}" alt="Icon heart"/>
+                            <h2>Kostenlos geliefert</h2>
+                            <h3 class="normal gray">Ihre personalisierten Vitamine werden  p&uuml;nklich und kostenfrei geliefert, in nur 2 Tagen.</h3>
+                        </div>			
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="startseite-video">
+            <div class="container">
+                <h1> Der Purmeo TV Spot</h1>
+                <center class="matop10">
+                    <a href="#videomodal" class="fancybox"><img src="{{ asset('media/shared/Homepage-Design/Startseite/video-preview.jpg') }}" alt="Video"/></a>	
+                </center>
+                <div id="videomodal" style="display:none; height: 480px; width: 853px; overflow: hidden;">
+                    <iframe width="853" height="480" src="http://www.youtube.com/embed/ZxwIl0r6P0g" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="startseite-kundenmeinungen">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <center>
+                            <h1>Und das sagen unsere Kunden</h1>
+                        </center>
+                    </div>
+                </div>
+                <div class="row matop30">
+                    <div class="span3">
+                        <img src="{{ asset('media/shared/Homepage-Design/Startseite/testimonial-2.png') }}" alt="Testimonial 1"/>
+                        <p class="gray"><strong>Giulia Berardi</strong></br>
+                            Studentin</p>
+                        <hr/>
+                        <p class="gray italic">&ldquo;Besonders in 
+                            Lernphasen sp&uuml;re ich
+                            wie gut eine 
+                            Versorgung mit 
+                            Vitaminen tut&rdquo;</p>
+                    </div>
+                    <div class="span3">
+                        <img src="{{ asset('media/shared/Homepage-Design/Startseite/testimonial-1.png') }}" alt="Testimonial 2"/>
+                        <p class="gray"><strong>Micha Osteraard</strong></br>
+                            Olympia-Schwimmerin</p>
+                        <hr/>
+                        <p class="gray italic">&ldquo;Purmeo macht es 
+                            m&ouml;glich f&uuml;r mich das 
+                            Beste aus meinem 
+                            K&ouml;rper zu holen.&rdquo;</p>
+                    </div>
+                    <div class="span3">
+                        <img src="{{ asset('media/shared/Homepage-Design/Startseite/testimonial-3.png') }}" alt="Testimonial 3"/>
+                        <p class="gray"><strong>Harald Gr&uuml;nhage</strong></br>
+                            Architekt</p>
+                        <hr/>
+                        <p class="gray italic">&ldquo;Ich bin durch 
+                            Purmeo im Job fitter 
+                            und schaffe deutlich 
+                            mehr&rdquo;</p>
+                    </div>			
+                    <div class="span3">
+                        <img src="{{ asset('media/shared/Homepage-Design/Startseite/testimonial-4.png') }}" alt="Testimonial 4"/>
+                        <p class="gray"><strong>Lennart Sponar</strong></br>
+                            Langstreckenl&auml;ufer</p>
+                        <hr/>
+                        <p class="gray italic">&quot;Mit Purmeo nutze ich das Leistungspotential meines K&ouml;rpers voll aus&quot;</p>
+                    </div>		
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-bergsteiger">
+            <div class="container">
+                <div class="row">
+                    <h2>Bringen Sie Ihren K&ouml;rper auf Ihre pers&ouml;nliche H&ouml;chstleistung!</h2>
+                    <div class="span3 offset2">
+                        <p class="strong">Mehr Kraft f&uuml;r H&ouml;chstleistung!</p>
+                        Sie verlangen au&szlig;ergew&ouml;hnliches von Ihrem K&ouml;rper - geben Sie ihm 
+                        das Beste f&uuml;r H&ouml;chstleistungen, die Ihr K&ouml;rper t&auml;glich vollbringt.
+                    </div>
+                    <div class="span3">
+                        <p class="strong">Energie: Vitamine &amp; Mineralstoffe</p>
+                        Gerade f&uuml;r hohe Anforderungen
+                        braucht er wichtige N&auml;hrstoffe, um Besonderes
+                        zu leisten.
+                    </div>
+                    <div class="span3">
+                        <p class="strong">Purmeo hilft Ihnen dabei.</p>
+                        Purmeo ist Energie zum 
+                        aufrei&szlig;en. Vitamine und Mineralstoffe
+                        abgestimmt auf Ihre Ziele, h&ouml;here Leistung
+                        und schnellere Ergebnisse.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="seo-abschnitt">
+            <div class="container">
+                <div class="row seo-text">
+                    <div class="span12">
+                        <h3>Vitamine und Mineralstoffe so individuell wie Sie</h3>
+                        <p>
+                            Purmeo versorgt Sie mit 
+                            <a href="{{ path('purmeo_eshop_vitamine') }}" title="Die Purmeo Vitamine">
+                                Vitaminen
+                            </a> 
+                            und 
+                            <a href="{{ path('purmeo_eshop_mineralstoffe') }}" title="Die Purmeo Mineralstoffe">
+                                Mineralstoffen
+                            </a>
+                            , aber nur wenn Sie es wirklich brauchen. Mit dem von Ern&auml;hrungswissenschaftlern und Medizinern entwickelten Purmeo Check k&ouml;nnen Sie online schnell und unverbindlich Ihren pers&ouml;nlichen 
+                            <a href="{{ path('purmeo_eshop_product') }}" title="Zum Purmeo Check">
+                                Vitaminbedarf herausfinden
+                            </a>
+                            . Deckt Ihre Ern&auml;hrung nicht Ihren individuellen Bedarf an Vitamin B12, Calcium oder Kupfer? Der Purmeo Check stellt es fest. Abh&auml;ngig vom Testergebnis stellt Purmeo Ihren pers&ouml;nlichen Vitamin-Komplex zusammen. Wenn auch Sie das Purmeo Lebensgef&uuml;hl erleben wollen, bestellen Sie einfach Ihren Vitamin-Komplex in der hochwertigen 
+                            <a href="{{ path('purmeo_eshop_box') }}" title="Ihr Vitamin-Komplex in der Purmeo Box"> 
+                                Purmeo Vitamin-Box 
+                            </a>
+                            f&uuml;r einen Monat oder im Abo. Ihre Vitamine werden selbstverst&auml;ndlich versandkostenfrei direkt zu Ihnen nach Hause geliefert - Ihr Vitaminbedarf ist somit immer zuverl&auml;ssig gedeckt. Dar&uuml;ber hinaus legen wir sehr hohen Wert auf Transparenz und ein umfassendes Verst&auml;ndnis auf Seite unserer Kunden. Sie k&ouml;nnen 
+                            <a href="{{ path('purmeo_eshop_naehrstofflexikon') }}" title="Das Purmeo Naehrstofflexikon">
+                                im Vitamin-Lexikon
+                            </a> 
+                            die wichtigsten Fakten &uuml;ber unsere Inhaltsstoffe nachlesen.
+                        </p>
+                        <br />
+                        <br />
+
+                        <h3>Vitamin-Komplexe individuell zusammengestellt auf Ihre Bed&uuml;rfnisse</h3>
+                        <p>
+                            Wenn Sie Defizite bei der Versorgung mit bestimmten Vitaminen und Mineralstoffen haben, werden diese mit Ihrem ganz pers&ouml;nlichen 
+                            <a href="{{ path('purmeo_eshop_praeparate') }}" title="Zu den Purmeo Praeparaten">
+                                Vitamin-Komplex
+                            </a> 
+                            in der Purmeo Box ausgeglichen. Durch das einmalige Konzept der Individualisierung von N&auml;hrstoffen, Vitaminen, Mineralstoffen und Vitalstoffen kann Purmeo &uuml;ber 100.000 verschiedene Vitaminbedarfe ausgleichen. Nehmen Sie wirklich nur die Vitamine und Mineralstoffe, die Sie bei Ihrer Lebensweise brauchen, um optimal versorgt zu sein. Einen ganz besonderen N&auml;hrstoffbedarf zum Beispiel haben Schwangere und Stillende. Damit auch der  
+                            <a href="{{ path('purmeo_eshop_vitamine_schwangerschaft') }}" title="Vitamine in der Schwangerschaft">
+                                Vitaminbedarf in der Schwangerschaft
+                            </a> 
+                            optimal gedeckt ist, haben wir unser Portfolio um ein spezielles Schwangerschaftspr&auml;parat erweitert. Um die Gesundheit des Babys in der Schwangerschaft zu f&ouml;rdern, versorgt Purmeo Sie zum Beispiel mit Fols&auml;ure.
+                        </p>
+                        <br />
+                        <br />
+
+
+                        <h3>Individuelle Vitamine, abgestimmt auf Ihren Bedarf</h3>
+                        <p>
+                            Die Zusammenstellung Ihrer Vitamine und Mineralstoffe wird automatisch an die verschiedenen Umweltbedingungen angepasst, die sich &uuml;ber das Jahr ergeben. Die kalten Temperaturen im Winter belasten beispielsweise das Immunsystem besonders, doch der Purmeo Autopilot r&uuml;stet Sie auch f&uuml;r diese Herausforderung. Ebenfalls im Winter kann der K&ouml;rper bei weniger Sonnenlicht nur schlecht Vitamin D bilden, Purmeo kennt diese Problematik und passt Ihren Vitamin-Komplex im Voraus an. 
+                            Auch in Ihrem pers&ouml;nlichen Leben ver&auml;ndert sich st&auml;ndig etwas. Wenn sich Ihre Lebensumst&auml;nde ver&auml;ndern, geben Sie dies einfach online an und die n&auml;chste Purmeo Box enth&auml;lt wird aktualisiert. F&uuml;hlen Sie sich gestresst und haben einen unruhigen Schlaf? Purmeo versorgt Sie mit mehr Vitamin B1 im und Vitamin E. Haben Sie angefangen f&uuml;r einen Marathon zu trainieren? Bei st&auml;rkerer Belastung ist eine ausreichende Versorgung der Muskeln mit Magnesium sehr wichtig. Purmeo versorgt Sie also genau mit den Vitaminen und Mineralstoffen, die Sie ben&ouml;tigen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

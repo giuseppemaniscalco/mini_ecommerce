@@ -1,0 +1,126 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Bestellen{% endblock%}
+
+{% block main %}
+<style type="text/css">
+        input.button_sqaure_medium_orange {
+            height: 52px !important;
+            margin-top: 10px;
+            width: 280px;
+            border: none;
+        }
+        .tbox 	{ position:absolute; display:none; padding:14px 17px; z-index:900;}
+        .tinner { padding:15px; -moz-border-radius:3px; border-radius:3px; background:#fff url('{{ asset('libjs/tinybox/preload.gif') }}') no-repeat 50% 50%; border: 10px solid #fff; box-shadow: 0px 0px 0px 1px #8c8c8c; overflow-y: scroll;}
+        .tmask 	{ position:absolute; display:none; top:0px; left:0px; height:100%; width:100%; background:#000; z-index:800; }
+        .tclose { position:absolute; top:0px; right:0px; width:30px; height:30px; cursor:pointer; background:url('{{ asset('libjs/tinybox/close.png') }}') no-repeat; }
+        .tclose:hover { background-position:0 -30px; }
+
+        #error {background:#ff6969; color:#fff; text-shadow:1px 1px #cf5454; border-right:1px solid #000; border-bottom:1px solid #000; padding:0}
+        #error .tcontent {padding:10px 14px 11px; border:1px solid #ffb8b8; -moz-border-radius:5px; border-radius:5px}
+        #success {background:#2ea125; color:#fff; text-shadow:1px 1px #1b6116; border-right:1px solid #000; border-bottom:1px solid #000; padding:10; -moz-border-radius:0; border-radius:0}
+        #bluemask {background:#4195aa}
+        #frameless {padding:0}
+        #frameless .tclose {left:6px}
+        .PMB_HintText	{ font-size:11px; color:#999; line-height:1.5; margin-top:5px; text-align: center;}
+
+        hr {
+            width: 362px;
+            margin: 10px 0!important;
+        }
+    </style>
+    <script type="text/javascript" src="{{ asset('libjs/tinybox/tinybox.js') }}"></script>
+    <div id="cmmpID_Info">
+        <div class="container bfcl_details" style="padding: 50px 0;">
+            <center class="mabot40">
+                <div class="process">
+                    <div class="arrow_box_active" style="z-index: 4;">Details</div>	
+                    <div class="arrow_box">Warenkorb</div>
+                    <div class="arrow_box_last">Purmeo Check</div>
+                </div>
+            </center>
+            <div class="produkt_pb">
+                <div class="row matop10">
+                    <div class="span6 matop10" style="margin-bottom: 50px; position: relative;">
+                        <img src="{{ asset('media/shared/Homepage-Design/bfcl_details_produkt.jpg') }}" alt="Die Purmeo Diaet" title="Die Purmeo Diaet" width="412"/>
+                        <div style="height: 330px; ">
+                            <h2 class="normal" style="margin-top: 118px;">Die Purmeo Box</h2>
+                            <hr style=""/>
+                            <h3 class="normal gray maleft0 span5">
+                                Bestellen Sie jetzt Ihren individuellen Vitaminausgleich f&uuml;r einen Monat. Ihre pers&ouml;nliche Purmeo Box enth&auml;lt Vitamine und Mineralstoffe exakt abgestimmt auf Ihr Ergebnis des Purmeo Checks
+                            </h3>
+                            <div>
+                                <div class="row maleft0">
+                                    <img src="{{ asset('media/shared/Homepage-Design/bfcl_details_verzehr.jpg') }}" alt="Die Purmeo Diaet" title="Die Purmeo Diaet" width="331"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 330px; margin-top: 20px;">
+                            <h2 class="normal">Das Purmeo Konzept</h2>
+                            <hr style=""/>
+                            <h3 class="normal gray maleft0 span5">
+                               Jedes Vitamin unterst&uuml;tzt Ihren K&ouml;rper in seinem eigenen wichtigen Bereich. Die Vitamine und Mineralstoffe Ihrer Wahl sollten daher richtig ausgew&auml;hlt sein. Die richtigen Vitamine für Ihren K&ouml;rper sind nicht immer die von der Stange.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="span6">
+                            {% for product in products %}
+                            <h1 class="matop0" style="width: 600px;">
+                                Ihr pers&ouml;nliches
+                                <br/><b>{{ product.name|raw }}</b></h1>
+                            <h3 class="gray normal"></h3>
+                            <ul class="checklist" style="width: 480px; margin-bottom: 20px;">
+                                    {% for property in product.properties %}
+                                    <li style="line-height: 33px; margin-bottom: 0px;">{{ property.name|raw }}</b></li>
+                                    {% endfor %}                          
+                                </ul>
+                                <div class="matop20">
+                                    <div style="position: relative;"><div style="position: absolute; z-index: 12; top: -30px; right: 80px;">
+                                            <img src="{{  asset(product.imageMain) }}" alt="Die Purmeo Diaet" title="Die Purmeo Diaet" stlye="width: 90%;"/></div></div>
+                                    <div class="cta-box matop20 mabot10">
+                                        <h2 class="mabot0" >
+                                            <span style="font-size: 40px;">Jetzt nur {{ (product.price - product.discount)|number_format(2, ',', '') }}&euro;</span> 
+                                        </h2>
+                                        <div class="PMB_HintText"><b class="black">Statt {{ product.price|number_format(2, ',', '') }}&euro;</b> <span style="margin: 0px 5px;">-</span><span>Inkl. {{ product.tax|number_format(0, '', '') }}% MwSt.</span></div>
+                                        <a href="{{ path('purmeo_eshop_product', { 'id': product.id }) }}" class="button_sqaure_medium_orange" onclick="javascript:_gaq.pushSorter['_trackEvent','Shop', 'in den Warenkorb', 'Diet-einzeln-produkt']);">In den Warenkorb</a>
+                                    </div>
+                                    <div class="PMB_HintText" style="width: 340px;color: #777;text-align: center;"></div>
+                                </div>   
+                                <table border="0" width="100%" cellpadding="2" cellspacing="0" style="display: none; opacity: 0;">
+                                    <tr>
+                                        <td width="10">&nbsp;</td>
+                                        <td width="10">&nbsp;</td>
+                                        <td width="50%" align="left" valign="middle"><b>Produkt</b></td>
+                                        <td align="right" valign="middle" width="150"><b>Artikelnummer</b></td>
+                                        <td align="right" valign="middle" width="100"><b>Preis</b>&nbsp;</td>
+                                    </tr>
+                                    <br />
+                                </table>
+                            {% else %}
+                                <p>There are no products</p>
+                            {% endfor %}                          
+                                <div style="height: 330px; margin-top: 38px; ">
+                                    <h2 class="normal" style="margin-top: 18px; width: 417px; margin-left: -63px;">Der Purmeo Check</h2>
+                                    <hr style="margin-left: -63px!important; width: 417px;"/>
+                                    <div style="margin: 20px 0 0 -40px;">
+                                        <div class="row">
+                                            <img src="{{ asset('media/shared/Homepage-Design/bfcl_check_preview.png') }}" alt="Die Purmeo Diaet" title="Die Purmeo Diaet" width="430"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="height: 330px; ">
+                                    <h2 class="normal" style="margin-top: 18px; width: 417px; margin-left: -63px;">Purmeo erkl&auml;rt in 40 Sekunden</h2>
+                                    <hr style="margin-left: -63px!important; width: 417px;"/>
+                                    <div style="margin: 20px 0 0 -40px;">
+                                        <div class="row">
+                                            <iframe width="400" height="225" src="http://www.youtube.com/embed/IqDIZLbnzCU?rel=0" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+.step-item {behavior: url(css/PIE.htc);}
+.selectArea .center {behavior: url(css/PIE.htc);}
+.form-1 .text {behavior: url(css/PIE.htc);}
+.step-item {
+	zoom:1;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+}
+* +html .form-1 .icon em {
+	position:relative;
+	display:block;
+}
+* +html .form-1 .icon .mdl {
+	position:absolute;
+	top:50%;
+	height:auto;
+}
+* +html .form-1 .icon img {
+	position:relative;
+	top:-50%;
+}
+.optionsDivVisible ul {zoom:1;}
+.tooltip-c {zoom:1;}
+.form-1 .row .holder {zoom:1;}
+.form-1 .row .holder-2 {zoom:1;}
+.form-1 .row .holder-3 {zoom:1;}
+.form-1 .btn-holder {zoom:1;}

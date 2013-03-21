@@ -1,0 +1,1661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta name="keywords" content="Purmeo, individuelle Vitamine, individuelle Nahrungsergänzungsmittel, Nahrungsergänzungsmittel, Vitamine, Mineralstoffe, NEM">
+<meta name="description" content="Vitamine und Mineralstoffe individualisiert von Purmeo. Mit dem kostenlosen Purmeo Check den Vitaminhaushalt überprüfen und mit Purmeo gezielt ausgleichen.">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="copyright" content="Purmeo">
+<meta name="robots" content="noindex, nofollow">
+<meta name="language" content="Deutsch">
+<title>Individuellen Vitaminbedarf testen mit dem kostenlosen Purmeo Check // PURMEO - Purmeo</title>
+<link href="http://www.purmeo.de/favicon.ico" rel="shortcut icon">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.purmeo.de/js/autoscaling-menu.js"></script>
+
+<style type="text/css">
+@font-face {
+	font-family: 'AllerBold';
+	src: url('/fonts/aller_bd-webfont.eot');
+	src: url('/fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/aller_bd-webfont.woff') format('woff'),
+		url('/fonts/aller_bd-webfont.ttf') format('truetype'),
+		url('/fonts/aller_bd-webfont.svg#AllerBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'AllerLightRegular';
+    src: url('/fonts/aller_lt-webfont.eot');
+    src: url('/fonts/aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/aller_lt-webfont.woff') format('woff'),
+         url('/fonts/aller_lt-webfont.ttf') format('truetype'),
+         url('/fonts/aller_lt-webfont.svg#AllerLightRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+	
+	/* General Reset */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, th, hr, button{
+		margin:0;
+		padding:0;
+		border:0;
+		outline:0;
+		font-size:100%;
+	/*	vertical-align: baseline; */
+		background:none;
+	}
+	tr, td { font-size:100%; }
+	
+	
+	ol, ul {list-style:none;}
+	h1, h2, h3, h4, h5, h6, li {line-height:100%;}
+	blockquote, q {quotes:none;}
+	q:before,
+	q:after {content:"";}
+	table {border-collapse:collapse; border-spacing:0;}
+	input,textarea,select{
+		font:11px Arial, Helvetica, sans-serif;
+		vertical-align:middle;
+		padding:0;
+		margin:0;
+	}
+	form,fieldset{border-style:none;}
+	
+	a:link,
+	a:visited,
+	a:active,
+	a:focus   { color:#403f3f; text-decoration:none; outline:none; }
+	a:hover   { color:#67B32D; text-decoration:none; }
+	
+	html,body
+	{
+		color:#403f3f;
+	 	background-color:#FFFFFF;
+		font:13px/15px  AllerLightRegular, "Trebuchet MS", Helvetica, sans-serif;
+		width:100%;
+		margin:0px;
+		padding:0px;
+		overflow-x:hidden; 
+		line-height:150%;
+	}
+	
+	body { 
+	  scrollbar-base-color:#E2E2E2;
+	  scrollbar-3dlight-color:#000000;
+	  scrollbar-arrow-color:#000000;
+	  scrollbar-darkshadow-color:#000000;
+	  scrollbar-face-color:#E2E2E2;
+	  scrollbar-highlight-color:#FFFFFF;
+	  scrollbar-shadow-color:#E2E2E2;
+	  scrollbar-track-color:#E2E2E2; 
+	}
+	
+	td	{ font-size:100%; }
+	
+	a 									{ text-decoration: none; border:0; }
+	a img             					{ border:none; }
+	select, textarea, input				{ border:1px solid #747474; }
+
+	.clear		{ clear: both; }
+	.left		{ float: left; }
+	.right		{ float: right; }
+	.required	{ }
+	
+	/* --------------------------------Purmeo ---------------------- */
+	
+	.pm_QuestWarning		{ color:#F00000; }
+	.pm_QuestError			{ color:#F00000; padding-left:8px; font-weight:bold; }
+	
+	#pm_Results h2	{ font-size:160%; font-weight:bold; }
+	#pm_Results h3	{ font-size:140%; font-weight:normal; }
+	
+	#pm_Results ul	{ list-style:disc; padding-left:20px; }
+	#pm_Results li	{ padding-top:4px; padding-bottom:4px; line-height:150%; }
+	#pm_Results ol	{ list-style:decimal; padding-left:32px; }
+	
+	/* General settings */
+
+	/* check-block */
+	.check-block {
+		padding:0;
+		width:753px;
+		position:relative;
+	}
+	.check-block strong {
+		font-weight:normal;
+		font-family:'AllerBold';
+	}
+	#main .check-block h1 {
+		min-height:106px;
+		background:url(http://www.purmeo.de/images/img-02.png) no-repeat 50% 0;
+		text-align:left;
+		font:33px/31px 'AllerBold';
+		text-transform:uppercase;
+		color:#403f3f;
+		margin:0 0 10px;
+		padding:10px 0 0;
+	}
+	.t-block {
+		font-size:12px;
+		line-height:16px;
+		padding:0 0 13px;
+	}
+	.t-block p {margin:0 0 6px;}
+	#main .check-block h2 {
+		margin:0 0 21px;
+		color:#7fad00;
+		font-size:16px;
+		line-height:19px;
+		font-weight:normal;
+		font-family:'AllerBold';
+		text-align:left;
+	}
+	.list {
+		top:157px;
+		left:50%;
+		margin:0 0 0 400px;
+		position:fixed;
+		color:#807a7a;
+	}
+	.list li {
+		font-size:30px;
+		line-height:30px;
+		font-weight:bold;
+		padding:0 37px 0 0;
+		text-shadow:-1px -1px 1px #3f4d2d;
+	}
+	.list .checked {
+		color:#96c11f;
+		text-shadow:-1px -1px 1px #4a7a0c;
+		background:url(http://www.purmeo.de/images/bul-01.png) no-repeat 100% 0;
+	}
+	.step-item {
+		margin:0 0 28px;
+		border:1px solid #bcbcbc;
+		-webkit-border-radius:6px;
+		-moz-border-radius:6px;
+		border-radius:6px;
+		-webkit-box-shadow:1px 2px 4px 0 #7a7a7a;
+		-moz-box-shadow:1px 2px 4px 0 #7a7a7a;
+		box-shadow:1px 2px 4px 0 #7a7a7a;
+		position:relative;
+		background: #ffffff;
+		background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed));
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+		background: -o-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+		background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+		background: linear-gradient(top,  #ffffff 0%,#ededed 100%);
+	}
+	.step-item .top {
+		padding:0 115px 0 80px;
+		min-height:65px;
+		background:url(http://www.purmeo.de/images/bg-shadow-2.png) no-repeat 50% -1px;
+		color:#9e9e9e;
+		font-size:15px;
+		line-height:18px;
+	}
+	.step-item .top:after {
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.step-item .top img {
+		position:absolute;
+		top:-2px;
+		left:5px;
+	}
+	.step-item .step-name {
+		display:block;
+		padding:18px 0 0;
+		color:#403f3f;
+		font-size:18px;
+		line-height:21px;
+		text-transform:uppercase;
+		cursor:pointer;
+	}
+	.step-item .step {
+		position:absolute;
+		width:115px;
+		top:19px;
+		right:0;
+		text-align:center;
+		font-size:25px;
+		line-height:28px;
+	}
+	.step-item .step-check {
+		width:59px;
+		height:39px;
+		background:url(http://www.purmeo.de/images/ico-01.png) no-repeat;
+		position:absolute;
+		top:15px;
+		right:20px;
+		text-indent:-9999px;
+		overflow:hidden;
+	}
+	.step-item-blue .step {
+		color:#6a8ee0;
+		text-shadow:0 -1px 1px #345a52;
+	}
+	.step-item-red .step {
+		color:#cb2954;
+		text-shadow:0 -1px 1px #631a1f;
+	}
+	.step-item-yel .step {
+		color:#fbba00;
+		text-shadow:0 -1px 1px #7b7500;
+	}
+	.step-item .top p {padding:0 0 10px;}
+	.list-2 {
+		margin:-12px 0 0;
+		padding:0 0 0 81px;
+		position:relative;
+	}
+	.list-2 li {
+		font-size:13px;
+		line-height:15px;
+	}
+	.form-1 {width:100%;}
+	.form-1 .row {
+		background:url(http://www.purmeo.de/images/bg-shadow-2.png) no-repeat 50% 0;
+		min-height:56px;
+		padding:12px 0 0;
+	}
+	.form-1 .row:after {
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.step-item-red .row {padding-top:18px;}
+	.step-item-yel .row {padding-top:18px;}
+	.form-1 .row-2 {padding:28px 14px 13px 76px;}
+	.form-1 .icon {
+		float:left;
+		margin:-12px 0 0;
+	}
+	.form-1 .icon em {
+		width:73px;
+		height:68px;
+		display:table;
+	}
+	.form-1 .icon-2 em {width:28px;}
+	.form-1 .icon .mdl {
+		display:table-cell;
+		width:100%;
+		height:100%;
+		text-align:center;
+		vertical-align:middle;
+	}
+	.form-1 .icon img {vertical-align:top;}
+	.form-1 .lbl {
+		display:block;
+		padding:0 0 10px 7px;
+		font-size:14px;
+		line-height:17px;
+		font-family:'AllerBold';
+		color:#414141;
+		overflow:hidden;
+	}
+	.form-1 .radio-row {overflow:hidden;}
+	.form-1 .row .holder {padding:0 0 5px;}
+	.form-1 .row .holder-2 {padding:0 0 10px;}
+	.form-1 .row .holder-3 {padding:0 0 4px;}
+	.form-1 .row .holder:after,
+	.form-1 .row .holder-2:after,
+	.form-1 .row .holder-3:after {
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.form-1 .radioArea,
+	.form-1 .radioAreaChecked {margin:0 9px 0 7px;}
+	.form-1 .checkboxArea,
+	.form-1 .checkboxAreaChecked {margin:-3px 0 0 7px;}
+	.step-item-red .form-1 .radioAreaChecked {background-position:0 -76px;}
+	.step-item-yel .form-1 .radioAreaChecked {background-position:0 -114px;}
+	.form-1 .radio-row label {
+		float:left;
+		padding:1px 37px 1px 0;
+		font-size:13px;
+		line-height:16px;
+	}
+	/* .form-1 select {width:208px;} */
+	.form-1 .selectArea {margin:9px 5px 0 0;}
+	.form-1 .text {
+		width:206px;
+		height:31px;
+		overflow:hidden;
+		padding:0;
+		float:left;
+		background:#fff;
+		border:1px solid #989898;
+		border-color:#989898 #fff #fff #989898;
+		-webkit-border-radius:14px;
+		-moz-border-radius:14px;
+		border-radius:14px;
+		-webkit-box-shadow:inset 2px 2px 4px 0 #ababab;
+		-moz-box-shadow:inset 2px 2px 4px 0 #ababab;
+		box-shadow:inset 2px 2px 4px 0 #ababab;
+		position:relative;
+		margin:9px 0 0;
+	}
+	.form-1 .text strong {
+		float:left;
+		width:105px;
+		color:#414141;
+		font-size:15px;
+		line-height:31px;
+		padding:0 0 0 15px;
+	}
+	.form-1 .text input {
+		float:left;
+		margin:0;
+		padding:7px 0px 7px 0px;
+		border:0;
+		background:none;
+		width:68px;
+		color:#5f5f5f;
+		font-size:14px;
+		line-height:17px;
+	}
+	
+	.form-1 .textsmall {
+		width:50px;
+		margin:9px 10px 0px;
+	}
+	.form-1 .textsmall input {
+		width:32px;
+	}
+	
+	
+	
+	
+	.form-1 .text-2 input {
+		width:170px;
+		padding:7px 18px;
+		font-size:13px;
+		line-height:16px;
+	}
+	.form-1 .btn-submit {
+		float:right;
+		margin:9px 10px 0 0;
+		padding:0 0 4px;
+		border:0;
+		cursor:pointer !important;
+		background:url(http://www.purmeo.de/images/btn-4.png) no-repeat;
+		width:153px;
+		height:38px;
+		text-transform:uppercase;
+		color:#fff;
+		font-size:13px;
+		line-height:31px;
+		font-weight:bold;
+		text-shadow:-1px -1px 1px #7d9e95;
+		position:relative;
+		text-align:center;
+		text-decoration:none;
+		font-family:Arial,Helvetica,sans-serif;
+	}
+	.step-item-red .form-1 .btn-submit {
+		background:url(http://www.purmeo.de/images/btn-5.png) no-repeat;
+		text-shadow:-1px -1px 1px #9e5c51;
+	}
+	.step-item-yel .form-1 .btn-submit {
+		background:url(http://www.purmeo.de/images/btn-6.png) no-repeat;
+		text-shadow:-1px -1px 1px #b6ab0a;
+		width:163px;
+	}
+	.form-1 .btn-holder {padding:0 0 11px;}
+	.form-1 .btn-holder:after {
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.form-1 .btn-holder .btn-submit {margin-top:-36px;}
+	.form-1 .offset-1 {margin-top:-14px;}
+	.bubbleInfo {
+		position:relative;
+		z-index:40;
+	}
+	.tooltip {
+		width:304px;
+		background:url(http://www.purmeo.de/images/bg-tooltip.png) no-repeat;
+		padding:52px 0 0 12px;
+		display:none;
+		position:absolute;
+	}
+	.tooltip-b {
+		width:100%;
+		background:url(http://www.purmeo.de/images/bg-tooltip.png) no-repeat -320px 100%;
+		padding:0 0 54px;
+		display:block;
+	}
+	.tooltip-c {
+		padding:0 22px 0 18px;
+		background:url(http://www.purmeo.de/images/bg-tooltip.png) repeat-y -630px 0;
+		display:block;
+	}
+	.tooltip-c:after {
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.tooltip-frame {
+		float:left;
+		width:100%;
+		position:relative;
+		margin:-40px 0 -35px;
+		font-size:12px;
+		line-height:16px;
+		color:#414141;
+	}
+	/* wrapper end */
+	.outtaHere {
+		position:absolute;
+		left:-3000px;
+	}
+	/*Radio buttons*/
+	.radioArea, .radioAreaChecked {
+		float:left;
+		width:18px;
+		height:18px;
+		background:url(http://www.purmeo.de/images/bg-radio.png) no-repeat;
+		overflow:hidden;
+		cursor:pointer;
+	}
+	.radioAreaChecked {background-position:0 -38px;}
+	/*Checkboxes*/
+	.checkboxArea, .checkboxAreaChecked {
+		float:left;
+		width:24px;
+		height:19px;
+		overflow:hidden;
+		background-color:#090;
+		background:url(http://www.purmeo.de/images/bg-checkbox.png) no-repeat 0 4px;
+		cursor:pointer;
+	}
+	.checkboxAreaChecked {background-position:0 -39px;}
+	/* Selects */
+	.selectArea {
+		position:relative;
+		height:33px;
+		float:left;
+		color:#414141;
+		font-size:13px;
+		line-height:33px;
+		z-index:31;
+	}
+	.selectArea .left {display:none;}
+
+	.selectArea a.selectButton {
+		position:absolute;
+		top:0;
+		left:0px;
+		width:200px;
+		height:100%;
+		background:url(http://www.purmeo.de/images/btn-sel.png) no-repeat 0 50%;
+		background-position:right;
+	}
+	
+	
+	
+	.selectArea .center {
+		height:31px;
+		line-height:33px;
+		font-family:'AllerBold';
+		display:block;
+		padding:0 26px 0 18px;
+		background:#fff;
+		border:1px solid #989898;
+		border-color:#ccc #fff #fff #ccc;
+		-webkit-border-radius:14px;
+		-moz-border-radius:14px;
+		border-radius:14px;
+		-webkit-box-shadow:inset 2px 2px 4px 0 #ababab;
+		-moz-box-shadow:inset 2px 2px 4px 0 #ababab;
+		box-shadow:inset 2px 2px 4px 0 #ababab;
+		position:relative;
+	}
+	/*Selects drop-down*/
+	.optionsDivInvisible,
+	.optionsDivVisible {
+		position:absolute;
+		display:block;
+		z-index:30;
+		font-size:13px;
+	}
+	.optionsDivInvisible {display:none;}
+	.optionsDivVisible ul {
+		margin:-2px 0 0 5px;
+		padding:3px 1px 1px;
+		list-style:none;
+		background:#fff;
+		border:1px solid #ccc;
+		border-right-color:#fff;
+		border-top:0;
+		background:#fff;
+	}
+	.optionsDivVisible a {
+		color:#000;
+		text-decoration:none;
+		display:block;
+		height:1%;
+		padding:3px 14px;
+	}
+	.optionsDivVisible a:hover {
+		background-color:#989898;
+		color:#fff;
+		text-decoration:none;
+	}
+	
+	h1       { 	font-size:49px;
+				letter-spacing:-1px;
+				margin-bottom:22px;
+			 }
+	h2       { 	font-size:30px;
+				letter-spacing:-1px;
+				margin-bottom:16px;
+			 }
+	h3 {	font-size:18px;
+			letter-spacing:1px;
+			margin-bottom:14px;
+			}
+	
+	hr {
+		clear:both;
+		border:none;
+		height:30px;
+		background: url(http://www.purmeo.de/images/bg-shadow.gif) no-repeat 0 100%;
+		text-indent:-9999px;
+		overflow:hidden;
+	}
+
+	.cursorhand{ cursor:pointer; }
+</style>
+
+</head>
+<body>
+
+
+<script type="text/javascript">
+var interpretor = new Array();
+interpretor["GENDER"] = new Array();
+interpretor["GENDER"][2] = "Geschlecht: weiblich";
+interpretor["GENDER"][1] = "Geschlecht: männlich";
+interpretor["GENDER"][0] = "Bitte geben Sie ihr Geschlecht an.";
+interpretor["WEIGHT"] = new Array();
+interpretor["WEIGHT"][0] = "Bitte geben Sie ihr Gewicht an (Zahl zwischen 1 und 299).";
+interpretor["HEIGHT"] = new Array();
+interpretor["HEIGHT"][0] = "Bitte geben Sie ihre Größe an.";
+interpretor["BIRTHDAY"] = new Array();
+interpretor["BIRTHDAY"][0] = "Bitte Geburtstag angeben (tt.mm.jjjj)";
+interpretor["SPORT"] = new Array();
+interpretor["SPORT"][3] = "Sport: deutlich mehr als 3-5 Stunden die Woche";
+interpretor["SPORT"][2] = "Sport: nein";
+interpretor["SPORT"][1] = "Sport: ja, 3-5 Stunden die Woche";
+interpretor["SPORT"][0] = "Bitte machen Sie Angaben zum Sport";
+interpretor["SMOKER"] = new Array();
+interpretor["SMOKER"][2] = "Nichtraucher";
+interpretor["SMOKER"][1] = "Raucher";
+interpretor["SMOKER"][0] = "Bitte machen Sie Angaben zum Rauchen";
+interpretor["DRINK"] = new Array();
+interpretor["DRINK"][2] = "Alkohol: Nein, ich trinke keinen Alkohol";
+interpretor["DRINK"][1] = "Alkohol: Ja, ein Glas Bier oder einen Cocktail ab und zu";
+interpretor["DRINK"][0] = "Bitte machen Sie Angaben zum Trinken";
+interpretor["DREAM"] = new Array();
+interpretor["DREAM"][1] = "Schlaf: Ja, ich schlafe ruhig und ausreichend lange.";
+interpretor["DREAM"][2] = "Schlaf: Nein, ich habe häufig Schlafprobleme.";
+interpretor["DREAM"][3] = "Schlaf: Ich habe ab und zu einen unruhigen und zu kurzen Schlaf";
+interpretor["DREAM"][0] = "Bitte machen Sie Angaben zu ihrem Schlaf.";
+interpretor["STRESS"] = new Array();
+interpretor["STRESS"][2] = "Stress: Nein";
+interpretor["STRESS"][1] = "Stress: Ja";
+interpretor["STRESS"][0] = "Bitte machen Sie Angaben zu ihrem Stress.";
+interpretor["PREGNANT"] = new Array();
+interpretor["PREGNANT"][1] = "Schwanger: Ja";
+interpretor["PREGNANT"][3] = "Schwanger: Ich befinde mich in der Stillzeit";
+interpretor["PREGNANT"][2] = "Schwanger: Nein";
+interpretor["PREGNANT"][0] = "Bitte geben Sie an ob Sie schwanger sind";
+interpretor["GRAIN"] = new Array();
+interpretor["GRAIN"][6] = "Vollkornprodukte: 6-7 mal die Woche";
+interpretor["GRAIN"][3] = "Vollkornprodukte: 3-5 mal die Woche";
+interpretor["GRAIN"][1] = "Vollkornprodukte: 1-2 mal die Woche";
+interpretor["GRAIN"][0] = "Bitte machen Sie angaben zu Vollkornprodukten";
+interpretor["FRUIT"] = new Array();
+interpretor["FRUIT"][0] = "Bitte machen Sie angaben zu Obst";
+interpretor["FRUIT"][1] = "Obst: Ja, ich esse mehrmals täglich frisches Obst.";
+interpretor["FRUIT"][3] = "Obst: Oft, aber nicht täglich.";
+interpretor["FRUIT"][2] = "Obst: Nein, ich esse nur selten Obst.";
+interpretor["SALAD"] = new Array();
+interpretor["SALAD"][0] = "Bitte machen Sie angaben zu Gemüse";
+interpretor["SALAD"][1] = "Gemüse: ja, täglich 3 Portionen";
+interpretor["SALAD"][3] = "Gemüse: 1-2 Portionen täglich";
+interpretor["SALAD"][2] = "Gemüse: nicht täglich";
+interpretor["MEAT"] = new Array();
+interpretor["MEAT"][0] = "Bitte machen Sie angaben zu Fleisch";
+interpretor["MEAT"][1] = "Fleisch: täglich";
+interpretor["MEAT"][3] = "Fleisch: 2-3 Mal pro Woche";
+interpretor["MEAT"][2] = "Fleisch: Gelegentlich bis nie";
+interpretor["FISH"] = new Array();
+interpretor["FISH"][0] = "Bitte machen Sie angaben zu Fisch";
+interpretor["FISH"][1] = "Fisch: einmal pro Woche ";
+interpretor["FISH"][2] = "Fisch: nicht jede Woche";
+interpretor["MILK"] = new Array();
+interpretor["MILK"][0] = "Bitte machen Sie angaben zu Milch";
+interpretor["MILK"][1] = "Milch: täglich";
+interpretor["MILK"][2] = "Milch: nicht jeden Tag";
+interpretor["WATER"] = new Array();
+interpretor["WATER"][0] = "Bitte machen Sie angaben zu energiefreie Flüssigkeiten";
+interpretor["WATER"][1] = "Flüssigkeiten: min. 2 Liter täglich";
+interpretor["WATER"][2] = "Flüssigkeiten: weniger als 2 Liter täglich";
+interpretor["FASTFOOD"] = new Array();
+interpretor["FASTFOOD"][0] = "Bitte machen Sie angaben zu Fertiggerichten";
+interpretor["FASTFOOD"][1] = "Fertiggerichte: mehr als 4 Mal pro Woche";
+interpretor["FASTFOOD"][3] = "Fertiggerichte: 3-4 Mal pro Woche";
+interpretor["FASTFOOD"][2] = "Fertiggerichte: selten bis nie";
+interpretor["SWEETS"] = new Array();
+interpretor["SWEETS"][0] = "Bitte machen Sie angaben zu Süßigkeiten";
+interpretor["SWEETS"][1] = "Süßigkeiten: teile Ich über die Woche ein";
+interpretor["SWEETS"][2] = "Süßigkeiten: keine bewußte Einteilung";
+interpretor["DIET"] = new Array();
+interpretor["DIET"][0] = "Bitte machen Sie angaben zu Diäten";
+interpretor["DIET"][1] = "Diäten: häufig";
+interpretor["DIET"][2] = "Diäten: selten bis nie";
+interpretor["OIL"] = new Array();
+interpretor["OIL"][0] = "Bitte machen Sie angaben zu Ölen";
+interpretor["OIL"][1] = "Öle: täglich";
+interpretor["OIL"][2] = "Öle: nicht täglich";
+</script>
+
+<script type="text/javascript">
+var ar_error = new Array();
+ar_error["HEALTHQUEST"] = "0";
+ar_error["BIRTHDAY"] = "0";
+</script>
+
+
+<script type="text/javascript" src="http://www.purmeo.de/js/form.js"></script>
+
+
+<script type="text/javascript">
+
+//Hilfsfunktion 
+//Ermittelt ob eine Element in einem Array ist
+function in_array(item,arr) {
+for(p=0;p<arr.length;p++) if (item == arr[p]) return true;
+return false;
+}
+
+// Ermittelt ob alle Daten eines Steps (1-3) gültig sind
+function check_step(Step_number){
+var step_1 = new Array("GENDER","WEIGHT","BIRTHDAYDAY","BIRTHDAY","HEIGHT");
+var step_2 = new Array("SPORT","SMOKER","DRINK","DREAM","STRESS","PREGNANT");
+var step_3 = new Array("GRAIN","FRUIT","SALAD","MEAT","FISH","MILK","WATER","FASTFOOD","SWEETS","DIET","OIL","HEALTHQUEST");
+var res = true;
+
+if(Step_number == 1){
+for(var i=0; i < step_1.length; i++){
+ if(check_data(step_1[i]) == false) {res = false;} 
+ }
+}else if(Step_number == 2){
+for(var i=0; i<step_2.length; i++){
+ if(check_data(step_2[i]) == false) {res = false;}
+  }
+}else if(Step_number == 3){
+for(var i=0; i<step_3.length; i++){
+if(check_data(step_3[i]) == false) {res = false;} 
+}
+}else{res = false;}
+
+return res;
+}
+
+// Ermittelt den Wert eine Variablen anhand des Post Namen
+function get_value(post_name){
+var res = 0;
+var typ = '';
+var step = '';
+//Definition step
+var step_1 = new Array("GENDER","WEIGHT","BIRTHDAYDAY","BIRTHDAYMONTH","BIRTHDAYYEAR","HEIGHT");
+var step_2 = new Array("SPORT","SMOKER","DRINK","DREAM","STRESS","PREGNANT");
+var step_3 = new Array("GRAIN","FRUIT","SALAD","MEAT","FISH","MILK","WATER","FASTFOOD","SWEETS","DIET","OIL","NOTHING","IODINE","DEPRESSION","IRON","DIABETES","BLOOD","METABOLISM","HIGHBLOOD","FAT","EPILEPSY","RHEUMA");
+
+
+//Definition typ
+var typ_radio = new Array("GENDER","SPORT","SMOKER","DRINK","DREAM","STRESS","PREGNANT","GRAIN","FRUIT","SALAD","MEAT","FISH","MILK","WATER","FASTFOOD","SWEETS","DIET","OIL");
+var typ_text = new Array("WEIGHT","BIRTHDAYDAY","BIRTHDAYMONTH","BIRTHDAYYEAR");
+var typ_select = new Array("HEIGHT");
+var typ_checkbox = new Array("NOTHING","IODINE","DEPRESSION","IRON","DIABETES","BLOOD","METABOLISM","HIGHBLOOD","FAT","EPILEPSY","RHEUMA");
+
+//step
+if(in_array(post_name,step_1)){step = "step-item-blue";}
+if(in_array(post_name,step_2)){step = "step-item-red";}
+if(in_array(post_name,step_3)){step = "step-item-yel";}
+
+//typ
+if(in_array(post_name,typ_radio)){typ = 'radio';}
+if(in_array(post_name,typ_text)){typ = 'input_text';}
+if(in_array(post_name,typ_select)){typ = 'select';}
+if(in_array(post_name,typ_checkbox)){typ = 'checkbox';}
+
+//Checkboxen
+if(typ == 'radio' || typ == 'checkbox'){
+if(post_name == "PREGNANT"){
+//Männer sind nicht Schwanger
+if(get_value("GENDER") == 1){res = 2;}else{
+res = $('.'+step+' input[name="'+post_name+'"]:checked').val();
+}
+}else{
+res = $('.'+step+' input[name="'+post_name+'"]:checked').val();
+}
+}
+// input type text
+if(typ == 'input_text'){
+res = $('.'+step+' input[name="'+post_name+'"]').val();
+}
+if(typ == 'select'){
+res =  $('.'+step+' select[name="'+post_name+'"]').val();
+}
+return res;
+}
+
+// Ermittelt die Gültigkeit einer Variablen anhand des Post Namen
+// Außname:  Für Geburtstag (3 Werte) wird "BIRTHDAY" verwendet
+// Außname:  Für Gesundheitsinfo (10 Werte) wird "HEALTHQUEST" verwendet
+function check_data(post_name){
+if(post_name != "BIRTHDAY" && post_name != "HEALTHQUEST"){
+var value = get_value(post_name);
+}else if (post_name == "BIRTHDAY") { // Birthday wird aus 3 Post feldern ermittelt
+var day = get_value("BIRTHDAYDAY");
+var month = get_value("BIRTHDAYMONTH");
+var year = get_value("BIRTHDAYYEAR");
+}else if( post_name == "HEALTHQUEST"){
+var nothing = get_value("NOTHING");
+var ar_health_other = new Array("IODINE","DEPRESSION","IRON","DIABETES","BLOOD","METABOLISM","HIGHBLOOD","FAT","EPILEPSY","RHEUMA");
+var healt_other = false;
+for(p = 0; p < ar_health_other.length; p++){
+if(get_value(ar_health_other[p]) == 1){healt_other = true;}
+}
+
+}
+var value_is_number = !isNaN(value);
+//Standart checkboxen 1,2,3
+var typ_radio = new Array("GENDER","SPORT","SMOKER","DRINK","DREAM","STRESS","PREGNANT","GRAIN","FRUIT","SALAD","MEAT","FISH","MILK","WATER","FASTFOOD","SWEETS","DIET","OIL");
+
+if( in_array(post_name,typ_radio) ){
+if(value == 1 || value == 2 || value == 3 || value == 6){return true;}else{return false;}
+}
+//Spezial Checks
+if(post_name == "WEIGHT"){
+if(value > 0 && value < 300 && value_is_number){return true;}
+else{return  false;}
+}
+if(post_name == "HEIGHT"){
+if(value > 0){return true;}
+else{return  false;}
+}
+if(post_name == "BIRTHDAY"){
+if(day > 0 && day <= 31 && !isNaN(day)){var value_day = day;}
+if(month > 0 && month <= 12 && !isNaN(month)){var value_month = month;}
+if(year >= 1900 && !isNaN(year)){var value_year = year;}
+if(value_day && value_month && value_year){return true;}
+else{return false;}
+}
+if(post_name == "HEALTHQUEST"){
+if(nothing == 1 || healt_other){return true;} 
+else{return false;}
+}
+}
+
+
+// Ermittelt Ergebnis String eine Variablen anhand des Post Namen
+// Außname:  Für Geburtstag wird "BIRTHDAY" verwendet
+// Die Daten werden anhand des interpretor zurückgegeben 
+// dieser kann unter cmmp/libs/subsys/prumeo_quest/purmeo_quest.class.php -> protected function data_interpretor() geändert werden
+function data_result_str(post_name){
+if(post_name != "BIRTHDAY"){
+var value = get_value(post_name);
+}else{// Birthday wird aus 3 Post feldern ermittelt
+var day = get_value("BIRTHDAYDAY");
+var month = get_value("BIRTHDAYMONTH");
+var year = get_value("BIRTHDAYYEAR");
+}
+var value_is_number = !isNaN(value); //isNaN -> is Not a Number = true wenn keine Zahl :-( JavaScript  
+var typ_check = new Array("GENDER","SPORT","SMOKER","DRINK","DREAM","STRESS","PREGNANT");
+
+if( in_array(post_name,typ_check) ){
+if(check_data(post_name)){return interpretor[post_name][value];}else{return '<div class="pm_QuestWarning">'+interpretor[post_name][0]+'</div>';}
+}
+
+//Spezial Ergebnisse
+if(post_name == "WEIGHT"){
+if(check_data(post_name)){return 'Körpergewicht: ' + value +' kg';}
+else{return '<div class="pm_QuestWarning">'+interpretor["WEIGHT"][0]+'</div>';}
+}
+
+if(post_name == "HEIGHT"){
+if(value > 0){return 'körpergröße: '+ (value-5)+' - ' + value +' cm';}
+else{return  '<div class="pm_QuestWarning">'+interpretor["HEIGHT"][0]+'</div>';}
+}
+
+if(post_name == "BIRTHDAY"){
+if(day > 0 && day <= 31 && !isNaN(day)){var value_day = day;}
+if(month > 0 && month <= 12 && !isNaN(month)){var value_month = month;}
+if(year >= 1900 && !isNaN(year)){var value_year = year;}
+if(value_day && value_month && value_year){return 'Geburtstag: ' + value_day + '.' + value_month + '.' + value_year;}
+else{return '<div class="pm_QuestWarning">'+interpretor["BIRTHDAY"][0]+'</div>';}
+}
+
+}
+
+function set_checks(){
+if(check_step(1)){$('ul.list li:first').addClass('checked');}else{$('ul.list li:first').removeClass('checked');}
+if(check_step(2)){$('ul.list li:nth-child(2)').addClass('checked');}else{$('ul.list li:nth-child(2)').removeClass('checked');}
+if(check_step(3)){$('ul.list li:nth-child(3)').addClass('checked');}else{$('ul.list li:nth-child(3)').removeClass('checked');}
+}
+
+$(document).ready(function() {
+$('.bubbleInfo').hover(function(){
+
+$(this).css('z-index', '100');
+},function(){
+$(this).css('z-index', '40');
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.step-item-blue .hide-on-load').hide();
+$('.step-item-red .hide-on-load').hide();
+$('.step-item-yel .hide-on-load').hide();
+set_checks();
+// weiter blue
+$('.step-item-blue .btn-submit').click(function(){
+$('.step-item-blue .form-1').hide();
+$('.step-item-blue .hide-on-load').show();
+$('.step-item-blue .step').hide();
+$('.step-item-blue .step-check').show();
+$('.step-item-red .hide-on-load').show();
+$('.step-item-red .step-check').hide();
+$('.step-item-red .hide-on-active').hide();
+//Schwanger ausblenden für Mann
+if(get_value("GENDER") == 1){$('.step-item-red .hide-on-load .pregnat').hide();}
+else{$('.step-item-red .hide-on-load .pregnat').show();} 
+
+//$('ul.list li:first').addClass('checked');
+set_checks();
+$('.step-item-blue ul.list-2 li:first').html(data_result_str("GENDER"));
+$('.step-item-blue ul.list-2 li:nth-child(2)').html(data_result_str("WEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(3)').html(data_result_str("HEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(4)').html(data_result_str("BIRTHDAY"));
+return false;
+
+});
+// weiter red
+//$('.step-item-red .btn-submit, #open-yellow').click(function(){
+$('.step-item-red .btn-submit').click(function(){
+$('.step-item-red .hide-on-load').hide();
+$('.step-item-red .step').hide();
+$('.step-item-red .step-check').show();
+$('.step-item-yel .hide-on-load').show();
+$('.step-item-red .hide-on-active').show();
+//$('ul.list li:nth-child(2)').addClass('checked');
+set_checks();
+$('.step-item-red ul.list-2 li:first').html(data_result_str("SPORT"));
+$('.step-item-red ul.list-2 li:nth-child(2)').html(data_result_str("SMOKER"));
+$('.step-item-red ul.list-2 li:nth-child(3)').html(data_result_str("DRINK"));
+$('.step-item-red ul.list-2 li:nth-child(4)').html(data_result_str("DREAM"));
+$('.step-item-red ul.list-2 li:nth-child(5)').html(data_result_str("STRESS"));
+$('.step-item-red ul.list-2 li:nth-child(6)').html(data_result_str("PREGNANT"));
+
+//Schwanger ausblenden für Mann
+if(get_value("GENDER") == 1){
+$('.step-item-red ul.list-2 li:nth-child(6)').hide();
+}
+return false;
+});
+$('.step-item-yel .btn-submit').click(function(){
+$('ul.list li:nth-child(3)').addClass('checked');
+});
+// bearbeiten blue
+$('.step-item-blue .hide-on-load .btn-submit, #open-blue').click(function(){
+$('.step-item-red .hide-on-load').hide();
+$('.step-item-yel .hide-on-load').hide();
+$('.step-item-blue .form-1').show();
+$('.step-item-blue .step').show();
+$('.step-item-red .step-check').hide();
+$('.step-item-blue .hide-on-load').hide();
+set_checks();
+//Punkte die bearbeitet werden haben keinen Hacken 
+$('ul.list li:first').removeClass('checked');
+//$('ul.list li:nth-child(2)').removeClass('checked');
+$('.step-item-red .step').show();
+return false;
+});
+// bearbeiten red
+$('.step-item-red .hide-on-active .btn-submit, #open-red').click(function(){
+$('.step-item-yel .hide-on-load').hide();
+//Schwanger ausblenden für Mann
+if(get_value("GENDER") == 1){$('.step-item-red .hide-on-load .pregnat').hide();}
+else{$('.step-item-red .hide-on-load .pregnat').show();} 
+set_checks();
+$('.step-item-blue ul.list-2 li:first').html(data_result_str("GENDER"));
+$('.step-item-blue ul.list-2 li:nth-child(2)').html(data_result_str("WEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(3)').html(data_result_str("HEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(4)').html(data_result_str("BIRTHDAY"));
+
+//Punkte die bearbeitet werden haben keinen Hacken 
+$('ul.list li:nth-child(2)').removeClass('checked');
+$('.step-item-blue .form-1').hide();
+$('.step-item-blue .hide-on-load').show();
+$('.step-item-blue .step').hide();
+$('.step-item-blue .step-check').show();
+$('.step-item-red .hide-on-load').show();
+$('.step-item-red .step-check').hide();
+$('.step-item-red .hide-on-active').hide();
+$('.step-item-red .step').show();
+
+return false;
+});
+
+// bearbeiten yellow sam
+$('#open-yellow').click(function(){
+$('.step-item-blue .form-1').hide();
+$('.step-item-blue .hide-on-load').show();
+$('.step-item-blue .step').hide();
+$('.step-item-blue .step-check').show();
+
+$('.step-item-red .hide-on-load').hide();
+$('.step-item-red .step').hide();
+$('.step-item-red .step-check').show();
+$('.step-item-red .hide-on-active').show();
+
+$('.step-item-yel .form-1').show();
+$('.step-item-yel .step').show();
+
+set_checks();
+
+$('.step-item-blue ul.list-2 li:first').html(data_result_str("GENDER"));
+$('.step-item-blue ul.list-2 li:nth-child(2)').html(data_result_str("WEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(3)').html(data_result_str("HEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(4)').html(data_result_str("BIRTHDAY"));
+
+$('.step-item-red ul.list-2 li:first').html(data_result_str("SPORT"));
+$('.step-item-red ul.list-2 li:nth-child(2)').html(data_result_str("SMOKER"));
+$('.step-item-red ul.list-2 li:nth-child(3)').html(data_result_str("DRINK"));
+$('.step-item-red ul.list-2 li:nth-child(4)').html(data_result_str("DREAM"));
+$('.step-item-red ul.list-2 li:nth-child(5)').html(data_result_str("STRESS"));
+
+$('.step-item-red ul.list-2 li:nth-child(6)').html(data_result_str("PREGNANT"));
+if(get_value("GENDER") == 1){
+$('.step-item-red ul.list-2 li:nth-child(6)').hide();
+}else{
+$('.step-item-red ul.list-2 li:nth-child(6)').show();
+}
+
+//Punkte die bearbeitet werden haben keinen Hacken 
+$('ul.list li:nth-child(3)').removeClass('checked');
+return false;
+});
+
+// Gesundheitsinfo Checkboxen "Nichts trifft auf mich zu"
+$('div.noprob').click(function() { 
+var ch = $('#lb48').is(':checked');
+if (ch == true) {
+$("#gesundheitsprobleme :checkbox").attr('checked', false);
+$("#gesundheitsprobleme div.checkboxAreaChecked").removeClass('checkboxAreaChecked').addClass('checkboxArea');
+}
+});
+
+//$('#gesundheitsprobleme :checkbox').change(function() {
+$('#gesundheitsprobleme div.prob').click(function() {
+$('#lb48').attr('checked', false);
+$('#keinegesundheitsprobleme div.checkboxAreaChecked').removeClass('checkboxAreaChecked').addClass('checkboxArea');
+});
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var Fehlerbehandlung = 0;
+if(Fehlerbehandlung == 1){
+$('.ergebnis_blue').hide();
+$('.ergebnis_red').hide();
+$('.form_blue').hide();
+$('.form_red').hide();
+$('.form_yel').hide();
+
+
+if(check_step(1)){
+$('.step-item-blue ul.list-2 li:first').html(data_result_str("GENDER"));
+$('.step-item-blue ul.list-2 li:nth-child(2)').html(data_result_str("WEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(3)').html(data_result_str("HEIGHT"));
+$('.step-item-blue ul.list-2 li:nth-child(4)').html(data_result_str("BIRTHDAY"));
+$('.ergebnis_blue').show();
+}else{
+$('.form_blue').show();
+}
+if(check_step(2)){
+$('.step-item-red ul.list-2 li:nth-child(6)').html(data_result_str("PREGNANT"));
+if(get_value("GENDER") == 1){
+$('.step-item-red ul.list-2 li:nth-child(6)').hide();
+}else{
+$('.step-item-red ul.list-2 li:nth-child(6)').show();
+}
+$('.step-item-red ul.list-2 li:first').html(data_result_str("SPORT"));
+$('.step-item-red ul.list-2 li:nth-child(2)').html(data_result_str("SMOKER"));
+$('.step-item-red ul.list-2 li:nth-child(3)').html(data_result_str("DRINK"));
+$('.step-item-red ul.list-2 li:nth-child(4)').html(data_result_str("DREAM"));
+$('.step-item-red ul.list-2 li:nth-child(5)').html(data_result_str("STRESS"));
+
+$('.ergebnis_red').show();
+}else{
+$('.form_red').show();
+}
+if(check_step(3)){
+}else{
+$('.form_yel').show();
+}
+}
+
+});
+</script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="all"/><![endif]-->
+<!--[if IE 9]><link rel="stylesheet" type="text/css" href="css/ie9.css" media="all"/><![endif]-->
+<form action="http://www.purmeo.de/index.html?vw=purmeo_quest&ec=questions&mnid=1&mnpt=1" method="post" target="_blank">
+
+<div class="check-block">
+
+
+<div class="step-item step-item-blue">
+<div class="top" id="open-blue">
+<img src="/images/img-01.png" alt="" width="66" height="64" />
+<strong class="step-name">BASISINFORMATIONEN</strong>
+<strong class="step">1 von 3</strong>
+<strong class="step-check hide-on-load">checked</strong>
+</div>
+<div class="form-1 form_blue">
+<fieldset>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger" src="/images/img-03.png" alt="Geschlecht" title="" width="33" height="45" /></span></em>
+<span class="tooltip" style="visibility:hidden;">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">1</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Geschlecht</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="GENDER" id="lb01" value="1"  />
+<label for="lb01">m&auml;nnlich</label>
+<input type="radio" class="radio" name="GENDER" id="lb02" value="2"   />
+<label for="lb02">weiblich</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><label class="mdl" for="lb03"><img class="trigger" src="/images/img-04.png" alt="Gewicht" title="" width="33" height="32" /></label></em>
+<span class="tooltip" style="visibility:hidden;">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">2</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">K&ouml;rpergewicht<span style="padding-left:38px;">K&ouml;rpergr&ouml;&szlig;e</span></strong>
+<div class="text textsmall" style="width:70px; margin-right:30px;">
+<input type="text" id="lb03" name="WEIGHT" value="" maxlength="3" style="margin-left:12px;" /><div style="padding-top:7px;">kg</div>
+</div>
+<!-- <div class="lbl" style="float:left; margin:16px 10px 0 0;"><strong style="width:20px;">kg</strong></div> -->
+<label class="icon icon-2 bubbleInfo" for="lb04">
+<em><span class="mdl"><img class="trigger" src="/images/img-06.png" alt="Gr&ouml;&szlig;e" title="" width="12" height="38" /></span></em>
+<span class="tooltip" style="visibility:hidden;">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">3</span>
+</span>
+</span>
+</span>
+</label>
+<select id="lb04" name="HEIGHT" class="sel" style="width:208px;">
+<option value="" selected="selected">K&ouml;rpergr&ouml;&szlig;e</option>
+<option value="145" >1,40-1,45 m</option>
+<option value="150" >1,45-1,50 m</option>
+<option value="155" >1,50-1,55 m</option>
+<option value="160" >1,55-1,60 m</option>
+<option value="165" >1,60-1,65 m</option>
+<option value="170" >1,65-1,70 m</option>
+<option value="175" >1,70-1,75 m</option>
+<option value="180" >1,75-1,80 m</option>
+<option value="185" >1,80-1,85 m</option>
+<option value="190" >1,85-1,90 m</option>
+<option value="195" >1,90-1,95 m</option>
+<option value="200" >1,95-2,00 m</option>
+<option value="205" >2,00-2,05 m</option>
+<option value="210" >2,05-2,10 m</option>
+</select>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><label class="mdl" for="lb05"><img class="trigger" src="/images/img-05.png" alt="Geburtsdatum" title="" width="27" height="26" /></label></em>
+<span class="tooltip" style="visibility:hidden;">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">4</span>
+</span>
+</span>
+</span>
+</div>
+<div> 
+<strong class="lbl">Geburtsdatum (tt.mm.jjjj)</strong>
+<div class="text textsmall" title="Tag"><input maxlength="2" type="text" value="" name="BIRTHDAYDAY" id="lb05day" title="Tag" style="margin-left:16px;" /></div>
+<div class="text textsmall" title="Monat"><input maxlength="2" type="text" value="" name="BIRTHDAYMONTH" id="lb05month" title="Monat" style="margin-left:16px;" /></div>
+<div class="text textsmall" title="Jahr"><input maxlength="4" type="text" value="" name="BIRTHDAYYEAR" id="lb05year" title="Jahr" style="margin-left:8px;" /></div>
+</div>
+
+
+<a class="btn-submit" href="#" />Weiter</a>
+</div>
+</fieldset>
+</div>
+<div class="form-1 hide-on-load ergebnis_blue">
+<ul class="list-2">
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+</ul>
+<div class="btn-holder">
+<a class="btn-submit" href="#" />BEARBEITEN</a>
+</div>
+</div>
+</div>
+<div class="step-item step-item-red">
+<div class="top" id="open-red">
+<img src="/images/img-07.png" alt="" width="66" height="64" />
+<strong class="step-name">LEBENSWANDEL</strong>
+<p class="hide-on-load" style="color:#AC1834;">F&uuml;r mehr Informationen zur Frage klicken Sie mit der Maus auf das Symbol links</p>
+<strong class="step">2 von 3</strong>
+<strong class="step-check hide-on-load">checked</strong>
+</div>
+<div class="form-1 hide-on-load form_red">
+<fieldset>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-09.png" alt="Sport" title="mehr Infos&hellip;" width="42" height="39" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Wenn Sie weniger als 3 Std. Sport machen: "Nein", wenn dar&uuml;ber: "Ja". Deutlich mehr Sport ist nicht nur f&uuml;r Leistungssportler reserviert - w&auml;hlen Sie "Deutlich mehr" auch bei Phasen besonderen Trainings wie z. B. Marathonvorbereitung.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Machen Sie regelm&auml;&szlig;ig Sport, d.h. zwischen drei bis f&uuml;nf Stunden pro Woche?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="SPORT" id="lb06"  value="2" />
+<label for="lb06">weniger als 3 Stunden</label>
+<input type="radio" class="radio" name="SPORT" id="lb07"  value="1" />
+<label for="lb07">ja, 3-5 Stunden die Woche</label>
+<input type="radio" class="radio" name="SPORT" id="lb08"  value="3" />
+<label for="lb08">deutlich mehr</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-10.png" alt="Rauchen" title="mehr Infos&hellip;" width="36" height="50" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Gelegenheitsraucher z&auml;hlen zu "Nein" und rauchen max. 2 bis 3 Zigaretten pro Monat.<br />Wenn Sie durch Passivrauchen starkem Rauch ausgesetzt sind, klicken Sie "Ja".</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Rauchen Sie?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="SMOKER" id="lb09"  value="1" />
+<label for="lb09">ja</label>
+<input type="radio" class="radio" name="SMOKER" id="lb10"  value="2" />
+<label for="lb10">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-11.png" alt="Alkohol" title="mehr Infos&hellip;" width="40" height="42" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Alkoholkonsum kann den K&ouml;rper anstrengen. Ein Glas zu Silvester oder Geburtstagen z&auml;hlt noch zu "Nein". "Ja" hei&szlig;t regelm&auml;&szlig;iger Alkoholgenuss von mehr als 3 Gl&auml;sern Bier, Wein oder Spirituosen.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Trinken Sie regelm&auml;&szlig;ig Alkohol, d.h. durchschnittlich zwei- bis dreimal die Woche?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="DRINK" id="lb11"  value="1" />
+<label for="lb11">Ja</label>
+<input type="radio" class="radio" name="DRINK" id="lb12"  value="2" />
+<label for="lb12">Nein, ich trinke keinen Alkohol</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-12.png" alt="Schlafen" title="mehr Infos&hellip;" width="49" height="57" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Wo befinden Sie sich zwischen "Ja": "Fr&uuml;h ins Bett gehen, durchschlafen, morgens frisch ausgeruht aus den Federn" und "Nein": "Zu sp&auml;t ins Bett, h&auml;ufiges Aufwachen, unruhiger Schlaf und morgens zu fr&uuml;h raus"?</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Haben Sie einen ruhigen und ausreichend langen Schlaf?</strong>
+<div class="radio-row">
+<div class="holder">
+<input type="radio" class="radio" name="DREAM" id="lb13"  value="1" />
+<label for="lb13">Ja, ich schlafe ruhig und ausreichend lange.</label>
+</div>
+<div class="holder">
+<input type="radio" class="radio" name="DREAM" id="lb14"  value="3" />
+<label for="lb14">Ich habe ab und zu einen unruhigen und zu kurzen Schlaf</label>
+</div>
+<div class="holder">
+<input type="radio" class="radio" name="DREAM" id="lb15"  value="2" />
+<label for="lb15">Nein, ich habe h&auml;ufig Schlafprobleme.</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-13.png" alt="Stress" title="mehr Infos&hellip;" width="46" height="56" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Stress verlangt unserem K&ouml;rper viel ab. Leistungsdruck, viel Arbeit im Job oder Haushalt und zu wenige Momente der Ruhe f&uuml;hren dazu, dass man sich ausgelaugt, m&uuml;de und kaputt f&uuml;hlt, unter Anspannung steht oder reizbar ist. Sollten Sie sich Stress &ouml;fter ausgesetzt sehen, klicken Sie bitte "ja" an.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Sind Sie h&auml;ufig gestresst oder ersch&ouml;pft?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="STRESS"  id="lb16" value="1" />
+<label for="lb16">ja</label>
+<input type="radio" class="radio" name="STRESS"  id="lb17" value="2" />
+<label for="lb17">nein</label>
+</div>
+</div>
+<div class="row pregnat">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-14.png" alt="Schwanger" title="mehr Infos&hellip;" width="20" height="53" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">In der Schwangerschaft ver&auml;ndert sich Ihr Vitaminbedarf, deswegen haben wir ein Pr&auml;parat nur f&uuml;r Schwangere entwickelt.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Sind Sie schwanger?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="PREGNANT"  id="lb18" value="1" />
+<label for="lb18">ja</label>
+<input type="radio" class="radio" name="PREGNANT"  id="lb19" value="2" />
+<label for="lb19">nein</label>
+<input type="radio" class="radio" name="PREGNANT"  id="lb20" value="3" />
+<label for="lb20">Ich befinde mich in der Stillzeit</label>
+</div>
+</div>
+<div class="row">
+<a class="btn-submit" href="#" />Weiter</a>
+</div>
+</fieldset>
+</div>
+<div class="form-1 hide-on-load hide-on-active ergebnis_red">
+<ul class="list-2">
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+<li>Ergebnis Texte Platzhalter</li>
+</ul>
+<div class="btn-holder">
+<a class="btn-submit" href="#" />BEARBEITEN</a>
+</div>
+</div>
+</div>
+<div class="step-item step-item-yel">
+<div class="top" id="open-yellow">
+<img src="/images/img-08.png" alt="" width="66" height="64" />
+<strong class="step-name">ERN&Auml;HRUNG</strong>
+<p class="hide-on-load" style="color:#FBBA00;">F&uuml;r mehr Informationen zur Frage klicken Sie mit der Maus auf das Symbol links</p>
+<strong class="step">3 von 3</strong>
+</div>
+<div class="form-1 hide-on-load form_yel">
+<fieldset>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-15.png" alt="Vollkornprodukte" title="mehr Infos&hellip;" width="32" height="56" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Essen Sie vorwiegend Vollkornprodukte (Vollkornbrot, Vollkornnudeln, M&uuml;sli. brauner Reis): "Ja".  Oder essen Sie Sie gew&ouml;hnlich eher Wei&szlig;mehlprodukte wie Toast, helle Br&ouml;tchen und helle Nudeln: "Nein".</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Wie h&auml;ufig verzehren Sie Vollkornprodukte in Form von Brot, Nudeln, M&uuml;sli oder Reis?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="GRAIN" id="lb23"  value="1" />
+<label for="lb23">0-2 mal die Woche</label>
+<input type="radio" class="radio" name="GRAIN" id="lb22"  value="3" />
+<label for="lb22">3-5 mal die Woche</label>
+<input type="radio" class="radio" name="GRAIN" id="lb21"  value="6" />
+<label for="lb21">6-7 mal die Woche</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-16.png" alt="Obst" title="mehr Infos&hellip;" width="30" height="40" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Eine Portion Obst entspricht ungef&auml;hr 100g und ist oft eine gute Hand voll. Ein Apfel, ein bis zwei Bananen, ein paar Erdbeeren oder eine Orange w&auml;ren also ungef&auml;hr eine Portion.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Essen Sie t&auml;glich ausreichend Obst (ca. 200 g)?</strong>
+<div class="radio-row">
+<div class="holder">
+<input type="radio" class="radio" name="FRUIT" id="lb24"  value="1" />
+<label for="lb24">ja</label>
+</div>
+<div class="holder">
+<input type="radio" class="radio" name="FRUIT" id="lb25"  value="3" />
+<label for="lb25">oft, aber nicht t&auml;glich.</label>
+</div>
+<div class="holder">
+<input type="radio" class="radio" name="FRUIT" id="lb26"  value="2" />
+<label for="lb26">nein, ich esse nur selten Obst.</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-17.png" alt="Gem&uuml;se" title="mehr Infos&hellip;" width="30" height="63" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Eine Portion Gem&uuml;se sind ca. 100 g, also eine Hand voll. Das sind zwei Tomaten oder ein Beilagensalat.<br />Ein gro&szlig;er Salatteller sind 3 H&auml;nde voll und damit haben Sie die Tagesempfehlung an Gem&uuml;se erreicht.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Drei Portionen Gem&uuml;se (Beilagen, Rohkost, Salate) esse ich t&auml;glich.</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="SALAD" id="lb27"  value="1" />
+<label for="lb27">ja</label>
+<input type="radio" class="radio" name="SALAD" id="lb28"  value="3" />
+<label for="lb28">1-2 schaffe ich</label>
+<input type="radio" class="radio" name="SALAD" id="lb29"  value="2" />
+<label for="lb29">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-18.png" alt="Fleisch" title="mehr Infos&hellip;" width="33" height="45" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Wie oft verzehren Sie eines der Nahrungsmittel? Es m&uuml;ssen nicht jeden Tag alle drei verzehrt werden.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Wie oft essen Sie tierische Produkte wie Fleisch, Wurstwaren und Eier?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="MEAT" id="lb30"  value="1" />
+<label for="lb30">t&auml;glich</label>
+<input type="radio" class="radio" name="MEAT" id="lb31"  value="3" />
+<label for="lb31">2-3 Mal pro Woche</label>
+<input type="radio" class="radio" name="MEAT" id="lb32"  value="2" />
+<label for="lb32">Gelegentlich bis nie</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-19.png" alt="Fisch" title="mehr Infos&hellip;" width="42" height="37" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">"Ja" hei&szlig;t, dass Meerestiere wirklich einmal pro Woche fest in Ihrem Speiseplan integriert sind. Wenn Sie seltener Meerestiere essen, kreuzen Sie "Nein" an.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Verzehren Sie mindestens einmal pro Woche Meerestiere (Fisch, Krabben etc.)?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="FISH" id="lb33"  value="1" />
+<label for="lb33">ja</label>
+<input type="radio" class="radio" name="FISH" id="lb34"  value="2" />
+<label for="lb34">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-20.png" alt="Milch" title="mehr Infos&hellip;" width="36" height="38" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Nicht vergessen: Zu Milchprodukten z&auml;hlen auch K&auml;se, Joghurt und Quark. Der Schuss Milch im Kaffee deckt Ihren Bedarf jedoch nicht.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Stehen Milch- und Milchprodukte auf dem t&auml;glichen Speiseplan?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="MILK" id="lb35"  value="1" />
+<label for="lb35">Ja, jeden Tag</label>
+<input type="radio" class="radio" name="MILK" id="lb37"  value="3" />
+<label for="lb37">Nicht immer.</label>
+<input type="radio" class="radio" name="MILK" id="lb36"  value="2" />
+<label for="lb36">Nein, Milch ist nichts f&uuml;r mich.</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-21.png" alt="Trinken" title="mehr Infos&hellip;" width="18" height="50" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Energiefrei hei&szlig;t ungezuckert oder isotonisch. Achtung: S&auml;fte, Limonaden, Cappuccino oder Latte macchiato geh&ouml;ren nicht dazu.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Ich trinke t&auml;glich 2,0 Liter energiefreie Fl&uuml;ssigkeit (Wasser, Tee, au&szlig;er schwarzem)</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="WATER" id="lb70"  value="1" />
+<label for="lb70">ja</label>
+<input type="radio" class="radio" name="WATER" id="lb38"  value="2" />
+<label for="lb38">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-22.png" alt="Fertiggerichte" title="mehr Infos&hellip;" width="42" height="26" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Diese Gerichte haben in der Regel nicht mehr viele N&auml;hrstoffe, deshalb halten sie auch nicht lange satt. Mit anderen frischen Mahlzeiten am Tag haben Sie die Chance einen N&auml;hrstoffmangel auszugleichen.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Essen Sie oft aufgew&auml;rmte Speisen oder Fertiggerichte (Kantine, Fast Food)?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="FASTFOOD" id="lb39"  value="1" />
+<label for="lb39">ja</label>
+<input type="radio" class="radio" name="FASTFOOD" id="lb40"  value="3" />
+<label for="lb40">3-4 Mal pro Woche</label>
+<input type="radio" class="radio" name="FASTFOOD" id="lb41"  value="2" />
+<label for="lb41">nein, selten bis nie</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-23.png" alt="S&uuml;&szlig;igkeiten" title="mehr Infos&hellip;" width="48" height="36" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Befinden Sie sich eher bei "Ich nehme S&uuml;&szlig;igkeiten in kleinen Mengen bewusst 3 bis 4 mal pro Woche zu sich": Ja. Oder bei "Ich esse t&auml;glich S&uuml;&szlig;igkeiten": Nein.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Teilen Sie sich S&uuml;&szlig;igkeiten bewusst &uuml;ber die Woche ein?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="SWEETS" id="lb42"  value="1" />
+<label for="lb42">ja</label>
+<input type="radio" class="radio" name="SWEETS" id="lb43"  value="2" />
+<label for="lb43">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-24.png" alt="Di&auml;t" title="mehr Infos&hellip;" width="35" height="34" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Machen Sie mehrmals pro Jahr gewichtsreduzierende Di&auml;ten? Hierzu geh&ouml;ren vor allem FDH, Nulldi&auml;ten, Low Carb, Kohlsuppendi&auml;t etc.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Machen Sie h&auml;ufig Di&auml;ten?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="DIET" id="lb44"  value="1" />
+<label for="lb44">ja</label>
+<input type="radio" class="radio" name="DIET" id="lb45"  value="2" />
+<label for="lb45">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-25.png" alt="&Ouml;le" title="mehr Infos&hellip;" width="35" height="35" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Essen Sie t&auml;glich pflanzliches Fett z. B. in Form von einem Essig-&Ouml;l-Dressing, Oliven&ouml;l, Sonnenblumen&ouml;l oder Lein&ouml;l? Achtung: Essen Sie Avocado, N&uuml;sse oder Kerne oder M&uuml;sli. Hier verbirgt auch das pflanzliche Fett.</span>
+</span>
+</span>
+</span>
+</div>
+<strong class="lbl">Essen Sie t&auml;glich pflanzliche &Ouml;le?</strong>
+<div class="radio-row">
+<input type="radio" class="radio" name="OIL" id="lb46"  value="1" />
+<label for="lb46">ja</label>
+<input type="radio" class="radio" name="OIL" id="lb47"  value="2" />
+<label for="lb47">nein</label>
+</div>
+</div>
+<div class="row">
+<div class="icon bubbleInfo">
+<em><span class="mdl"><img class="trigger cursorhand" src="/images/img-26.png" alt="Gesundheit" title="mehr Infos&hellip;" width="32" height="54" /></span></em>
+<span class="tooltip">
+<span class="tooltip-b">
+<span class="tooltip-c">
+<span class="tooltip-frame">Die Purmeo Gesundheitsinfo ben&ouml;tigen wir lediglich, um Sie auf ungewollte Reaktionen mit Medikamenten oder Therapien hinweisen zu k&ouml;nnen</span>
+</span>
+</span>
+</span>
+</div>
+
+<div class="radio-row">
+<strong class="lbl">Gesundheitsinfo: Folgendes trifft auf mich zu...</strong>
+<div style="font-size:90%; padding-left:8px; padding-bottom:10px; line-height:120%;">(Die Purmeo Gesundheitsinfo ben&ouml;tigen wir lediglich, um Sie auf ungewollte <br />Reaktionen mit Medikamenten oder Therapien hinweisen zu k&ouml;nnen)</div>
+
+<div id="gesundheitsprobleme">
+<div class="holder-3 prob">
+<input name="IODINE"  value="1" id="lb49" class="chk" type="checkbox" />
+<label for="lb49">Schilddr&uuml;senerkrankungen, Hyperthyreose</label>
+</div>
+<div class="holder-3 prob">
+<input name="GLUTEN"  value="1" id="lb50" class="chk" type="checkbox" />
+<label for="lb50">Gluten-Unvertr&auml;glichkeit</label>
+</div>
+<div class="holder-3 prob">
+<input name="DEPRESSION"  value="1" id="lb51" class="chk" type="checkbox" />
+<label for="lb51">Depression</label>
+</div>
+<div class="holder-3 prob">
+<input name="IRON"  value="1" id="lb52" class="chk" type="checkbox" />
+<label for="lb52">Eisenspeichererkrankung, Verwertungsst&ouml;rungen</label>
+</div>
+<div class="holder-3 prob">
+<input name="DIABETES"  value="1" id="lb53" class="chk" type="checkbox" />
+<label for="lb53">Diabetes mellitus 1 oder 2</label>
+</div>
+<div class="holder-3 prob">
+<input name="BLOOD"  value="1" id="lb54" class="chk" type="checkbox" />
+<label for="lb54">Ich nehme blutverd&uuml;nnende Medikamente</label>
+</div>
+<div class="holder-3 prob">
+<input name="METABOLISM"  value="1" id="lb55" class="chk" type="checkbox" />
+<label for="lb55">Stoffwechselerkrankungen</label>
+</div>
+<div class="holder-3 prob">
+<input name="HIGHBLOOD"  value="1" id="lb56" class="chk" type="checkbox" />
+<label for="lb56">Bluthochdruck</label>
+</div>
+<div class="holder-3 prob">
+<input name="FAT"  value="1" id="lb57" class="chk" type="checkbox" />
+<label for="lb57">Fettstoffwechselst&ouml;rung</label>
+</div>
+<div class="holder-3 prob">
+<input name="EPILEPSY"  value="1" id="lb58" class="chk" type="checkbox" />
+<label for="lb58">Epilepsie</label>
+</div>
+<div class="holder-2 prob">
+<input name="RHEUMA"  value="1" id="lb60" class="chk" type="checkbox" />
+<label for="lb60">Rheuma</label>
+</div>
+</div>
+<div class="holder-2 noprob" id="keinegesundheitsprobleme" style="margin-top:20px;">
+<input name="NOTHING"   value="1" id="lb48" class="chk" type="checkbox" />
+<label for="lb48">Nichts trifft auf mich zu</label>
+</div>
+</div>
+</div>
+<div class="row row-2">
+<!--<label for="lb61" class="lbl">Haben Sie einen Gutscheincode?</label>-->
+<div class="holder-2 offset-1">
+<!--<div class="text text-2">
+<input type="text" id="lb61" value="Gutscheincode" />
+</div>-->
+<input class="btn-submit" name="CMD_SAVE_RESULTS" type="submit" value="ZUM ERGEBNIS" />
+</div>
+</div>
+</fieldset>
+</div>
+</div>
+</div>
+
+</form></div> 
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

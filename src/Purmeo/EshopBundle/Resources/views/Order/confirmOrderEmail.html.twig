@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html bgcolor="#f5f5f5" style="background-color:#f5f5f5">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <style type="text/css">
+                body {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#1c1c1c; background:#ffffff}
+                h1 {font-size:18px;line-height:25px;}
+                h2 {font-size:16px; text-align: left; margin: 0px 10px 0px 10px;}
+                ul {font-family:Arial, Helvetica, sans-serif; text-align:left; margin:0px 45px 20px 0px; line-height:28px; font-size:12px; list-style: none;}
+                ul{ list-style: none;}
+                ol {font-family:Arial, Helvetica, sans-serif; text-align:left; margin:0px 45px 20px 0px; line-height:20px; font-size:12px; list-style:decimal outside!important}
+                ol li {list-style:decimal outside!important}
+                li {margin: 0;list-style: none;}
+                p {line-height:18px; font-size:12px; margin:0px 10px 20px 10px; color:#333 !important; text-align: justify !important;}
+                p.center {text-align:center}
+                a.center {text-align:center;}
+                p.nomargins { margin-left:0px; margin-right:0px}
+                div.center {text-align:center; margin-bottom:20px}
+                a {color:#87bb40 !important; text-decoration: none; border:none; outline: none;}
+                img {border:none; outline: none;}
+                a:hover {text-decoration: underline}
+                p a, h2 a { color:#87bb40 !important;}
+                .hint {color:#555; font-size:12px}
+                .quote {font-size:12px; font-style: italic}
+                .votenow {margin-left:173px}
+                .justify {text-align: justify !important}
+                .pointer {cursor: pointer !important}
+                .left-30 {width: 210px; float: left; display: block;}
+                .right-70 {width: 250px; float: left; display: block; margin-left: 20px;}
+                .main-img {border: solid white 5px; box-shadow: 0px 0px 3px #666;}
+                .subheader {background-color:#87bb40; color: white; text-shadow: 0px 1px 0px #666; margin-top: 50px;}
+                .firstheader {background-color:#87bb40; color: white; text-shadow: 0px 1px 0px #666;}
+                .header a {color: #000!important; font-size: 14px;}
+            </style>
+    </head>
+    <body bgcolor="#f5f5f5" style="background-color:#f5f5f5" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+        <table id="Table_01" width="650" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5">
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" height="22" width="650" align="center">
+                    <a target="_blank" href="http://www.purmeovitamine.de">
+                        <img class="pointer" width="650" style="display:block" height="22" alt="Versandbestätigung" src="http://www.purmeovitamine.de/media/shared/images/img_header_mail.jpg" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td height="147" width="51" border="0" colspan="1" cellpadding="0" cellspacing="0" bgcolor="#f5f5f5">
+                    <img src="http://www.purmeovitamine.de/media/shared/images/img_shadow_left.png" width="51" height="1200" border="0" style="display:block;" >
+                </td>
+                <td colspan="3" height="910" width="517" bgcolor="#fcfcfc" align="center" valign="top" border="0" cellpadding="0" style="background-color:#ffffff; line-height:24px; position: relative;">
+                    <table class="header" align="left">
+                        <tr>
+                            <td cellspacing="4">
+                                <img src="http://www.purmeovitamine.de/media/shared/images/img_logo.jpg" width="180" height="60" style="display:block" border="0" alt="">
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td width="120"><a href="http://www.purmeovitamine.de/unser-versprechen" target="_blank">So funktionierts</a></td>
+                                        <td width="100"><a href="http://www.purmeovitamine.de/purmeobox" target="_blank">Purmeo Box</a></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <table width="548" >
+                        <tr height="2">
+                            <td  height="2" style="height:2px; background: #87BB40;">
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <h2>Purmeo - Bestellbest&auml;tigung/Rechnung</h2><br />
+                    <p>
+                    {% for address in order.addresses %}
+                        {% if address.type == 1 %}
+                            <strong>Liebe/r {{ address.firstname }} {{ address.lastname }},</strong><br />
+                            vielen Dank, dass sie sich f&uuml;r Purmeo entschieden haben. Wir haben Ihre Bestellung erhalten 
+                            und werden Ihr Purmeo Paket versenden, sobald Ihre Zahlung bei uns eingegangen ist. Falls Sie direkt nach dem Kauf noch keine Gelegenheit hatten, Ihre Bestellung zu bezahlen, dann folgen Sie einfach diesem Link: 
+                            <!-- a href="http://www.purmeovitamine.de/order/{#{ order.id }#}">Jetzt zahlen!</a -->
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                    <div style="line-height:15px; margin-left:10px;">
+                        {% for address in order.addresses %}
+                            {% if address.type == 1 %}
+                                <div style="width: 300px; float: left; text-align: left;">
+                                    <strong>Rechnungsadresse:</strong><br />
+                                    {{ address.title }} {{ address.firstname }} {{ address.lastname }}<br />
+                                    {{ address.otherInfo }} {{ address.street }}<br />
+                                    {{ address.zipCode }} {{ address.city }} {{ address.country }}
+                                </div>
+                            {% endif %}
+                            {% if (address.type == 0 or address.type == 1) %}
+                                <div style="width: 200px; float: left; text-align: left;">
+                                    <strong>Lieferadresse:</strong><br />
+                                    {{ address.title }} {{ address.firstname }} {{ address.lastname }}<br />
+                                    {{ address.otherInfo }} {{ address.street }}<br />
+                                    {{ address.zipCode }} {{ address.city }} {{ address.country }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div style="line-height:15px; margin-left:10px;text-align: left;">
+                        <strong>Bestellnummer:</strong> {{ order.code }}<br />
+                        <strong>Bestelldatum:</strong> {{ order.created|date("d.m.Y") }}<br />
+                        <strong>Zahlungsmethode:</strong> 
+                            {% for pay in order.pays %}
+                                {{ pay.method }}
+                            {% endfor %}
+                        <br /><br />
+                    </div>
+                    <table style="font-size:12px; text-align: center;"> 
+                        <tr style="height: 30px; line-height: 15px;">
+                            <td  style="width: 50px; color: white; background: #87BB40; text-align: center;" >
+                                <strong>Anz</strong>
+                            </td>
+                            <td style="padding-left: 10px; width: 200px; color: white; background: #87BB40; text-align: left;">
+                                <strong>Produkt</strong>
+                            </td>
+                            <td style="width: 80px; color: white; background: #87BB40; text-align: center;">
+                                <strong>Preis</strong></br>(inkl. MwSt.)
+                            </td>
+                            <td style="width: 100px; color: white; background: #87BB40; text-align: center;">
+                                <strong>Summe</strong></br>(inkl. MwSt.)
+                            </td>
+                            <td style="width: 80px; color: white; background: #87BB40; text-align: center;">
+                                <strong>MwSt.</strong>
+                            </td>
+                        </tr>
+                        {% for product in order.products %}
+                            <tr>
+                                <td  style="text-align: center; width: 50px;" >
+                                    1
+                                </td>
+                                <td style="text-align: left; padding-left: 10px; width: 200px">
+                                    {{ product.name }}
+                                </td>
+                                <td style="text-align: center; width: 100px;">
+                                    {{ product.price | number_format(2) }}&euro;
+                                </td>
+                                <td style="text-align: center; width: 100px;">
+                                    
+                                </td>
+                                <td style="text-align: center; width: 80px;">
+                                    {{ product.tax | number_format(0) }}%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: left;">Rabatt</td>
+                                <td style="text-align: center;">-{{ product.discount | number_format(2) }}&euro;</td>
+                                <td style="text-align: center;"></td>
+                                <td style="text-align: center;">{{ product.tax | number_format(0) }}%</td>
+                            </tr>
+                            <tr style="line-height: 30px;">
+                                <td style="width: 50px"></td>
+                                <td style="width: 200px; padding-left:10px; text-align:left">
+                                    Zwischensumme
+                                </td>
+                                <td style="width: 80px">
+
+                                </td>
+                                <td style="width: 100px">
+                                    {{ (product.price - product.discount) | number_format(2) }}&euro;
+                                </td>
+                                <td style="width: 80px"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px; color: white; background: #87BB40;"></td>
+                                <td style="text-align: left; width: 200px; padding-left:10px; color: white; background: #87BB40;">
+                                    <strong>Rechnungsbetrag</strong>
+                                </td>
+                                <td style="width: 80px; color: white; background: #87BB40;">
+
+                                </td>
+                                <td style="width: 100px; color: white; background: #87BB40;">
+                                    <strong>{{ (product.price - product.discount) | number_format(2) }}&euro;</strong>
+                                </td>
+                                <td style="width: 80px; color: white; background: #87BB40;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px;">
+                                </td>
+                                <td style="text-align: left; padding-left: 10px; width: 200px; font-size: 8px;">
+                                    enthaltene MwSt. {{ ((product.price - product.discount) * product.tax / 100) | number_format(2) }}&euro;
+                                </td>
+                                <td style="width: 80px;">
+                                </td>
+                                <td style="width: 100px;">
+                                </td>
+                                <td style="width: 80px;">
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <br />
+                    <p>
+                        <strong>Kontoverbindung: </strong><br />
+                        Kontoinhaber: Purmeo GmbH <br />
+                        Kontonummer 620252700 <br />
+                        BLZ 74040082<br />
+                        Commerzbank Passau<br />
+                        <br />
+                        <strong>F&uuml;r &Uuml;berweisungen aus dem Ausland:  </strong><br />
+                        BIC: COBADEFF740<br />
+                        IBAN: DE11740400820620252700<br /><br />
+                        
+                        Die g&uuml;ltige Widerrufsbelehrung zum Zeitpunkt Ihrer Bestellung finden Sie im Anhang Ihrer Bestellbest&auml;tigung.<br /><br />
+                        
+                        Haben Sie noch eine Frage? Wenn Sie in unseren <a href="http://purmeovitamine.de/fragen" target="_blank">FAQ</a> keine Antwort finden, hilft Ihnen unser Service Team gerne weiter: am besten per Email unter <a href="mailto:service@purmeo.de">service@purmeo.de</a> oder
+                        telefonisch unter <strong>+49 (0) 30 48492850</strong> (Mo-Fr, 9-17 Uhr)<br />
+                        <br />
+                        Viele Gr&uuml;&szlig;e,<br />
+                        <br />
+                        Ihr Purmeo-Team <br />
+                        <br />
+                    </p>
+                </td>
+                <td height="147" width="51" border="0" colspan="1" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+                    <img src="http://www.purmeovitamine.de/media/shared/images/img_shadow_right.png" width="51" height="1200" style="display:block" border="0" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <img src="http://www.purmeovitamine.de/media/shared/images/img_footer.jpg" width="650" height="56" alt="footer image">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" height="30" width="179" align="center">
+                    <span style="font-size: 11px; text-align: center; display: inline-block; width: 400px; padding: 0 40px 0 40px">
+                        Purmeo ist ein Projekt der Purmeo GmbH &bull; Kastanienallee 29/30 &bull; D-10435 Berlin<br />
+                        Gesch&auml;ftsf&uuml;hrer: Nicol&agrave;s Boldt, Peter Haag<br />
+                        Sitz der Gesellschaft ist Berlin<br /> Registergericht: AG Charlottenburg &bull; HRB 140069 B &bull; Ust-ID: DE 282426073<br />
+                        <br />
+
+                        <span style="color:#999999">Purmeo GmbH &copy; 2012 All Rights Reserved</span>
+
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="5" bgcolor="#f5f5f5" style="background-color:#f5f5f5"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="5" bgcolor="#f5f5f5" style="background-color:#f5f5f5">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" height="106" align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5">
+                </td>
+            </tr>
+            <td>
+                <img src="spacer.gif" width="42" height="1" alt=""></td>
+        </tr>
+    </table>
+    <center>
+    </center>
+</body>
+</html>

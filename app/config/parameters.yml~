@@ -1,0 +1,20 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     new.purmeo.de
+    database_user:     root
+    database_password: maniacaco
+
+    mailer_transport:  smtp
+    mailer_host:       mx.mymuesli.com
+    mailer_port:       25
+    mailer_user:       ilove@mymuesli.com
+    mailer_password:   otrs_love1009
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    
+    skinCode: Wl3eMnZb
+    skinCodeException: a8uPOXTw
+    defaultCurrency: EUR

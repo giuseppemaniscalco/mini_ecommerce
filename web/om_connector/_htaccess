@@ -1,0 +1,8 @@
+AuthUserFile /home/swdev/_web.mymuesli2/web/muesli/om_connector/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Password Protected Area"
+AuthType Basic
+
+<limit GET POST>
+require valid-user
+</limit>

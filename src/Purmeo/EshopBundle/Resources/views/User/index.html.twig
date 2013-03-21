@@ -1,0 +1,119 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block main %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        //kissmetrics on subscrib newsletters
+        _kmq.push(['identify', '{{ app.user.email }}']);		
+    });
+</script>
+<div class="container" style="padding: 50px">
+    <div id="cmmpID_Account">
+        <div style="position:relative; width:100%;">
+            <div class="button_medium" style="position:absolute; right:10px; top:8px;">
+                <a href="{{ path("purmeo_eshop_logout") }}" title="Abmelden" rel="nofollow">Logout</a>
+            </div>
+            <center><h1>Mein Purmeo</h1></center>
+            <hr />
+        </div>
+	<div class="row mp_Cockpit matop20">
+		<div class="span6">
+			<h2><i class="icon-user-md"></i> Vitaminkomplex</h2>
+			<div class="base-box w440">
+				<div class="base-box-inner">
+					<div class="mabot20">Hier k&ouml;nnen Sie Ihren pers&ouml;nlichen Vitaminkomplex bequem anpassen.</div>
+					<style type="text/css">
+						.Pillen	{ padding-right:15px; }
+					</style>
+						<table cellpadding="0" cellspacing="0" style="margin-bottom:10px; width:400px;">
+							<tr><td align="left" valign="top" style="padding:10px;">
+                                                            {% for order in app.user.orders %}
+                                                                {% for component in order.components %}
+                                                                    <img src="/media/shared/Homepage-Design/Pillen/Pille_{{ component.code }}.png" border="0" class="Pillen" />
+                                                                {% endfor %}
+                                                            {% endfor %}
+							</td></tr>
+						</table>
+							<div style="height:32px; line-height:32px; vertical-align:middle; padding-right:20px;">Email gesendet</div>
+						<div class="button_sqaure_small">
+							<a href="{{ path("purmeo_eshop_check") }}">
+								<i class="icon-bar-chart"></i> Anpassen
+							</a>
+						</div>
+						<div class="clear"></div>
+						<script type="text/javascript">
+							var content = '<div style="font-weight:bold; padding-bottom:8px;">Inhaltstoffe:</div><table cellpadding="2" cellspacing="0" border="0">{section name=Step loop=$Ergebnis.NAME}<tr {if $smarty.section.Step.iteration is odd} style="background-color:#F1F9D8;"{/if}><td width="30"><div title="{$Ergebnis.NAME[Step]}">{$Ergebnis.NAME_SHORT[Step]}:</div></td><td width="54" align="right">{$Ergebnis.DEFIZIT[Step]}</td><td>mg</td></tr>{/section}</table>'; 
+							$('#inhaltstoffe').click(function(){TINY.box.show({html:content,width:150,height:600})});
+						</script>
+				</div>
+			</div>
+		</div>
+		<div class="span6">
+			<h2><i class="icon-calendar"></i> Health Coach</h2>
+			<div class="base-box w440">
+				<div class="base-box-inner">
+					<div style="" class="scrollable">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mp_Cockpit matop20">
+		<div class="span6">
+			<h2><i class="icon-shopping-cart"></i>Bestellungen</h2>
+			<div class="base-box w440">
+				<div class="base-box-inner">
+					Sehen Sie sich Ihre vergangenen und <br />kommenden Bestellungen an.<br /><br />
+                                        {% for order in app.user.orders %}
+                                            Bestellungen: {{ order.code }}<br />
+                                        {% endfor %}
+					<div class="button_sqaure_small">
+						<a href="{{ path("purmeo_eshop_user") }}">
+							<i class="icon-eye-open"></i> Bestellungen
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span6">
+			<h2><i class="icon-lock"></i> Kundendaten</h2>
+			<div class="base-box w440">
+				<div class="base-box-inner">
+					Ihre Kundendaten sind sicher bei uns, gerne k&ouml;nnen Sie diese hier &auml;ndern.
+					<div class="row matop10">
+						<div class="span3" style="width:165px;">
+                                                    <b>Rechnungsadresse / Lieferadresse</b><br />
+                                                        {% for address in app.user.addresses %}
+                                                            {% if address.type == 2 or address.type == 1 %}
+                                                                {{ address.firstname }}<br />
+                                                                {{ address.lastname }}<br />
+                                                                {{ address.otherInfo }} {{ address.street }} {{ address.number }}<br />
+                                                                {{ address.zipcode }} {{ address.city }} {{ address.country }}<br />
+                                                            {% endif %}
+                                                        {% endfor %}
+						</div>
+                                                <div class="span3" style="margin-left: 0px">
+							<b>Lieferadresse</b><br />
+                                                        {% for address in app.user.addresses %}
+                                                            {% if address.type == 1 %}
+                                                                {{ address.firstname }}<br />
+                                                                {{ address.lastname }}<br />
+                                                                {{ address.otherInfo }} {{ address.street }} {{ address.number }}<br />
+                                                                {{ address.zipcode }} {{ address.city }} {{ address.country }}<br />
+                                                            {% endif %}
+                                                        {% endfor %}
+						</div>
+					</div>
+					<div class="button_sqaure_small">
+						<a href="{{ path("purmeo_eshop_user") }}">
+							<i class="icon-pencil"></i> Daten &auml;ndern
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+	</div>
+</div>
+{% endblock %}

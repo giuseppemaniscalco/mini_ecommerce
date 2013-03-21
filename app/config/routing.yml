@@ -1,0 +1,3 @@
+purmeo_eshop:
+    resource: "@PurmeoEshopBundle/Resources/config/routing.yml"
+    prefix:   /

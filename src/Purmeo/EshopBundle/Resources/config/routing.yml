@@ -1,0 +1,113 @@
+purmeo_eshop_homepage:
+    pattern:  /
+    defaults: { _controller: PurmeoEshopBundle:Page:index }
+
+purmeo_eshop_why:
+    pattern:  /why
+    defaults: { _controller: PurmeoEshopBundle:Page:why }
+
+purmeo_eshop_box:
+    pattern:  /box
+    defaults: { _controller: PurmeoEshopBundle:Page:box }
+
+purmeo_eshop_agb:
+    pattern:  /agb
+    defaults: { _controller: PurmeoEshopBundle:Page:agb }
+
+purmeo_eshop_presse:
+    pattern:  /presse
+    defaults: { _controller: PurmeoEshopBundle:Page:presse }
+
+purmeo_eshop_partner:
+    pattern:  /partner
+    defaults: { _controller: PurmeoEshopBundle:Page:partner }
+
+purmeo_eshop_vitamine:
+    pattern:  /vitamine
+    defaults: { _controller: PurmeoEshopBundle:Page:vitamine }
+
+purmeo_eshop_mineralstoffe:
+    pattern:  /mineralstoffe
+    defaults: { _controller: PurmeoEshopBundle:Page:mineralstoffe }
+
+purmeo_eshop_naehrstofflexikon:
+    pattern:  /naehrstofflexikon
+    defaults: { _controller: PurmeoEshopBundle:Page:naehrstofflexikon }
+
+purmeo_eshop_praeparate:
+    pattern:  /praeparate
+    defaults: { _controller: PurmeoEshopBundle:Page:praeparate }
+
+purmeo_eshop_vitamine_schwangerschaft:
+    pattern:  /vitamine_schwangerschaft
+    defaults: { _controller: PurmeoEshopBundle:Page:vitamineSchwangerschaft }
+
+purmeo_eshop_thank:
+    pattern:  /thank
+    defaults: { _controller: PurmeoEshopBundle:Page:thank }
+
+purmeo_eshop_go_to_check:
+    pattern:  /go_to_check
+    defaults: { _controller: PurmeoEshopBundle:Page:goToCheck }
+
+purmeo_eshop_product:
+    pattern:  /product/{id}
+    defaults: { _controller: PurmeoEshopBundle:Product:index, id: 0 }
+    requirements:
+        _method: GET
+        id: \d+
+
+purmeo_eshop_category:
+    pattern:  /category
+    defaults: { _controller: PurmeoEshopBundle:Page:category }
+        
+purmeo_eshop_pay:
+    pattern:  /pay
+    defaults: { _controller: PurmeoEshopBundle:Order:pay }
+    requirements:
+        _method: GET|POST
+     
+purmeo_eshop_order:
+    pattern:  /order/{id}
+    defaults: { _controller: PurmeoEshopBundle:Order:index, id: 0 }
+    requirements:
+        _method: GET|POST
+        id: \d+
+     
+purmeo_eshop_payment:
+    pattern:  /payment
+    defaults: { _controller: PurmeoEshopBundle:Order:payment }
+    requirements:
+        _method: POST
+
+purmeo_eshop_check:
+    pattern:  /check
+    defaults: { _controller: PurmeoEshopBundle:Check:index }
+    requirements:
+        _method: GET|POST
+
+purmeo_eshop_login:
+    pattern: /login
+    defaults: { _controller: PurmeoEshopBundle:User:login }
+
+purmeo_eshop_login_check:
+    pattern: /login_check
+    defaults: { _controller: PurmeoEshopBundle:User:loginCheck }
+
+purmeo_eshop_logout:
+    pattern: /logout
+    defaults: { _controller: PurmeoEshopBundle:User:logout }
+    
+purmeo_eshop_user:
+    pattern: /user
+    defaults: { _controller: PurmeoEshopBundle:User:index }
+
+purmeo_eshop_register:
+    pattern: /register
+    defaults: { _controller: PurmeoEshopBundle:User:register }
+    requirements:
+        _method: GET|POST
+    
+purmeo_eshop_subscribe:
+    pattern: /subscribe
+    defaults: { _controller: PurmeoEshopBundle:Subscribes:index }

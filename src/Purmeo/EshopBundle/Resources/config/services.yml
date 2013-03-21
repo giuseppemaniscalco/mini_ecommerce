@@ -1,0 +1,7 @@
+parameters:
+#    purmeo_eshop.example.class: Purmeo\EshopBundle\Example
+
+services:
+#    purmeo_eshop.example:
+#        class: %purmeo_eshop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>PURmeo</title>
+	<link rel="stylesheet" type="text/css" href="css/all.css" />
+	<script type="text/javascript" src="js/clear-form-fields.js"></script>
+	<script type="text/javascript" src="js/autoscaling-menu.js"></script>
+	<script type="text/javascript" src="js/form.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.bubbleInfo').hover(function(){
+				$(this).css('z-index', '100');
+			},function(){
+				$(this).css('z-index', '40');
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.step-item-blue .hide-on-load').hide();
+			$('.step-item-red .hide-on-load').hide();
+			$('.step-item-yel .hide-on-load').hide();
+			$('.step-item-blue .btn-submit').click(function(){
+				$('.step-item-blue .form-1').hide();
+				$('.step-item-blue .hide-on-load').show();
+				$('.step-item-blue .step').hide();
+				$('.step-item-blue .step-check').show();
+				$('.step-item-red .hide-on-load').show();
+				$('.step-item-red .step-check').hide();
+				$('.step-item-red .hide-on-active').hide();
+				$('ul.list li:first').addClass('checked');
+				var sex = $('.step-item-blue input[name="radio-1"]:checked').val();
+				var weight = $('.step-item-blue select#lb03').val() + ' kg';
+				var size = $('.step-item-blue #lb04').val() + ' cm';
+				var birthDate = $('.step-item-blue #lb05').val();
+				$('.step-item-blue ul.list-2 li:first').html(sex);
+				$('.step-item-blue ul.list-2 li:nth-child(2)').html(weight);
+				$('.step-item-blue ul.list-2 li:nth-child(3)').html(size);
+				$('.step-item-blue ul.list-2 li:nth-child(4)').html(birthDate);
+				return false;
+				
+			});
+			$('.step-item-red .btn-submit').click(function(){
+				$('.step-item-red .hide-on-load').hide();
+				$('.step-item-red .step').hide();
+				$('.step-item-red .step-check').show();
+				$('.step-item-yel .hide-on-load').show();
+				$('.step-item-red .hide-on-active').show();
+				$('ul.list li:nth-child(2)').addClass('checked');
+				var sport = $('.step-item-red input[name="radio-2"]:checked').val();
+				var smoker = $('.step-item-red input[name="radio-3"]:checked').val();
+				var drink = $('.step-item-red input[name="radio-4"]:checked').val();
+				var dream = $('.step-item-red input[name="radio-5"]:checked').val();
+				var stress = $('.step-item-red input[name="radio-6"]:checked').val();
+				var pregnant = $('.step-item-red input[name="radio-7"]:checked').val();
+				$('.step-item-red ul.list-2 li:first').html(sport);
+				$('.step-item-red ul.list-2 li:nth-child(2)').html(smoker);
+				$('.step-item-red ul.list-2 li:nth-child(3)').html(drink);
+				$('.step-item-red ul.list-2 li:nth-child(4)').html(dream);
+				$('.step-item-red ul.list-2 li:nth-child(5)').html(stress);
+				$('.step-item-red ul.list-2 li:nth-child(6)').html(pregnant);
+				return false;
+			});
+			$('.step-item-yel .btn-submit').click(function(){
+				$('ul.list li:nth-child(3)').addClass('checked');
+			});
+			$('.step-item-blue .hide-on-load .btn-submit').click(function(){
+				$('.step-item-red .hide-on-load').hide();
+				$('.step-item-yel .hide-on-load').hide();
+				$('.step-item-blue .form-1').show();
+				$('.step-item-blue .step').show();
+				$('.step-item-red .step-check').hide();
+				$('.step-item-blue .hide-on-load').hide();
+				$('ul.list li:first').removeClass('checked');
+				$('ul.list li:nth-child(2)').removeClass('checked');
+				$('.step-item-red .step').show();
+				return false;
+			});
+			$('.step-item-red .hide-on-active .btn-submit').click(function(){
+				$('.step-item-yel .hide-on-load').hide();
+				$('ul.list li:nth-child(2)').removeClass('checked');
+				$('.step-item-blue .form-1').hide();
+				$('.step-item-blue .hide-on-load').show();
+				$('.step-item-blue .step').hide();
+				$('.step-item-blue .step-check').show();
+				$('.step-item-red .hide-on-load').show();
+				$('.step-item-red .step-check').hide();
+				$('.step-item-red .hide-on-active').hide();
+				$('.step-item-red .step').show();
+				return false;
+			});
+		});
+	</script>
+	<script type="text/javascript" src="js/tooltip.js"></script>
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="all"/><![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="css/ie9.css" media="all"/><![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<div class="w1">
+			<div class="w2">
+				<div id="header">
+					<div class="header-top">
+						<a href="#" class="btn-login">Login</a>
+						<span class="contact">Kostenlose Service-HotLine: <strong>0800 - 370 313 382</strong></span>
+					</div>
+					<div class="header-holder">
+						<strong class="logo"><a href="#">PURmeo</a></strong>
+						<ul id="nav">
+							<li><a href="#">UNSER VERSPRECHEN</a></li>
+							<li><a href="#">PURMEO BOX</a></li>
+							<li><a href="#">HEALTH COACH</a></li>
+							<li><a href="#">FRAGEN</a></li>
+							<li><a href="#">ÜBER UNS</a></li>
+						</ul>
+					</div>
+				</div><!-- header -->
+				<div id="main">
+					<div class="check-block">
+						<h1>Der<br/>Purmeo<br/>Check</h1>
+						<div class="t-block">
+							<p><strong>Willkommen zum Purmeo Check!</strong></p>
+							<p>Der Purmeo Check wurde von Ernahrungswissenschaalern entwickelt, um ihren ganz personLichen Nahrstobedarf zu ermileln.<br/>An Hand von Informationen zu Ihrer Person, Ihrer Lebensumstande und Ihrer Ernahrung wird festgestellt, wie gut Ihr<br/>Vitaminbedarf gedeckt ist - kostenlos und unverbindllch.</p>
+						</div>
+						<h2>Erfahren Sie jetzt Ihren individuellen Nahrstoffbedarf.</h2>
+						<ul class="list">
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+						</ul>
+						<div class="step-item step-item-blue">
+							<div class="top">
+								<img src="images/img-01.png" alt="" width="66" height="64" />
+								<strong class="step-name">UBER SIE</strong>
+								<strong class="step">1 von 3</strong>
+								<strong class="step-check hide-on-load">checked</strong>
+							</div>
+							<div class="form-1">
+								<form action="#">
+									<fieldset>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-03.png" alt="" width="33" height="45" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Geschtecht</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-1" id="lb01" value="mannlich" />
+												<label for="lb01">mannlich</label>
+												<input type="radio" class="radio" name="radio-1" id="lb02" checked="checked" value="weiblich" />
+												<label for="lb02">weiblich</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><label class="mdl" for="lb03"><img class="trigger" src="images/img-04.png" alt="" width="33" height="32" /></label></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<select id="lb03" class="sel">
+												<option>Korpergewicht</option>
+												<option>50</option>
+												<option>60</option>
+												<option>70</option>
+												<option>80</option>
+											</select>
+											<label class="icon icon-2 bubbleInfo" for="lb04">
+												<em><span class="mdl"><img class="trigger" src="images/img-06.png" alt="" width="12" height="38" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</label>
+											<div class="text">
+												<strong>Körpergröße</strong><input type="text" id="lb04" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><label class="mdl" for="lb05"><img class="trigger" src="images/img-05.png" alt="" width="27" height="26" /></label></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<div class="text">
+												<strong>Geburtsdatum</strong><input type="text" id="lb05" value="tt.mm.jjjj" />
+											</div>
+											<a class="btn-submit" href="#" />Weiter</a>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="form-1 hide-on-load">
+								<ul class="list-2">
+									<li>weiblich</li>
+									<li>63 kg</li>
+									<li>165 cm</li>
+									<li>12.12.1977</li>
+								</ul>
+								<div class="btn-holder">
+									<a class="btn-submit" href="#" />BEARBEITEN</a>
+								</div>
+							</div>
+						</div>
+						<div class="step-item step-item-red">
+							<div class="top">
+								<img src="images/img-07.png" alt="" width="66" height="64" />
+								<strong class="step-name">LEBENSWANDEL</strong>
+								<p class="hide-on-load">Fur mehr Informationen zur Frage klicken Sie mit der Maus auf das Symbol links</p>
+								<strong class="step">2 von 3</strong>
+								<strong class="step-check hide-on-load">checked</strong>
+							</div>
+							<div class="form-1 hide-on-load">
+								<form action="#">
+									<fieldset>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-09.png" alt="" width="42" height="39" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Machen Sie regelma'Rig Sport, d.h. zwischen drei bis funf Stunden pro Woche?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-2" id="lb06" value="nein" />
+												<label for="lb06">nein</label>
+												<input type="radio" class="radio" name="radio-2" id="lb07" checked="checked" value="ja, 3-5 Stunden die Woche" />
+												<label for="lb07">ja, 3-5 Stunden die Woche</label>
+												<input type="radio" class="radio" name="radio-2" id="lb08" value="mehr als das" />
+												<label for="lb08">mehr als das</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-10.png" alt="" width="36" height="50" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Rauchen Sie?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-3" id="lb09" value="Ja" />
+												<label for="lb09">Jа</label>
+												<input type="radio" class="radio" name="radio-3" id="lb10" checked="checked" value="nein" />
+												<label for="lb10">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-11.png" alt="" width="40" height="42" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Trinken Sie regelmoBig ALkohoL, d.h. durchschnittlich zwei- bis dreimal die Woche?</strong>
+											<div class="radio-row">
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-4" id="lb11" value="Ja, ein GLas Bier oder einen Cocktail ab und zu" />
+													<label for="lb11">Ja, ein GLas Bier oder einen Cocktail ab und zu</label>
+												</div>
+												<div class="holder-2">
+													<input type="radio" class="radio" name="radio-4" id="lb12" checked="checked" value="Nein, ich trinke keinen Alkohol" />
+													<label for="lb12">Nein, ich trinke keinen Alkohol</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-12.png" alt="" width="49" height="57" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Haben Sie einen ruhigen und ausreichend langen Schlaf?</strong>
+											<div class="radio-row">
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-5" id="lb13" value="Ja, ich schLafe ruhig und ausreichend lange." />
+													<label for="lb13">Ja, ich schLafe ruhig und ausreichend lange.</label>
+												</div>
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-5" id="lb14" checked="checked" value="Ich habe ab und zu einen unruhigen und zu kurzen Schlaf" />
+													<label for="lb14">Ich habe ab und zu einen unruhigen und zu kurzen Schlaf</label>
+												</div>
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-5" id="lb15" value="Nein, ich habe haufig Schlafprobleme." />
+													<label for="lb15">Nein, ich habe haufig Schlafprobleme.</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-13.png" alt="" width="46" height="56" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Fuhlen Sie sich oft gestresst und kraftlos?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-6" id="lb16" value="Ja" />
+												<label for="lb16">ja</label>
+												<input type="radio" class="radio" name="radio-6" id="lb17" checked="checked" value="Nein" />
+												<label for="lb17">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-14.png" alt="" width="20" height="53" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Sind Sie sthwanger?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-7" id="lb18" value="Ja" />
+												<label for="lb18">ja</label>
+												<input type="radio" class="radio" name="radio-7" id="lb19" value="Nein" checked="checked" />
+												<label for="lb19">nein</label>
+												<input type="radio" class="radio" name="radio-7" id="lb20" value="Ich befinde mich in der Stillzeit" />
+												<label for="lb20">Ich befinde mich in der Stillzeit</label>
+											</div>
+										</div>
+										<div class="row">
+											<a class="btn-submit" href="#" />Weiter</a>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="form-1 hide-on-load hide-on-active">
+								<ul class="list-2">
+									<li>weiblich</li>
+									<li>63 kg</li>
+									<li>165 cm</li>
+									<li>12.12.1977</li>
+									<li>63 kg</li>
+									<li>165 cm</li>
+								</ul>
+								<div class="btn-holder">
+									<a class="btn-submit" href="#" />BEARBEITEN</a>
+								</div>
+							</div>
+						</div>
+						<div class="step-item step-item-yel">
+							<div class="top">
+								<img src="images/img-08.png" alt="" width="66" height="64" />
+								<strong class="step-name">ERNAHRUNG</strong>
+								<p class="hide-on-load">Fur mehr Informationen zur Frage klicken Sie mit der Maus auf das Symbol links</p>
+								<strong class="step">3 von 3</strong>
+							</div>
+							<div class="form-1 hide-on-load">
+								<form action="#">
+									<fieldset>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-15.png" alt="" width="32" height="56" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Wie haufig verzehren Sie Vollkomprodukte in Form von Brot, Nudeln, Musti oder Reis?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-8" id="lb21" />
+												<label for="lb21">6-7 Mai die Woche</label>
+												<input type="radio" class="radio" name="radio-8" id="lb22" checked="checked" />
+												<label for="lb22">3-5 Mai die Woche</label>
+												<input type="radio" class="radio" name="radio-8" id="lb23" />
+												<label for="lb23">1-2 Mai die Woche</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-16.png" alt="" width="30" height="40" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Essen Sie taglkh zwei Portionen Obst (ca. 200 g)?</strong>
+											<div class="radio-row">
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-9" id="lb24" />
+													<label for="lb24">Jа, ich esse mehrmals taglich frisches Obst.</label>
+												</div>
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-9" id="lb25" checked="checked" />
+													<label for="lb25">Oft, aber nicht taglich.</label>
+												</div>
+												<div class="holder">
+													<input type="radio" class="radio" name="radio-9" id="lb26" />
+													<label for="lb26">Nein, ich esse nur selten Obst.</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-17.png" alt="" width="30" height="63" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Drei Portionen Gemuse (Beilagen, Rohkost, Salate) esse ich taglich.</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-10" id="lb27" />
+												<label for="lb27">ja</label>
+												<input type="radio" class="radio" name="radio-10" id="lb28" checked="checked" />
+												<label for="lb28">1-2 schaffe ich</label>
+												<input type="radio" class="radio" name="radio-10" id="lb29" />
+												<label for="lb29">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-18.png" alt="" width="33" height="45" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Wie oft essen Sie tierische Produkte wie Fleisch, Wurstwaren und Eier?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-11" id="lb30" />
+												<label for="lb30">taglich</label>
+												<input type="radio" class="radio" name="radio-11" id="lb31" checked="checked" />
+												<label for="lb31">2-3 Mal pro Woche</label>
+												<input type="radio" class="radio" name="radio-11" id="lb32" />
+												<label for="lb32">Gelegentlich bis nie</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-19.png" alt="" width="42" height="37" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Verzehren Sie mindestens einmal pro Woche Meerestiere (Fisch, Krabben etc.)?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-12" id="lb33" />
+												<label for="lb33">jа</label>
+												<input type="radio" class="radio" name="radio-12" id="lb34" checked="checked" />
+												<label for="lb34">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-20.png" alt="" width="36" height="38" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Stehen Milch- und Milchprodukte auf dem tagtichen Speiseplan?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-13" id="lb35" />
+												<label for="lb35">jа</label>
+												<input type="radio" class="radio" name="radio-13" id="lb36" checked="checked" />
+												<label for="lb36">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-21.png" alt="" width="18" height="50" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Ich trinke taglich 2,0 Liter energiefreie Flussigkeit (Wasser, Tee, aufler schwarzem)</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-14" id="lb37" />
+												<label for="lb37">jа</label>
+												<input type="radio" class="radio" name="radio-14" id="lb38" checked="checked" />
+												<label for="lb38">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-22.png" alt="" width="42" height="26" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Essen Sie oft aufgewarmte Speisen oder Fertiggerichte (Kantine, Fast Food)?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-15" id="lb39" />
+												<label for="lb39">jа</label>
+												<input type="radio" class="radio" name="radio-15" id="lb40" checked="checked" />
+												<label for="lb40">3-4 Mal pro Woche</label>
+												<input type="radio" class="radio" name="radio-15" id="lb41" />
+												<label for="lb41">Nein, selten bis nie</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-23.png" alt="" width="48" height="36" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Teilen Sie sich SuBigkeiten bewusst iiber die Woche ein?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-16" id="lb42" />
+												<label for="lb42">jа</label>
+												<input type="radio" class="radio" name="radio-16" id="lb43" checked="checked" />
+												<label for="lb43">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-24.png" alt="" width="35" height="34" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Machen Sie heufig Diaten?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-17" id="lb44" />
+												<label for="lb44">jа</label>
+												<input type="radio" class="radio" name="radio-17" id="lb45" checked="checked" />
+												<label for="lb45">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-25.png" alt="" width="35" height="35" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<strong class="lbl">Essen Sie taglich hochwertige pflanzliche Ole?</strong>
+											<div class="radio-row">
+												<input type="radio" class="radio" name="radio-18" id="lb46" />
+												<label for="lb46">jа</label>
+												<input type="radio" class="radio" name="radio-18" id="lb47" checked="checked" />
+												<label for="lb47">nein</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="icon bubbleInfo">
+												<em><span class="mdl"><img class="trigger" src="images/img-26.png" alt="" width="32" height="54" /></span></em>
+												<span class="tooltip">
+													<span class="tooltip-b">
+														<span class="tooltip-c">
+															<span class="tooltip-frame">Dies ist ein Typoblindtext, An ihm kann man sehen, ob aLLe Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder HandgLoves, urn Schriften zu testen.</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<div class="radio-row">
+												<strong class="lbl">Gesundhei tsinf o: FoLgendes trifft auf mich zu...</strong>
+												<div class="holder-2">
+													<input id="lb48" class="chk" type="checkbox" />
+													<label for="lb48">Nichts trifft auf mich zu</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb49" class="chk" type="checkbox" checked="checked" />
+													<label for="lb49">Jod-Unvertraglichkeit</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb50" class="chk" type="checkbox" />
+													<label for="lb50">Gluten-Unvertraglichkeit</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb51" class="chk" type="checkbox" />
+													<label for="lb51">Lactose-Unvertraglichkeit</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb52" class="chk" type="checkbox" />
+													<label for="lb52">Fructose-Malabsorbtion</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb53" class="chk" type="checkbox" checked="checked" />
+													<label for="lb53">Diabetes mellitus 1 oder 2</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb54" class="chk" type="checkbox" />
+													<label for="lb54">Ich nehme blutverdunnende Medikamente</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb55" class="chk" type="checkbox" />
+													<label for="lb55">Schwangerschaft</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb56" class="chk" type="checkbox" />
+													<label for="lb56">Bluthochdruck</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb57" class="chk" type="checkbox" />
+													<label for="lb57">Fettstoffwechselstorung</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb58" class="chk" type="checkbox" />
+													<label for="lb58">Epilepsie</label>
+												</div>
+												<div class="holder-3">
+													<input id="lb59" class="chk" type="checkbox" />
+													<label for="lb59">Fructose-lntoleranz</label>
+												</div>
+												<div class="holder-2">
+													<input id="lb60" class="chk" type="checkbox" />
+													<label for="lb60">Rheuma</label>
+												</div>
+											</div>
+										</div>
+										<div class="row row-2">
+											<label for="lb61" class="lbl">Haben Sie einen Gutscheincode?</label>
+											<div class="holder-2 offset-1">
+												<div class="text text-2">
+													<input type="text" id="lb61" value="Gutscheincode" />
+												</div>
+												<input class="btn-submit" type="submit" value="ZUM ERGEBNIS" />
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div><!-- main -->
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="footer-holder">
+			<ul id="footer-nav">
+				<li><a href="#">Startseite</a></li>
+				<li><a href="#">Unser Versprechen</a></li>
+				<li><a href="#">Purmeo Box</a></li>
+				<li><a href="#">Health Coach</a></li>
+				<li><a href="#">Fragen</a></li>
+				<li><a href="#">Uberuns</a></li>
+				<li><a href="#">Presse</a></li>
+				<li><a href="#">Kontakt</a></li>
+				<li><a href="#">Impressum</a></li>
+			</ul>
+			<div class="footer-frame">
+				<ul class="social">
+					<li><a href="#"><img src="images/ico-facebook.gif" alt="" width="14" height="27" /></a></li>
+					<li><a href="#"><img src="images/ico-twitter.gif" alt="" width="20" height="27" /></a></li>
+					<li><a href="#"><img src="images/ico-linked.gif" alt="" width="25" height="27" /></a></li>
+					<li><a href="#"><img src="images/ico-youtube.gif" alt="" width="23" height="27" /></a></li>
+					<li><a href="#"><img src="images/ico-rss.gif" alt="" width="28" height="27" /></a></li>
+				</ul>
+				<span class="contact">Kostenlose Service-Hotline; <strong>0800 - 370 313 382</strong></span>
+				<span class="contact2">Ko.nt.akt via Email: <strong><a href="#">mail@purmeo.de</a></strong></span>
+			</div>
+		</div>
+	</div><!-- footer -->
+</body>
+</html>

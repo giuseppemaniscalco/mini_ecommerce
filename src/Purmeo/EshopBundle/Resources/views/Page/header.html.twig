@@ -1,0 +1,65 @@
+<div id="header" >
+    <div class="container">
+        <div class="header-holder">
+            <div class="row">
+                <div class="span1">
+                    <strong class="logo">
+                        <a href="{{ path('purmeo_eshop_homepage') }}">
+                            Purmeo
+                        </a>
+                    </strong>
+                </div>
+                <div class="span2 offset5">
+                    <img src="{{ asset('media/shared/Homepage-Design/header/truck.png') }}" class="" alt="Kostenlose Lieferung"/>
+                    <p>Kostenlose Lieferung</p>
+                </div>
+                <div class="span2" style="width: 115px">
+                    <img src="{{ asset('media/shared/Homepage-Design/header/phone.png') }}" class="" alt="030 48492850"/>
+                    <p>030 48492850</p>
+                </div>
+                <div class="span2" style="width: 215px">
+                    <img src="{{ asset('media/shared/Homepage-Design/header/tv.png') }}" class="" alt="Bekannt aus TV"/>
+                    <p>Bekannt aus TV</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu">
+        <div class="container">
+            <div class="row">
+                <div class="span10">
+                    <ul id="nav">
+                        <li>
+                            <a href="{{ path('purmeo_eshop_why') }}">
+                                So funktioniert's
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('purmeo_eshop_box') }}">
+                                Purmeo Box
+                            </a>
+                        </li>
+                        {% if app.user %}
+                            <li>
+                                <a href="{{ path('purmeo_eshop_user') }}">
+                                    {{ app.user.username }}
+                                </a>                                
+                            </li>
+                        {% endif %}
+                        <li>
+                            {% if app.user %}
+                                <a href="{{ path('purmeo_eshop_logout') }}">
+                                    Logout
+                                </a>                                
+                            {% else %}
+                                <a href="{{ path('purmeo_eshop_login') }}">
+                                    Login
+                                </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

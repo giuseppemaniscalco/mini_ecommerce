@@ -1,0 +1,227 @@
+<script type ="text/javascript" src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+<script type="text/javascript">
+    $(function(){ 
+        $(".fancybox").fancybox();
+        $(".sharecode-click").click(function () {
+            $('.sharecode-placeholder').fadeOut('slow', function() {
+                $(".sharecode-placeholder").html("CGFN-ZQNF-NRV3");
+            });
+            $('.sharecode-placeholder').fadeIn('slow', function() {});
+        });
+
+        $('#submit-subscribe-email').click(function(){
+            if($('#DATENSCHUTZ').is(':checked')){
+                $('#submit-subscribe-email-error').remove();
+                var emailRegex = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
+                var email = $('#subscribe-email').val();
+                if(email.length > 0 && emailRegex.test(email)){
+                    var request = {
+                        email: email,
+                        event: 1
+                    };
+                    var url = '{{ path('purmeo_eshop_subscribe') }}';
+                    $.ajax({
+                        url: url,
+                        data: request,
+                        type: 'POST',
+                        beforeSend: function(){
+                            $('#loadAjax').remove();
+                            $('#submit-subscribe-email').after(
+                                $('<div>').attr('id','loadAjax').text('Loading')
+                            );
+                        },
+                        success: function(response) {
+                            if(response){
+                                $('#loadAjax').text('Erfoglreich eingetragen.	');
+                                $('#subscribe-email').val('');
+                            }else{
+                                $('#loadAjax').text('Fehler');
+                            }
+                        },
+                        complete: function(){
+                            $('#loadAjax')
+                            .fadeIn()
+                            .delay(2000)
+                            .fadeOut()
+                            .delay(2000, function() {
+                               $(this).remove();
+                            });
+                        }
+                    });
+                }else{
+                    $('#submit-subscribe-email').after(
+                        $('<p>').attr('id','submit-subscribe-email-error').text('Ung�ltige E-mail Adresse!')
+                    );
+
+                    $('#submit-subscribe-email-error')
+                    .fadeIn()
+                    .delay(2000)
+                    .fadeOut()
+                    .delay(2000, function() {
+                       $(this).remove();
+                    });
+                }
+            }else{
+                $('#submit-subscribe-email').after(
+                    $('<p>').attr('id','submit-subscribe-email-error').text('Bitte best�tigen Sie den Newsletter!')
+                );                    
+            }
+        });
+    });
+    </script>
+    <style type="text/css">
+            .submit-subscribe-email {
+                background: -moz-linear-gradient(top,  #a4ca21 0%, #84b717 100%);
+                background: -webkit-linear-gradient(top,  #a4ca21 0%,#84b717 100%);
+                background: -o-linear-gradient(top,  #a4ca21 0%,#84b717 100%);
+                background: -ms-linear-gradient(top,  #a4ca21 0%,#84b717 100%);
+                background: linear-gradient(top,  #a4ca21 0%,#84b717 100%);
+                width: 100px;
+                height: 32px;
+                color: white;
+                display: block;
+                text-align: center;
+                text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.45);
+                box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                border: 1px solid #6CA013;
+                border-radius: 3px;
+                font-size: 14px;
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+            .newsletter-bg input[type="email"] {
+                height: 20px;
+                font-size: 14px;
+                padding: 5px;
+                margin-top: 20px;
+                border: 1px solid #DDD;
+                outline: none;
+            }
+
+            .newsletter-bg input[type="checkbox"] {
+                margin-right: 5px;
+            }
+
+        </style>
+        <div class="footer">
+            <div class="subfooter-pre">
+                <div class="container">
+                    <div class="row matop20">
+                        <div class="span4">
+                            <div class="footer-feature">
+                                <div class="left-border">&nbsp;</div>
+                                <img src="{{ asset('media/shared/Homepage-Design/footer/footer-leaf.png') }}"/>
+                                <p>Beste Zutaten und Inhaltsstoffe</p>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="footer-feature">
+                                <div class="left-border">&nbsp;</div>
+                                <img src="{{ asset('media/shared/Homepage-Design/footer/footer-euro.png') }}"/>
+                                <p>Sichere Bezahlung und Service</p>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="footer-feature">
+                                <div class="left-border">&nbsp;</div>
+                                <img src="{{ asset('media/shared/Homepage-Design/footer/footer-truck.png') }}"/>
+                                <p>Versandkostenfrei in nur 2 Tagen geliefert</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="span4 newsletter-bg">
+                            <b>Newsletter abonnieren</b>
+                            <p>Produktneuigkeiten, Rabatte, Health Tipps</p>
+                            <input type="email" id="subscribe-email" name="subscribe-email" placeholder="Ihre Email Adresse" />
+                            <input class="submit-subscribe-email" id="submit-subscribe-email" type="button" name="submit-subscribe-email" value="Senden"/>
+                            <p style="margin-top: 5px,">
+                                <input tabindex="-1" type="checkbox" required="required" name="DATENSCHUTZ" id="DATENSCHUTZ" class="">
+                                <label for="DATENSCHUTZ">
+                                    Ich m&ouml;chte den Newsletter abonnieren
+                                </label>
+                            </p>
+                        </div>
+                        <div class="span4 footer-social">
+                            <div class="row">
+                                <div class="span2 maleft0">
+                                    <a href="https://www.facebook.com/purmeo" target="_blank">
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/facebook.png') }}"/>
+                                        Facebook
+                                    </a>
+                                </div>
+                                <div class="span2">
+                                    <a href="https://twitter.com/purmeo" target="_blank">
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/twitter.png') }}"/>
+                                        Twitter
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row matop10">
+                                <div class="span2 maleft0">
+                                    <a href="http://www.youtube.com/user/Purmeo" target="_blank">
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/youtube.png') }}"/>
+                                        Youtube
+                                    </a>
+                                </div>
+                                <div class="span2">
+                                    <a href="http://pinterest.com/purmeo" target="_blank">
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/pinterest.png') }}"/>
+                                        Pinterest</a>
+                                </div>
+                            </div>
+                            <div class="row matop10">
+                                <div class="span2 maleft0">
+                                    <a href="mailto:service@purmeo.de" target="_blank">
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/mail.png') }}"/>
+                                        service@purmeo.de
+                                    </a>
+                                </div>
+                                <div class="span2">
+                                    <a>
+                                        <img src="{{ asset('media/shared/Homepage-Design/footer/phone.png') }}"/>
+                                        030 48492850
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="gcc_NaviBottomHeadline">
+                                Service Partner
+                            </div>
+                            <a href="{{ path('purmeo_eshop_partner') }}">
+                                <img src="{{ asset('media/shared/Homepage-Design/footer/service_partner.png') }}" border="0" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type ="text/javascript" src="{{ asset('js/autoscaling-menu.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/dropwdown.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){ 
+                    $('.dropdown-toggle').dropdown()
+                });
+            </script>
+            <script type="text/javascript">
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+                </script>
+                <script type="text/javascript">
+                        var __lc = {};
+                        __lc.license = 1238591;
+                        (function() {
+                          var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+                          lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+                          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+                        })();
+                        var LC_API = LC_API || {};
+                        LC_API.on_load = function(){};
+                    </script>

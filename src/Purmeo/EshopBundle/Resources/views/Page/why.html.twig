@@ -1,0 +1,135 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block title %}Purmeo{% endblock%}
+
+{% block main %}
+<script type="text/javascript" src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+                                                $(".fancybox").fancybox({
+                                                        fitToView	: false,
+                                                        autoSize	: false,
+                                                        closeClick	: false,
+                                                        openEffect	: 'none',
+                                                        closeEffect	: 'none',
+                                                        modal 		: false,
+                                                        closeBtn	: true,
+                                                        minWidth	: 990,
+                                                        maxHeight	: 500
+                                                });
+                                        });
+    </script>
+    <div id="cmmpID_Info">
+        <div id="warumpurmeo-slider">
+            <div class="container">
+                <div class="row">
+                    <div class="span5">
+                        <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/Leonie-tageseinheit.png') }}" class="leonie-tageseinheit matop10" alt="Herbst-slider-Paar"/>
+                    </div>
+                    <div class="span7 offset5">
+                        <h1>Purmeo bringt Sie in Topform </br> in nur 3 einfachen Schritten</h2>
+                            <h2 class="normal gray">Mit nur wenigen Fragen lernt Purmeo Sie und
+                                Ihre Ziele kennen. Unsere Experten w&auml;hlen f&uuml;r Sie
+                                die passenden Vitamine und Mineralstoffe 
+                                abgestimmt auf Ihren K&ouml;rper und Ihre Ziele.
+                            </h2>
+                            <div class="row">
+                                <div class="span3">
+                                    <h4 style="margin-bottom: -15px; text-align: center; margin-top: 8px;">Lernen Sie Purmeo kennen - in nur 30 Sekunden</h4>
+                                    <a href="#videomodal" class="fancybox">
+                                        <img class="matop10 mini-video" src="{{ asset('media/shared/Homepage-Design/mini-video.png') }}" /></a>	
+                                </div>
+                                <div id="videomodal" style="display:none; height: 480px; width: 853px; overflow: hidden;">
+                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/ZxwIl0r6P0g" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="span4">
+                                    <div class="cta-box matop10 mabot10">
+                                        <h2 class="mabot0">Probieren Sie Purmeo</h2>
+                                        <h3 class="normal gray">Kostenlose Lieferung</h3>
+                                        <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}">Jetzt Starten</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="warumpurmeo-schritte">
+            <div class="container">
+                <div class="row">
+                    <div class="span3" style="margin-left: 90px;">
+                        <div class="number">1</div> <p style="width: 109px; margin-left: 60px;">Sie machen den <b>Purmeo Check</b> und bestimmen Ihre Ziele.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="number">2</div> <p>Unsere Experten stellen Ihren <b>individuellen Vitaminkomplex</b> zusammen abgestimmt auf Ihren K&ouml;rper und Ihre Ziele.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="number">3</div>	 <p style="width: 168px;">Ihre ganz pers&ouml;nliche Purmeo Box kommt <b>monatlich kostenfrei</b> zu Ihnen nach Hause.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="warumpurmeo-prozess">
+            <div class="container">
+                <h2>Bestellen Sie jetzt Ihre erste Purmeo Box!</h2>
+                <div class="row matop10">
+                    <div class="span4">
+                        <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-1.jpg') }}" alt="Icon laster"/>
+                        <h2>Vitamin Check</h2>
+                        <h3 class="normal gray">Der Purmeo Check wurde von unseren Experten entwickelt.</br> <a href="/check">Jetzt zum Check</a></h3>
+                    </div>
+                    <div class="span4">
+                        <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-2.jpg') }}" alt="Icon person"/>
+                        <h2>Personalisiert</h2>
+                        <h3 class="normal gray">Ihre Vitamine werden von  unseren Experten aus &uuml;ber 100.000 Kombinationen f&uuml;r Sie ausgew&auml;hlt.</h3>
+                    </div>
+                    <div class="span4">
+                        <img src="{{ asset('media/shared/Homepage-Design/warumpurmeo/schritte-3.jpg') }}" alt="Icon heart"/>
+                        <h2>Kostenlos geliefert</h2>
+                        <h3 class="normal gray">Ihre personalisierten Vitamine werden  p&uuml;nklich und kostenfrei geliefert, in nur 2 Tagen.</h3>
+                    </div>			
+                </div>
+                <center class="matop20">
+                    <div class="cta-box-white mabot10">
+                        <h2 class="mabot0">Jetzt bestellen</h2>
+                        <h3 class="normal gray">Kostenlose Lieferung</h3>
+                        <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}">Jetzt personalisieren</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-bergsteiger">
+        <div class="container">
+            <div class="row">
+                <h2>Bringen Sie Ihren K&ouml;rper auf Ihre pers&ouml;nliche H&ouml;chstleistung!</h2>
+                <div class="span3 offset2"><b>Um Ihre Ziele zu erreichen braucht 
+                        Ihr K&ouml;rper besonders viel Kraft. </b></br>
+                    Sie verlangen Au&szlig;ergew&ouml;hnliches 
+                    von Ihrem K&ouml;rper - geben Sie ihm 
+                    das Beste f&uuml;r die H&ouml;chstleistung, 
+                    die Ihr K&ouml;rper t&auml;glich vollbringt.</div>
+                <div class="span3"><b>Vitamine und Mineralstoffe liefern 
+                        Ihrem K&ouml;rper zus&auml;tzliche Energie.</b></br>
+                    Doch gerade f&uuml;r hohe Anforderungen
+                    braucht er wichtige N&auml;hrstoffe, um Besonderes
+                    zu leisten.</div>
+                <div class="span3"><b>Purmeo macht die t&auml;gliche Vitaminversorgung f&uuml;r Ihre Ziele einfach.</b></br>
+                    Purmeo ist Ihre Energie zum 
+                    aufrei&szlig;en. Vitamine und Mineralstoffe
+                    ausgew&auml;hlt f&uuml;r Ihre Ziele, h&ouml;here Leistung
+                    und schnellere Ergebnisse.</div>
+            </div>
+            <center style="margin-top: 50px;">
+                <div class="cta-box mabot10">
+                    <h2 class="mabot0">Jetzt bestellen</h2>
+                    <a class="button_sqaure_medium_orange" href="{{ path('purmeo_eshop_product') }}">Jetzt personalisieren</a>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock%}

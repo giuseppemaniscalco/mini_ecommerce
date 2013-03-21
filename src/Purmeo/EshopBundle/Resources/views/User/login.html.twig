@@ -1,0 +1,52 @@
+{% extends 'PurmeoEshopBundle::layout.html.twig' %}
+
+{% block main %}
+<div id="cmmpID_Account" class="patop50">
+    <div class="login-bg">
+        <div class="container pabot50">
+            <style type="text/css">
+                .BoxLeft { float: left; width: 260px; margin-right: 10px; overflow: hidden; }
+                .BoxRight { float: left; width: 630px; }
+            </style>
+            <div class="BoxLeft">&nbsp;</div>
+            <div class="login-bg"></div>
+            <div class="left login-box">
+                <h2>Jetzt einloggen</h2>
+                <p>Wenn Sie bereits ein Kundenkonto haben, k&ouml;nnen Sie sich hier einloggen.</p>
+                <br />
+                {% if error %}
+                    <div class="cmmp_WarningSymbol">Beim einloggen ist ein Fehler aufgetreten.</div><br />
+                {% endif %}
+                <form class="formular" method="Post" id="login" name="FORM_LOGIN" action="{{ path("purmeo_eshop_login_check") }}">
+                    <fieldset>
+                        <div class="element clear" style="padding-left:0;">
+                            <label for="username">Emailadresse</label>
+                            <input type="text" size="20" id="username" value="{{ last_username }}" name="_username" title="Bitte E-Mail Adresse angeben!" />
+                        </div>
+                        <div class="element clear mabot20" style="padding-left:0;">
+                            <label for="password">Passwort</label>
+                            <input id="password" type="password" size="20" value="" name="_password" title="Bitte Passwort angeben!" />
+                        </div>
+                        <div class="clear">
+                            <input id="LOGIN_SUBMIT" name="LOGIN_SUBMIT" type="submit" value="einloggen" class="button_sqaure_small" />
+                        </div>
+                    </fieldset>
+                </form>
+                <br /><br />
+                <h2>Noch nicht angemeldet?</h2>
+                <p>
+                    Wer sich anmeldet, muss nicht bei jeder Bestellung seine Adresse neu eingeben. 
+                    <br />
+                    Au&szlig;erdem k&ouml;nnen alle bisherigen Bestellungen wieder aufgerufen werden.
+                </p>
+                <br />
+                <div class="button_sqaure_small clear">
+                    <a href="{{ path("purmeo_eshop_register") }}">jetzt anmelden</a>
+                </div>
+                <script language="JavaScript">document.FORM_LOGIN.LOGIN_NAME.focus();</script>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

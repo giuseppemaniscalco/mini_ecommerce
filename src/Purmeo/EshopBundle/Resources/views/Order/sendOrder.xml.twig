@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orderlist xmlns="http://om.mymuesli.com/schema/orderlist">
+    <order source="10">
+        <ordernumber>{{ order.code }}</ordernumber>
+        <currency>{{ order.currency }}</currency>
+        <orderdate>{{ order.created | date('U') }}</orderdate>
+        <paymenttype>{{ pay.method ? 20 : 30 }}</paymenttype>
+        <deliverytype>10</deliverytype>
+        <ip>{{ user.ip }}</ip>
+        {% for type, address in addresses %}
+            {% if type == 'billing' %}
+                <customer id="0">
+                    <email>{{ user.username }}</email>
+                    <fname>{{ address.firstname }}</fname>
+                    <lname>{{ address.lastname }}</lname>
+                    <addrAdd>{{ address.otherInfo }}</addrAdd>
+                    <street>{{ address.street }} {{ address.number }}</street>
+                    <zip>{{ address.zipcode }}</zip>
+                    <city>{{ address.city }}</city>
+                    <country>{{ address.country }}</country>
+                </customer>
+                    {% else %}
+                <recipient id="">
+                    <fname>{{ address.firstname }}</fname>
+                    <lname>{{ address.lastname }}</lname>
+                    <addrAdd>{{ address.otherInfo }}</addrAdd>
+                    <street>{{ address.street }} {{ address.number }}</street>
+                    <zip>{{ address.zipcode }}</zip>
+                    <city>{{ address.city }}</city>
+                    <country>{{ address.country }}</country>
+                </recipient>
+            {% endif %}
+        {% endfor %}
+        <productlist>
+            <product typecode="1000" id="1">
+                <title>{{ product.name }}</title>
+                <subtitle>{{ product.name }}</subtitle>
+                <quantity>1</quantity>
+                <perprice>{{ (product.price) }}</perprice>
+                <perweight>0</perweight>
+                <taxrate>{{ product.tax }}</taxrate>
+            </product>
+            <product typecode="30" id="1">
+                <title>Discount</title>
+                <subtitle>Discount</subtitle>
+                <quantity>1</quantity>
+                <perprice>-{{ (product.discount) }}</perprice>
+                <perweight>0</perweight>
+                <taxrate>{{ product.tax }}</taxrate>
+            </product>
+        </productlist>
+    </order>
+</orderlist>

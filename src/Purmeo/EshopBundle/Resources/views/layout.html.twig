@@ -1,0 +1,94 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+<meta name="keywords" content="{% block keywords %}Purmeo, individuelle Vitamine, individuelle Nahrungserg�nzungsmittel, Nahrungserg�nzungsmittel, Vitamine, Mineralstoffe, NEM{% endblock %}" />
+<meta name="description" content="{% block description %}Vitaminbedarf testen und pers�nlichen Vitaminmangel ausgleichen - Vitamine und Mineralstoffe versandkostenfrei bei PURMEO{% endblock %}" />
+<meta name="copyright" content="{% block copyright %}Purmeo - http://www.purmeo.com{% endblock %}" />
+<meta name="robots" content="{% block robots %}index, follow{% endblock %}" />
+<meta name="revisit-after" content="{% block revisit_after %}3 days{% endblock %}" />
+<meta name="language" content="{% block language %}Deutsch{% endblock %}" />
+<link rel="canonical" href="{% block canonical %}http://www.purmeo.de:80/index.html?vw=cpreview&id=1{% endblock %}" />
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<meta property="og:title" content="{% block og_title %}Individuelle Vitamine und Mineralstoffe individuell auf Sie zugeschnitten | PURMEO{% endblock %}" />
+<meta property="og:type" content="{% block og_type %}food{% endblock %}" />
+<meta property="og:url" content="{% block og_url %}http://www.purmeo.de{% endblock %}" />
+<meta property="og:image" content="{% block og_image %}{{ asset('media/shared/Homepage-Design/purmeo_facebook_logo.jpg') }}{% endblock %}" />
+<meta property="og:site_name" content="{% block og_site_name %}Purmeo - Mein Leben. Meine Vitamine.{% endblock %}" />
+<meta property="fb:admins" content="{% block og_admins %}1563450882{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}Purmeo versorgt Sie mit Vitaminen und Mineralstoffen abgestimmt auf Ihren Bedarf. Jetzt Purmeo Check machen und Ihren individuellen Vitaminkomplex bestellen.{% endblock %}" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/modernizr.custom.14814.js') }}"></script>
+<script type="text/javascript" src="//use.typekit.net/qcg1ars.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type='text/javascript'>
+    var _vwo_code=(function(){
+    var account_id=32909,
+    settings_tolerance=2000,
+    library_tolerance=1500,
+    use_existing_jquery=false,
+    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    </script>
+    <style type="text/css">
+            [class^="icon-"]:before, [class*=" icon-"]:before {
+                font-family: FontAwesome;
+                font-weight: normal;
+                font-style: normal;
+                display: inline-block;
+                text-decoration: inherit;
+            }
+            a [class^="icon-"], a [class*=" icon-"] {
+                display: inline-block;
+                text-decoration: inherit;
+            }
+            /* makes the font 33% larger relative to the icon container */
+            .icon-large:before {
+                vertical-align: top;
+                font-size: 1.3333333333333333em;
+            }
+            .btn [class^="icon-"], .btn [class*=" icon-"] {
+                /* keeps button heights with and without icons the same */
+
+                line-height: .9em;
+            }
+            li [class^="icon-"], li [class*=" icon-"] {
+                display: inline-block;
+                width: 1.25em;
+                text-align: center;
+            }
+            li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
+                /* 1.5 increased font size for icon-large * 1.25 width */
+
+                width: 1.875em;
+            }
+            li[class^="icon-"], li[class*=" icon-"] {
+                margin-left: 0;
+                list-style-type: none;
+            }
+            li[class^="icon-"]:before, li[class*=" icon-"]:before {
+                text-indent: -2em;
+                text-align: center;
+            }
+            li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
+                text-indent: -1.3333333333333333em;
+            }
+
+            .header-top-box .rueckruf input[type=text]{
+                padding: 5px; 
+            }
+        </style>
+        <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        {% render "PurmeoEshopBundle:Page:header" %}
+    {% endblock %}
+
+    {% block main %}main{% endblock %}
+
+    {% block footer %}
+        {% render "PurmeoEshopBundle:Page:footer" %}
+    {% endblock %}
+
+{% endblock %}
